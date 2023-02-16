@@ -1,0 +1,12 @@
+/*--------------------------------------------------------------
+# Theme SASS
+- Contains styles for blocks, templates and other assets.
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+Media queries modeled on those found in Bootstrap 4.
+--------------------------------------------------------------*/
+body { background-color: #bfbfbf; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hpbGQtdGhlbWUuY3NzIiwic291cmNlcyI6WyJjaGlsZC10aGVtZS5zY3NzIiwiLi4vc3JjL2Jvb3RzdHJhcDQtdGhlbWUvc2Fzcy9kZXNpZ24tdG9rZW5zL192YXJpYWJsZXMuc2NzcyIsIl9tZWRpYS1xdWVyaWVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OztnRUFHZ0U7QUVIaEU7O2dFQUVnRTtBRk1oRSxBQUFBLElBQUksQ0FBQyxFQUNELGdCQUFnQixFQ2dDSSxPQUFPLEdEL0I5QiJ9 */
+
+/*# sourceMappingURL=child-theme.css.map */
