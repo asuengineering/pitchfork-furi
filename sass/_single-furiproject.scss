@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+# About Page
+
+1. Desktop
+--------------------------------------------------------------*/
+.single-furiproject {
+
+    #main-content {
+        margin-bottom:6rem;
+
+        .cta-buttons {
+            .btn + .btn {
+                margin-left:1rem;
+            }
+
+            svg {
+                margin-left: .5rem;
+            }
+        }
+    }
+
+    .theme-icon {
+        max-width:8rem;
+        float:right;
+    }
+
+    #secondary {
+        .card {
+            height:auto;
+            .card-img-top {
+                object-position:100% 20%;
+            }
+        }
+    }
+}

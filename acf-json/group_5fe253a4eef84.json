@@ -1,0 +1,46 @@
+{
+    "key": "group_5fe253a4eef84",
+    "title": "BLOCK: Current Snapshot",
+    "fields": [
+        {
+            "key": "field_5fe253b6cd154",
+            "label": "Programs to Display",
+            "name": "block_snapshot_current_programs",
+            "type": "taxonomy",
+            "instructions": "Select the programs that you would like to include in the snapshot data row. Reorder the terms to alter the layout. All returned data will reflect the actively selected symposium.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "presentation_type",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/home-snapshot-current"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1608668253
+}

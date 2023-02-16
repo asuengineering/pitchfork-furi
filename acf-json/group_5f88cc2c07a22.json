@@ -1,0 +1,256 @@
+{
+    "key": "group_5f88cc2c07a22",
+    "title": "Project Details",
+    "fields": [
+        {
+            "key": "field_5f88cc35bdf1f",
+            "label": "Impact Statement",
+            "name": "_furiproject_impact_statement",
+            "type": "textarea",
+            "instructions": "Enter the impact statement for this project. 2-3 sentences max.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5f88cda9bdf20",
+            "label": "Video URL",
+            "name": "_furiproject_video_url",
+            "type": "url",
+            "instructions": "Enter a valid URL for an associated video or recording for this project.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5f88d036bdf21",
+            "label": "Conference \/ Zoom URL",
+            "name": "_furiproject_conference_url",
+            "type": "url",
+            "instructions": "Provide the meeting URL. Placing a link in this field will override any associated group conference links.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5f88d161a305d",
+            "label": "Research Poster",
+            "name": "_furiproject_poster",
+            "type": "file",
+            "instructions": "Upload the research poster associated with this project. (PDF files only.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf"
+        },
+        {
+            "key": "field_5f9c42a9e929b",
+            "label": "Featured Project?",
+            "name": "_furiproject_featured",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Is this a featured project?",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5fad8f7fc52fc",
+            "label": "Sponsored Project?",
+            "name": "_furiproject_sponsored",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Is this project sponsored by an industry group?",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5fad908cc52fd",
+            "label": "Featured Project Text",
+            "name": "_furiproject_featured_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f9c42a9e929b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5f9c4344e929c",
+            "label": "Featured Project Images",
+            "name": "_furiproject_featured_images",
+            "type": "gallery",
+            "instructions": "The featured image for the project will be the main image shown on the card. These images will show up as additional images within the single-project and single-participant views.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f9c42a9e929b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5fad9141c52fe",
+            "label": "Sponsored Project Text",
+            "name": "_furiproject_sponsored_text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fad8f7fc52fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5fad916bc52ff",
+            "label": "Sponsored Project Images",
+            "name": "_furiproject_sponsored_images",
+            "type": "gallery",
+            "instructions": "The featured image for the project will be the main image shown on the card. These images will show up as additional images within the single-project and single-participant views.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fad8f7fc52fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "furiproject"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1605429867
+}

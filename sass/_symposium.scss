@@ -1,0 +1,302 @@
+/*--------------------------------------------------------------
+# Page Tempalte: Symposium
+
+1. Desktop
+2. Mobile
+3. Symposium cards
+4. Additional cards
+--------------------------------------------------------------*/
+
+.page-template-symposium {
+
+    .above-filters {
+        h4 {
+            margin-top:.5rem;
+            margin-bottom:0;
+        }
+    }
+
+    button#filter-mobile-panel {
+        display:none;
+        position: absolute;
+        top: 4.25rem;
+        right: 1rem;
+
+        svg {
+            margin-right:.5rem;
+        }
+    }
+
+    .filter-container {
+        #filter-reset, #filter-shuffle {
+            margin-top: 1rem;
+            margin-bottom: 4rem;
+            text-align:right;
+
+            svg {
+                margin-right:.5rem;
+            }
+
+            + button {
+                margin-left:1rem;
+            };
+        }
+
+        form {
+            margin-top:1rem;
+
+            &:first-child {
+                margin-top:0;
+            }
+        }
+
+        label {
+            display:block;
+        }
+
+        #presentation-type-filters {
+            .form-check label {
+                font-size: $uds-size-font-large;
+            }
+            .form-check-input {
+                margin-top: .5rem;
+            }
+        }
+
+        #research-theme-filters {
+            input {
+                display:none;
+
+                & ~ label.form-check-label-disabled {
+                    display:block;
+                }
+                & ~ label.form-check-label-enabled {
+                    display:none;
+                }
+            }
+            input:checked {
+                & ~ label.form-check-label-disabled {
+                    display:none;
+                }
+                & ~ label.form-check-label-enabled {
+                    display:block;
+                }
+            }
+
+            .research-theme-icon {
+                width:50px;
+                height:auto;
+            }
+        }
+
+        .bootstrap-select {
+            button.dropdown-toggle {
+                border-color: $uds-color-base-gray-7;
+                color: $uds-color-base-gray-7;
+
+                &.disabled {
+                    border-color: $uds-color-base-gray-3;
+                    color: $uds-color-base-gray-3;
+                }
+            }
+
+            button.bs-select-all {
+                display:none;
+            }
+
+            button.bs-deselect-all {
+                border-radius:400rem;
+            }
+
+            .dropdown-menu {
+
+                &.show {
+                    width:100%;
+                }
+
+                &.show li a span.text {
+                    word-wrap: break-word;
+                    white-space: normal;
+                    font-size:14px;
+                }
+
+                > .inner:focus {
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+X. Mobile
+--------------------------------------------------------------*/
+
+@include media-breakpoint-down($md) {
+    .page-template-symposium {
+        button#filter-mobile-panel {
+            display:block;
+        }
+
+        #symposium-grid-col {
+            min-height:100vh;
+        }
+
+        .above-filters h4 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card-symposium {
+            min-height:0;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+3. Symposium cards
+--------------------------------------------------------------*/
+#symposium-grid .card-symposium {
+
+    padding-top:0;
+    min-height:24rem;
+    margin-bottom: 1.5rem;
+
+    .card-header {
+        padding-top:1rem;
+        
+        a {
+            text-decoration:none;
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+
+        .participant {
+            margin: 0;
+            padding-bottom:.5rem;
+        }
+
+        .major {
+            margin:0;
+            font-weight:400;
+        }
+    }
+
+    .card-title, .card-text {
+        font-size:14px;
+        line-height:18px;
+    }
+
+    .card-title a {
+        text-decoration: underline;
+        font-size:18px;
+    }
+}
+
+/*--------------------------------------------------------------
+3. Featured Symposium cards
+--------------------------------------------------------------*/
+
+#symposium-grid .card-featured-symposium {
+    position:relative;
+    margin-bottom:1.5rem;
+
+    a img {
+        padding-top:90px;
+    }
+
+    div.card-foldable {
+        padding-bottom:0;
+        margin-bottom:0;
+        border:0;
+    }
+
+    .card-symposium {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        min-height:inherit;
+    }
+
+    .card-header {
+        padding:0;
+        position:relative;
+
+        a {
+            border-bottom:0;
+            text-decoration: none;
+
+            h4 {
+                padding:1rem 2rem .25rem 2rem;
+                margin-bottom:0;
+            }
+
+            h5 {
+                padding:0 2rem 1rem 2rem;
+            }
+
+            svg {
+                font-size: 30px;
+                font-weight: 700;
+                position: absolute;
+                right: 1.5rem;
+                top: 1.5rem;
+                transition-duration: .4s;
+            }
+
+            &[aria-expanded="true"] svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+4. Additional cards
+--------------------------------------------------------------*/
+.card.card-hover {
+    &:hover {
+        cursor:auto;
+    }
+    &:active {
+        transform: scale(1.05);
+    }
+}
+
+/*--------------------------------------------------------------
+X. Scotch Panel
+--------------------------------------------------------------*/
+// Resetting default page margins to accomodate panel on right.
+@include media-breakpoint-down($md) {
+    .page-template-symposium {
+
+        #page-wrapper {
+            padding-right:0;
+        }
+
+        #main-content {
+            padding:0;
+        }
+
+        .row {
+            padding-right:2rem;
+        }
+    }
+}
+
+.scotch-is-showing #scotch-panel {
+    box-shadow: -3px 0px 3px 0px rgba(0, 0, 0, 0.30);
+}
+
+#scotch-panel {
+    transition: .3sec;
+    padding:0;
+    background-color:#fafafa;
+    
+    .filter-container {
+        border-left:1px solid $uds-color-base-gray-2;
+        padding:1rem;
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "key": "group_5f9885cf6dc95",
+    "title": "Research Theme",
+    "fields": [
+        {
+            "key": "field_5f9885e0b204b",
+            "label": "Theme Icon - Normal",
+            "name": "researchtheme_icon",
+            "type": "image",
+            "instructions": "This is the approved icon for a particular research theme.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5fa46dab70764",
+            "label": "Theme Icon - Enabled",
+            "name": "researchtheme_icon_enabled",
+            "type": "image",
+            "instructions": "This is the approved icon for a particular research theme.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5f988a67b204c",
+            "label": "Theme Background Color",
+            "name": "researchtheme_bg_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#191919"
+        },
+        {
+            "key": "field_5f99108b06faa",
+            "label": "Theme Text Color",
+            "name": "researchtheme_text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "research_theme"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1605429877
+}

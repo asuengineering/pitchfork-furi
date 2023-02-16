@@ -1,0 +1,136 @@
+/*--------------------------------------------------------------
+# Single Participant
+
+1. Mobile
+2. Desktop
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1. Mobile
+--------------------------------------------------------------*/
+.single-participant {
+    #main-content {
+        margin-bottom:4rem;
+
+        .participant-social {
+            margin:1rem 0 0 0;
+            padding:0;
+            font-size: 2rem;
+
+            li {
+                list-style-type: none;
+                display:inline;
+                margin-right:1rem;
+
+                a:visited {
+                    color: $uds-color-base-maroon;
+                }
+            }
+        }
+
+        .project-icon img {
+            display:none;
+        }
+
+        .project-mentor {
+            margin:2rem 0;
+        }
+
+        .cta-buttons {
+            svg {
+                margin-left: .5rem;
+            }
+            .btn {
+                margin-bottom:1.5rem;
+            }
+        }
+    }
+
+    .row-featured {
+        margin-top:1rem;
+
+        a.featured-image {
+            border: 1px solid #ffffff;
+            margin-right:1rem;
+            margin-top:1rem;
+            display: inline-flex;
+
+            &:last-child {
+                margin-right:none;
+            }
+
+            &:hover {
+                border-color: $uds-color-base-maroon;
+            }
+        }
+    }
+
+    .uds-modal-container {
+        width:auto;
+        max-width:800px;
+        height: auto;
+
+        .qr-code-wrap {
+
+            h3 {
+                padding-top: $uds-size-spacing-2;
+            }
+
+            img {
+                max-width: 300px;
+                height:auto;
+                float:left;
+                margin-right: $uds-size-spacing-3;
+            }
+        }
+    }
+
+}
+
+@include media-breakpoint-down($md) {
+    #additional-projects-title h3,
+    #related-projects-title h3 {
+        height:70px;
+    }
+}
+/*--------------------------------------------------------------
+2. Desktop
+--------------------------------------------------------------*/
+
+@include media-breakpoint-up($md) {
+    .single-participant {
+        #main-content {
+
+            .participant-name {
+                margin-bottom:.5rem;
+            }
+            
+            .participant-major {
+                margin-top:.5rem;
+                margin-bottom:.5rem;
+            }
+
+            .hometown, 
+            .graduation-date {
+                margin-bottom:0;
+            }
+
+            .project-icon img {
+                margin:2rem 0 3rem 0;
+                display:block;
+                max-width:8rem;
+            }
+
+            .presentation-details {
+                margin-top:0;
+            }
+
+            .cta-buttons {
+                .btn + .btn {
+                    margin-left:1rem;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,153 @@
+/*--------------------------------------------------------------
+Taxonomy Term Page: Faculty Mentor
+Taxonomy Term Page: Industry Sponsor
+
+1. All sites
+--------------------------------------------------------------*/
+.tax-faculty_mentor,
+.tax-industry_sponsor {
+
+    #page-header {
+
+        padding-top: $uds-size-spacing-4;
+
+        .isearch-image {
+            border-radius: 50%;
+            object-fit: cover;
+            width: 250px;
+            height: 250px;
+        }
+
+        .acf-image {
+            padding-right:$uds-size-spacing-2;
+        }
+
+        .mentor-name {
+            margin-top: 0;
+        }
+
+        .info-bar {            
+            display:flex;
+            flex-direction:row;
+            justify-content: start;
+            margin-bottom: $uds-size-spacing-4;
+
+            a svg {
+                margin-right: $uds-size-spacing-1;
+            }
+
+            .social-icons {
+                margin-bottom:0;
+                padding-left:1rem;
+                li {
+                    list-style-type: none;
+                    display: inline-block;
+                    margin-right:1rem;
+                    font-size:$uds-size-spacing-3;
+
+                    a {
+                        color: $uds-color-base-gray-5;
+                    }
+                }
+            }
+        }
+    }
+
+    #quote-content {
+        .uds-blockquote {
+            background-color: $uds-color-base-gray-1;
+            border: 1px solid $uds-color-base-gray-2;
+            margin-bottom: $uds-size-spacing-4;
+        }
+    }
+
+    #blog-post-excerpt {
+        .post-teaser-box {
+            background-color: $uds-color-base-gray-7;
+            color: #ffffff;
+            border: 1px solid $uds-color-base-gray-2;
+            padding: $uds-size-spacing-4;
+            margin: $uds-size-spacing-6 0 $uds-size-spacing-4 0;
+            position:relative;
+
+            h3 {
+                background-color: $uds-color-base-gold;
+                color: $uds-color-base-gray-7;
+                font-weight: 700;
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                margin: 0;
+                height: 40px;
+                position:absolute;
+                top:-1.5rem;
+            }
+
+            .lead a {
+                // Removes native read more link.
+                display:none;
+            }
+
+            .read-more-button {
+                text-align:right;
+            }
+        }
+    }
+
+    #content {
+        margin-bottom:4rem;
+
+        .social-icons {
+            padding:0;
+            margin:0;
+
+            li {
+                list-style-type:none;
+                display:inline;
+                margin-left:1rem;
+                font-size:32px;
+            }
+
+            a:visited {
+                color:$uds-color-base-maroon;
+            }
+        }
+    }
+
+    .related-projects {
+        background-color: $uds-color-base-gray-2;
+        padding: 4rem 0;
+
+        .col-md-4 {
+            margin-bottom:2rem;
+        }
+    }
+
+    .related-projects + .section-head {
+        background-color: $uds-color-base-gray-2;
+    }
+
+    #snapshot-global-title,
+    #snapshot-global {
+        display:none;
+    }
+}
+
+.tax-faculty_mentor {
+    blockquote + p {
+        margin-top:4rem;
+    }
+}
+
+/*--------------------------------------------------------------
+2. Taxonomy Term Page: Industry Sponsor
+-------------------------------------------------------------- */
+
+.tax-industry_sponsor {
+    .btn svg {
+        margin-right:.5rem;
+    }
+
+    #snapshot-global-title {
+        background-color: $uds-color-base-gray-2;
+    }
+}

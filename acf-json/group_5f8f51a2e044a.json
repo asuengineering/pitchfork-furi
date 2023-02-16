@@ -1,0 +1,81 @@
+{
+    "key": "group_5f8f51a2e044a",
+    "title": "Symposium Date",
+    "fields": [
+        {
+            "key": "field_5f8f51c74f5da",
+            "label": "Display in the main search results?",
+            "name": "furi_symposium_session_display",
+            "type": "true_false",
+            "instructions": "Checking this box will show all projects with this symposium date in the displayed results at <a href=\"\/symposium\">\/symposium<\/a>. Terms with this option unchecked will automatically have an archive listing created at <a href=\"\/symposium\/archives\/\">\/symposium\/archives\/<\/a>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5f8f522e4f5db",
+            "label": "Display conference links?",
+            "name": "furi_symposium_conference_display",
+            "type": "true_false",
+            "instructions": "Checking this box will display the information associated with the assigned symposium group within all project pages that are a part of this symposium date. You can include this information in each project using the provided field.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_6042a32a206b6",
+            "label": "Display in data extract?",
+            "name": "furi_symposium_extract_display",
+            "type": "true_false",
+            "instructions": "Checking this box will show all projects with this symposium date in the data dump page template. This page is useful when auditing the website for proper abstract submissions and correct categorization.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "symposium_date"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1635456278
+}

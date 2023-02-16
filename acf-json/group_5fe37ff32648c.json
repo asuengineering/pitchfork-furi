@@ -1,0 +1,117 @@
+{
+    "key": "group_5fe37ff32648c",
+    "title": "BLOCK: Research Themes",
+    "fields": [
+        {
+            "key": "field_5fe380003f0e1",
+            "label": "Display which themes?",
+            "name": "block_research_themes_select",
+            "type": "taxonomy",
+            "instructions": "Select the research theme descriptions that you would like to include on the page. Reorder the terms to alter the layout.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "research_theme",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0
+        },
+        {
+            "key": "field_5fe3813b69be4",
+            "label": "Layout Options",
+            "name": "block_research_themes_colclass",
+            "type": "radio",
+            "instructions": "How would you like to layout the research theme descriptions?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "col-md-8": "Single (1 col, 75%)",
+                "col-md-6": "Halves (2 col)",
+                "col-md-4": "Thirds (3 col)",
+                "col-md-3": "Quarters (4 col)"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "col-md-6",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_600f02ca877a9",
+            "label": "Layout Options (copy)",
+            "name": "block_research_themes_colclass_copy",
+            "type": "radio",
+            "instructions": "How would you like to layout the research theme descriptions?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "col-md-8": "Single (1 col, 75%)",
+                "col-md-6": "Halves (2 col)",
+                "col-md-4": "Thirds (3 col)",
+                "col-md-3": "Quarters (4 col)"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "col-md-6",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5fe383b331b1c",
+            "label": "Background Image",
+            "name": "block_research_theme_background_class",
+            "type": "text",
+            "instructions": "This class will be added to the <section> element to produce a background image. Separate multiple classes with a space. (Renders as class=\"{string}\".)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/home-research-themes"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1611596498
+}

@@ -1,0 +1,217 @@
+{
+    "key": "group_6307a3a3c2fbd",
+    "title": "QR Code Options",
+    "fields": [
+        {
+            "key": "field_6307a8ca17b63",
+            "label": "Display QR Codes?",
+            "name": "qr_options_display",
+            "type": "true_false",
+            "instructions": "Toggle this on\/off to display or hide the QR code from the participant pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Display",
+            "ui_off_text": "Hide"
+        },
+        {
+            "key": "field_6307a3b6cd199",
+            "label": "QR Code Message",
+            "name": "qr_options_message",
+            "type": "wysiwyg",
+            "instructions": "This message will appear along side the generated QR code for the displayed page. Formatting will be preserved.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307a8ca17b63",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_6307a488cd19a",
+            "label": "QR Code Size",
+            "name": "qr_options_code_size",
+            "type": "number",
+            "instructions": "The QR code is generated with a \"scale factor\" which can increase or decrease the size of the produced image. A scale of \"1\" will result in one px per \"dot\" in the QR code image.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307a8ca17b63",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 4,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": 20,
+            "step": 1
+        },
+        {
+            "key": "field_6307a528cd19b",
+            "label": "Button size",
+            "name": "qr_options_button_size",
+            "type": "button_group",
+            "instructions": "Set the button size for the modal window trigger.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307a8ca17b63",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "btn-default": "Default",
+                "btn-md": "Small",
+                "btn-sm": "Extra small"
+            },
+            "allow_null": 0,
+            "default_value": "btn-default",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6307a7a8cd19c",
+            "label": "Button color",
+            "name": "qr_options_button_color",
+            "type": "button_group",
+            "instructions": "What color would you like your button?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307a8ca17b63",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "btn-maroon": "Maroon",
+                "btn-gold": "Gold",
+                "btn-gray": "Gray",
+                "btn-dark": "Black"
+            },
+            "allow_null": 0,
+            "default_value": "btn-maroon",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_6307a8160a6b7",
+            "label": "Button label",
+            "name": "qr_options_button_text",
+            "type": "text",
+            "instructions": "What label should the button have?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307a8ca17b63",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "QR code",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6307a93517b64",
+            "label": "UTM Tracking Code",
+            "name": "qr_options_utm_tracking",
+            "type": "text",
+            "instructions": "This string will be appended to the end of the link produced by the QR code.\r\nIntended as a way to track the usage of the produced QR codes for the symposium event and beyond.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307a8ca17b63",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "This string should start with a question mark. Example: ?utm_source=qr-code",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "qr-code-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1661449190
+}

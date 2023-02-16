@@ -1,0 +1,40 @@
+{
+    "key": "group_5fb4140c1d0ff",
+    "title": "Industry Sponsor Details",
+    "fields": [
+        {
+            "key": "field_5fb4141adf033",
+            "label": "Sponsor URL",
+            "name": "sponsor_url",
+            "type": "url",
+            "instructions": "Appear as a button on the individual sponsor pages.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "industry_sponsor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1605637215
+}

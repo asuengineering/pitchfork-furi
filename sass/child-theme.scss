@@ -1,11 +1,175 @@
+// Design tokens from ASU Boostrap library
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables";
+
+// Media queries that model those found in Boostrap 4
+@import "_media-queries";
+
+// Page templates, other partials
+@import "_single-participant";
+@import "_single-furiproject";
+@import "_tax-misc-terms";
+@import "_tax-symposium-date";
+@import "_symposium";
+@import '_blocks';
+
 /*--------------------------------------------------------------
-# Theme SASS
-- Contains styles for blocks, templates and other assets.
+1. Baseline grid
 --------------------------------------------------------------*/
 
-@import "../src/bootstrap4-theme/sass/design-tokens/variables";
-@import 'media-queries';
-
-body {
-    background-color: $uds-color-base-gray-4;
+#page {
+    > div {
+        max-width:1920px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+
+/*--------------------------------------------------------------
+2. Page spacing
+--------------------------------------------------------------*/
+.page-template-default {
+    .uds-hero + article {
+        margin-top:2rem;
+    }
+}
+
+
+@include media-breakpoint-up($lg) {
+    .single-participant,
+    .single-furiproject,
+    .tax-faculty_mentor,
+    .tax-industry_sponsor,
+    .tax-symposium_date,
+    .page-template-fullpage-about {
+        #page-wrapper {
+            margin-top: calc(1rem + 153px);
+        }
+    }
+}
+
+@include media-breakpoint-up($lg) {
+    .page-template-symposium {
+        #page-wrapper {
+            margin-top: calc(2rem + 153px);
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+3. Misc rules.
+--------------------------------------------------------------*/
+
+.section-head {
+    height:20px;
+    
+    h3 {
+        background-color: #222222;
+        color: #ffffff;
+        font-weight: 700;
+        display: inline-block;
+        padding: .5rem 1rem;
+        margin:0;
+        height:40px;
+    }
+}
+
+
+#additional-projects,
+#related-projects {
+    background-color: $uds-color-base-gray-2;
+    padding: 4rem 0;
+}
+
+#additional-projects + #related-projects-title {
+    background-color: $uds-color-base-gray-2;
+}
+
+
+/*--------------------------------------------------------------
+4. Snapshot Global
+--------------------------------------------------------------*/
+#snapshot-global,
+#snapshot-global-title {
+    display:none;
+}
+
+@include media-breakpoint-up($md) {
+    #snapshot-global-title {
+        display:block;
+    }
+
+    #snapshot-global {
+        display:block;
+        padding-top: 4em;
+        background-color: $uds-color-base-gray-2;
+
+        .stat-package {
+            margin-bottom: 1.5em;
+            padding: 10px;
+            background-color: $uds-color-base-gray-4;
+            h3 {
+                font-size: 1.25rem;
+                line-height: 0.95;
+                color: $uds-color-base-gray-7;
+                font-weight: 700;
+                text-align: right;
+                span {
+                    display: block;
+                    color: #ffffff;
+                }
+            }
+            .counter {
+                font-size: 2rem;
+                line-height: 0.95;
+                color: $uds-color-base-gray-7;
+                font-weight: 700;
+                align-self:center;
+                margin-left:1rem;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up($lg) {
+
+    #snapshot-global {
+        .stat-package {
+            h3 {
+                font-size: 2rem;
+            }
+            .counter {
+                font-size: 2.5rem;
+                margin-left:1rem;
+            }
+
+            &.focus-areas {
+                h3 {
+                    margin:1rem;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up($xl) {
+
+    #snapshot-global {
+        .stat-package {
+            h3 {
+                font-size: 1.75rem;
+                margin-left:1rem;
+            }
+            .counter {
+                font-size: 3.5rem;
+                margin-left:2rem;
+            }
+
+            &.focus-areas {
+                h3 {
+                    margin-right:2rem;
+                }
+            }
+        }
+    }
+}
+

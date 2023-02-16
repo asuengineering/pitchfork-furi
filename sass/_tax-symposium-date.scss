@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------
+Taxonomy Term Page: Symposium Date
+
+1. Desktop
+--------------------------------------------------------------*/
+.tax-symposium_date {
+
+    #content {
+        margin-bottom:4rem;
+
+        .dataTables_wrapper {
+            .dataTables_info {
+                padding: 0.25em 0 0 0.5em;
+                width: 49%;
+                float: left;
+            }
+
+            .dataTables_filter input {
+                width: 300px;
+            }
+
+            table > thead > tr > th {
+                background-color: #8c1d40;
+                color: #ffffff;
+            }
+        }
+    }
+}
