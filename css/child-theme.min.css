@@ -1,1 +1,188 @@
-body{background-color:#bfbfbf}
+.single-participant #main-content{margin-bottom:4rem}
+.single-participant #main-content .participant-social{margin:1rem 0 0 0;padding:0;font-size:2rem}
+.single-participant #main-content .participant-social li{list-style-type:none;display:inline;margin-right:1rem}
+.single-participant #main-content .participant-social li a:visited{color:#8c1d40}
+.single-participant #main-content .project-icon img{display:none}
+.single-participant #main-content .project-mentor{margin:2rem 0}
+.single-participant #main-content .cta-buttons svg{margin-left:.5rem}
+.single-participant #main-content .cta-buttons .btn{margin-bottom:1.5rem}
+.single-participant .row-featured{margin-top:1rem}
+.single-participant .row-featured a.featured-image{border:1px solid #fff;margin-right:1rem;margin-top:1rem;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
+.single-participant .row-featured a.featured-image:last-child{margin-right:none}
+.single-participant .row-featured a.featured-image:hover{border-color:#8c1d40}
+.single-participant .uds-modal-container{width:auto;max-width:800px;height:auto}
+.single-participant .uds-modal-container .qr-code-wrap h3{padding-top:1rem}
+.single-participant .uds-modal-container .qr-code-wrap img{max-width:300px;height:auto;float:left;margin-right:1.5rem}
+.single-furiproject #main-content{margin-bottom:6rem}
+.single-furiproject #main-content .cta-buttons .btn+.btn{margin-left:1rem}
+.single-furiproject #main-content .cta-buttons svg{margin-left:.5rem}
+.single-furiproject .theme-icon{max-width:8rem;float:right}
+.single-furiproject #secondary .card{height:auto}
+.single-furiproject #secondary .card .card-img-top{-o-object-position:100% 20%;object-position:100% 20%}
+.tax-faculty_mentor #page-header,.tax-industry_sponsor #page-header{padding-top:2rem}
+.tax-faculty_mentor #page-header .isearch-image,.tax-industry_sponsor #page-header .isearch-image{border-radius:50%;-o-object-fit:cover;object-fit:cover;width:250px;height:250px}
+.tax-faculty_mentor #page-header .acf-image,.tax-industry_sponsor #page-header .acf-image{padding-right:1rem}
+.tax-faculty_mentor #page-header .mentor-name,.tax-industry_sponsor #page-header .mentor-name{margin-top:0}
+.tax-faculty_mentor #page-header .info-bar,.tax-industry_sponsor #page-header .info-bar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;margin-bottom:2rem}
+.tax-faculty_mentor #page-header .info-bar a svg,.tax-industry_sponsor #page-header .info-bar a svg{margin-right:.5rem}
+.tax-faculty_mentor #page-header .info-bar .social-icons,.tax-industry_sponsor #page-header .info-bar .social-icons{margin-bottom:0;padding-left:1rem}
+.tax-faculty_mentor #page-header .info-bar .social-icons li,.tax-industry_sponsor #page-header .info-bar .social-icons li{list-style-type:none;display:inline-block;margin-right:1rem;font-size:1.5rem}
+.tax-faculty_mentor #page-header .info-bar .social-icons li a,.tax-industry_sponsor #page-header .info-bar .social-icons li a{color:#747474}
+.tax-faculty_mentor #quote-content .uds-blockquote,.tax-industry_sponsor #quote-content .uds-blockquote{background-color:#fafafa;border:1px solid #e8e8e8;margin-bottom:2rem}
+.tax-faculty_mentor #blog-post-excerpt .post-teaser-box,.tax-industry_sponsor #blog-post-excerpt .post-teaser-box{background-color:#191919;color:#fff;border:1px solid #e8e8e8;padding:2rem;margin:3rem 0 2rem 0;position:relative}
+.tax-faculty_mentor #blog-post-excerpt .post-teaser-box h3,.tax-industry_sponsor #blog-post-excerpt .post-teaser-box h3{background-color:#ffc627;color:#191919;font-weight:700;display:inline-block;padding:.5rem 1rem;margin:0;height:40px;position:absolute;top:-1.5rem}
+.tax-faculty_mentor #blog-post-excerpt .post-teaser-box .lead a,.tax-industry_sponsor #blog-post-excerpt .post-teaser-box .lead a{display:none}
+.tax-faculty_mentor #blog-post-excerpt .post-teaser-box .read-more-button,.tax-industry_sponsor #blog-post-excerpt .post-teaser-box .read-more-button{text-align:right}
+.tax-faculty_mentor #content,.tax-industry_sponsor #content{margin-bottom:4rem}
+.tax-faculty_mentor #content .social-icons,.tax-industry_sponsor #content .social-icons{padding:0;margin:0}
+.tax-faculty_mentor #content .social-icons li,.tax-industry_sponsor #content .social-icons li{list-style-type:none;display:inline;margin-left:1rem;font-size:32px}
+.tax-faculty_mentor #content .social-icons a:visited,.tax-industry_sponsor #content .social-icons a:visited{color:#8c1d40}
+.tax-faculty_mentor .related-projects,.tax-industry_sponsor .related-projects{background-color:#e8e8e8;padding:4rem 0}
+.tax-faculty_mentor .related-projects .col-md-4,.tax-industry_sponsor .related-projects .col-md-4{margin-bottom:2rem}
+.tax-faculty_mentor .related-projects+.section-head,.tax-industry_sponsor .related-projects+.section-head{background-color:#e8e8e8}
+.tax-faculty_mentor #snapshot-global-title,.tax-faculty_mentor #snapshot-global,.tax-industry_sponsor #snapshot-global-title,.tax-industry_sponsor #snapshot-global{display:none}
+.tax-faculty_mentor blockquote+p{margin-top:4rem}
+.tax-industry_sponsor .btn svg{margin-right:.5rem}
+.tax-industry_sponsor #snapshot-global-title{background-color:#e8e8e8}
+.tax-symposium_date #content{margin-bottom:4rem}
+.tax-symposium_date #content .dataTables_wrapper .dataTables_info{padding:.25em 0 0 .5em;width:49%;float:left}
+.tax-symposium_date #content .dataTables_wrapper .dataTables_filter input{width:300px}
+.tax-symposium_date #content .dataTables_wrapper table>thead>tr>th{background-color:#8c1d40;color:#fff}
+.page-template-symposium .above-filters h4{margin-top:.5rem;margin-bottom:0}
+.page-template-symposium button#filter-mobile-panel{display:none;position:absolute;top:4.25rem;right:1rem}
+.page-template-symposium button#filter-mobile-panel svg{margin-right:.5rem}
+.page-template-symposium .filter-container #filter-reset,.page-template-symposium .filter-container #filter-shuffle{margin-top:1rem;margin-bottom:4rem;text-align:right}
+.page-template-symposium .filter-container #filter-reset svg,.page-template-symposium .filter-container #filter-shuffle svg{margin-right:.5rem}
+.page-template-symposium .filter-container #filter-reset+button,.page-template-symposium .filter-container #filter-shuffle+button{margin-left:1rem}
+.page-template-symposium .filter-container form{margin-top:1rem}
+.page-template-symposium .filter-container form:first-child{margin-top:0}
+.page-template-symposium .filter-container label{display:block}
+.page-template-symposium .filter-container #presentation-type-filters .form-check label{font-size:1.25rem}
+.page-template-symposium .filter-container #presentation-type-filters .form-check-input{margin-top:.5rem}
+.page-template-symposium .filter-container #research-theme-filters input{display:none}
+.page-template-symposium .filter-container #research-theme-filters input ~ label.form-check-label-disabled{display:block}
+.page-template-symposium .filter-container #research-theme-filters input ~ label.form-check-label-enabled{display:none}
+.page-template-symposium .filter-container #research-theme-filters input:checked ~ label.form-check-label-disabled{display:none}
+.page-template-symposium .filter-container #research-theme-filters input:checked ~ label.form-check-label-enabled{display:block}
+.page-template-symposium .filter-container #research-theme-filters .research-theme-icon{width:50px;height:auto}
+.page-template-symposium .filter-container .bootstrap-select button.dropdown-toggle{border-color:#191919;color:#191919}
+.page-template-symposium .filter-container .bootstrap-select button.dropdown-toggle.disabled{border-color:#d0d0d0;color:#d0d0d0}
+.page-template-symposium .filter-container .bootstrap-select button.bs-select-all{display:none}
+.page-template-symposium .filter-container .bootstrap-select button.bs-deselect-all{border-radius:400rem}
+.page-template-symposium .filter-container .bootstrap-select .dropdown-menu.show{width:100%}
+.page-template-symposium .filter-container .bootstrap-select .dropdown-menu.show li a span.text{word-wrap:break-word;white-space:normal;font-size:14px}
+.page-template-symposium .filter-container .bootstrap-select .dropdown-menu>.inner:focus{-webkit-box-shadow:none !important;box-shadow:none !important}
+#symposium-grid .card-symposium{padding-top:0;min-height:24rem;margin-bottom:1.5rem}
+#symposium-grid .card-symposium .card-header{padding-top:1rem}
+#symposium-grid .card-symposium .card-header a{text-decoration:none}
+#symposium-grid .card-symposium .card-header a:hover{text-decoration:underline}
+#symposium-grid .card-symposium .card-header .participant{margin:0;padding-bottom:.5rem}
+#symposium-grid .card-symposium .card-header .major{margin:0;font-weight:400}
+#symposium-grid .card-symposium .card-title,#symposium-grid .card-symposium .card-text{font-size:14px;line-height:18px}
+#symposium-grid .card-symposium .card-title a{text-decoration:underline;font-size:18px}
+#symposium-grid .card-featured-symposium{position:relative;margin-bottom:1.5rem}
+#symposium-grid .card-featured-symposium a img{padding-top:90px}
+#symposium-grid .card-featured-symposium div.card-foldable{padding-bottom:0;margin-bottom:0;border:0}
+#symposium-grid .card-featured-symposium .card-symposium{position:absolute;top:0;left:0;width:100%;min-height:inherit}
+#symposium-grid .card-featured-symposium .card-header{padding:0;position:relative}
+#symposium-grid .card-featured-symposium .card-header a{border-bottom:0;text-decoration:none}
+#symposium-grid .card-featured-symposium .card-header a h4{padding:1rem 2rem .25rem 2rem;margin-bottom:0}
+#symposium-grid .card-featured-symposium .card-header a h5{padding:0 2rem 1rem 2rem}
+#symposium-grid .card-featured-symposium .card-header a svg{font-size:30px;font-weight:700;position:absolute;right:1.5rem;top:1.5rem;-webkit-transition-duration:.4s;transition-duration:.4s}
+#symposium-grid .card-featured-symposium .card-header a[aria-expanded="true"] svg{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+.card.card-hover:hover{cursor:auto}
+.card.card-hover:active{-webkit-transform:scale(1.05);transform:scale(1.05)}
+.scotch-is-showing #scotch-panel{-webkit-box-shadow:-3px 0 3px 0 rgba(0,0,0,0.3);box-shadow:-3px 0 3px 0 rgba(0,0,0,0.3)}
+#scotch-panel{-webkit-transition:.3sec;transition:.3sec;padding:0;background-color:#fafafa}
+#scotch-panel .filter-container{border-left:1px solid #e8e8e8;padding:1rem}
+#current-snapshot{display:block;margin-top:4em;padding-top:2em;border-top:1px solid #bfbfbf}
+#current-snapshot .stat-package{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-bottom:1.5em;padding:10px}
+#current-snapshot .stat-package h3{font-size:1.75rem;line-height:.95;color:#191919;font-weight:700;text-align:right;margin-right:20px}
+#current-snapshot .stat-package h3 span{display:block;color:#ffc627}
+#current-snapshot .stat-package .counter{font-size:3.5rem;line-height:.95;color:#191919;font-weight:700;-ms-flex-item-align:center;align-self:center;margin-left:1rem}
+#research-themes{margin-top:6rem;padding-top:6rem;padding-bottom:6rem}
+#research-themes .row-header{margin-bottom:2rem}
+#research-themes .container{background-color:#fff;padding:2rem}
+#research-themes .media{margin-bottom:4rem}
+#research-themes .media img{width:5rem;height:auto}
+#sponsored-students,#featured-mentors{margin-top:4rem;margin-bottom:4rem}
+#featured-mentors .row+.row{margin-top:4rem}
+#featured-mentors .cited-degree-program{text-transform:lowercase}
+#featured-mentors .featured-mentor-post{display:grid;grid-template-columns:3rem 1fr;grid-template-rows:repeat(2,1fr);grid-column-gap:2rem;grid-row-gap:1rem;padding:1.5rem}
+#featured-mentors .featured-mentor-post svg{color:#ffc627;width:3rem;height:auto;grid-column:1;grid-row:1}
+#featured-mentors .featured-mentor-post p.excerpt{font-size:1.25rem;font-weight:700;grid-column:2;grid-row:1}
+#featured-mentors .featured-mentor-post p.excerpt a{display:none}
+#featured-mentors .featured-mentor-post .read-more{grid-column:2;grid-row:2;display:inline-block;text-align:right}
+#featured-carousel .carousel .card-symposium{position:absolute;top:2rem;right:4rem;width:24rem;height:auto;-webkit-animation-name:fadeInRight;animation-name:fadeInRight;-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:1.5s;animation-delay:1.5s}
+#featured-carousel .carousel .featured-image{-webkit-animation-name:fadeInLeft;animation-name:fadeInLeft;-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:1s;animation-delay:1s}
+#featured-carousel .carousel .carousel-label{position:absolute;top:1rem;left:2rem}
+#featured-carousel .carousel .carousel-controls{position:absolute;bottom:0;left:2rem;text-align:left}
+#featured-carousel .carousel .carousel-controls .carousel-indicators{position:relative;margin:1rem 0}
+#featured-carousel .carousel .carousel-controls .carousel-indicators li{background-color:#bfbfbf}
+#director-message .row-title{padding-top:2rem}
+#director-message .row-letter{padding-top:32rem}
+#director-message .row-letter div[class^="col-"]{padding:3rem 3rem 0 3rem}
+#director-message .row-signature div[class^="col-"]{padding:3rem 3rem 0 3rem}
+#director-message .row-signature .signatures{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+#director-message .row-signature .signee{width:50%;padding-bottom:1.5rem}
+#director-message .row-signature .signee span{font-weight:700;display:block}
+.furi-alumni{background-color:#99e4ff;background-image:url("../img/amountain.png");background-size:55%;background-position:100% 108%;background-repeat:no-repeat;padding:4rem 0}
+.furi-alumni div[class^="col-"]>*{padding:.5rem 1rem;margin-bottom:0;background-color:rgba(255,255,255,0.85)}
+.furi-alumni div[class^="col-"]>*:first-child{padding-top:1.5rem}
+.furi-alumni h4{margin:1em 0 1.5em}
+#life-after-furi{margin:3rem 0}
+#life-after-furi .col-wrap h4{display:none}
+#life-after-furi .col-wrap .intro{position:relative;width:inherit}
+#life-after-furi .col-wrap #donutchart{display:none}
+#life-after-furi .col-wrap .distribution{font-size:3em;font-weight:700;line-height:1;z-index:20}
+#life-after-furi .col-wrap .distribution div{margin-left:0}
+#life-after-furi .col-wrap .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
+#page>div{max-width:1920px;margin-left:auto;margin-right:auto}
+.page-template-default .uds-hero+article{margin-top:2rem}
+.section-head{height:20px}
+.section-head h3{background-color:#222;color:#fff;font-weight:700;display:inline-block;padding:.5rem 1rem;margin:0;height:40px}
+#additional-projects,#related-projects{background-color:#e8e8e8;padding:4rem 0}
+#additional-projects+#related-projects-title{background-color:#e8e8e8}
+#snapshot-global,#snapshot-global-title{display:none}
+@media(min-width:calc(768px)){.single-participant #main-content .participant-name{margin-bottom:.5rem}
+.single-participant #main-content .participant-major{margin-top:.5rem;margin-bottom:.5rem}
+.single-participant #main-content .hometown,.single-participant #main-content .graduation-date{margin-bottom:0}
+.single-participant #main-content .project-icon img{margin:2rem 0 3rem 0;display:block;max-width:8rem}
+.single-participant #main-content .presentation-details{margin-top:0}
+.single-participant #main-content .cta-buttons .btn+.btn{margin-left:1rem}
+#program-descriptions div[class*="col"]{padding:1rem}
+#life-after-furi .col-wrap{position:relative}
+#life-after-furi .col-wrap .intro{position:absolute;width:35%;right:5px;top:0;font-size:14px;z-index:20}
+#life-after-furi .col-wrap h4{font-size:3em;font-weight:bold;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:22%;display:block;line-height:1;z-index:20}
+#life-after-furi .col-wrap h4 span{display:block;font-size:6rem;line-height:1}
+#life-after-furi .col-wrap #donutchart{display:block}
+#life-after-furi .col-wrap .distribution{position:absolute;bottom:0;right:0;font-size:4em;font-weight:700;line-height:1;z-index:20}
+#life-after-furi .col-wrap .distribution div{margin-left:.75em}
+#life-after-furi .col-wrap .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
+#life-after-furi .col-wrap #donutchart{z-index:10}
+#life-after-furi #donutchart{width:100%;min-height:600px}
+#snapshot-global-title{display:block}
+#snapshot-global{display:block;padding-top:4em;background-color:#e8e8e8}
+#snapshot-global .stat-package{margin-bottom:1.5em;padding:10px;background-color:#bfbfbf}
+#snapshot-global .stat-package h3{font-size:1.25rem;line-height:.95;color:#191919;font-weight:700;text-align:right}
+#snapshot-global .stat-package h3 span{display:block;color:#fff}
+#snapshot-global .stat-package .counter{font-size:2rem;line-height:.95;color:#191919;font-weight:700;-ms-flex-item-align:center;align-self:center;margin-left:1rem}
+}@media(min-width:calc(992px)) { .single-participant #page-wrapper, .single-furiproject #page-wrapper, .tax-faculty_mentor #page-wrapper, .tax-industry_sponsor #page-wrapper, .tax-symposium_date #page-wrapper, .page-template-fullpage-about #page-wrapper { margin-top: calc(1rem + 153px)}
+.page-template-symposium #page-wrapper{margin-top:calc(2rem + 153px)}
+#snapshot-global .stat-package h3{font-size:2rem}
+#snapshot-global .stat-package .counter{font-size:2.5rem;margin-left:1rem}
+#snapshot-global .stat-package.focus-areas h3{margin:1rem}
+}@media(min-width:calc(1224px)){#snapshot-global .stat-package h3{font-size:1.75rem;margin-left:1rem}
+#snapshot-global .stat-package .counter{font-size:3.5rem;margin-left:2rem}
+#snapshot-global .stat-package.focus-areas h3{margin-right:2rem}
+}@media(max-width:calc(768px - .02px)){#additional-projects-title h3,#related-projects-title h3{height:70px}
+.page-template-symposium button#filter-mobile-panel{display:block}
+.page-template-symposium #symposium-grid-col{min-height:100vh}
+.page-template-symposium .above-filters h4{font-size:1.5rem;margin-top:1.5rem}
+.page-template-symposium .card-symposium{min-height:0}
+.page-template-symposium #page-wrapper{padding-right:0}
+.page-template-symposium #main-content{padding:0}
+.page-template-symposium .row{padding-right:2rem}
+#program-descriptions{margin-top:4rem}
+#featured-carousel{display:none}
+}
