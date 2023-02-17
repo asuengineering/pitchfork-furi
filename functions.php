@@ -51,7 +51,7 @@ function furiproject_research_category_colors() {
 	}
 
 	if ( ! empty( $output ) ) {
-		wp_add_inline_style( 'uds-wordpress-child-styles', $output );
+		wp_add_inline_style( 'pitchfork-furi-child-styles', $output );
 	}
 
 }
