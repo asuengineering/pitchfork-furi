@@ -5,8 +5,8 @@
   "repository": "ahmadawais/WPGulp",
   "license": "MIT",
   "devDependencies": {
-    "@asu/bootstrap4-theme": "^7.2.1",
-    "@asu/design-tokens": "dev",
+    "@asu/bootstrap4-theme": "^1.0",
+    "@asu/design-tokens": "^1.0",
     "@babel/core": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/preset-env": "^7.12.1",
