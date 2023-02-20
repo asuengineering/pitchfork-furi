@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
             paging: false,
             dom: 'ift',
             columns: [{ width: '40%' }, null, null, null, null],
-            scrollX: true,
+            scrollX: true
         });
     }
 

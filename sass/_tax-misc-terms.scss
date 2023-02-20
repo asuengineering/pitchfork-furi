@@ -26,10 +26,11 @@ Taxonomy Term Page: Industry Sponsor
             margin-top: 0;
         }
 
-        .info-bar {            
+        .info-bar {
             display:flex;
             flex-direction:row;
             justify-content: start;
+			gap: 1rem;
             margin-bottom: $uds-size-spacing-4;
 
             a svg {

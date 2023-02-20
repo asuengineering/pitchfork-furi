@@ -8,20 +8,13 @@
 get_header();
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<main>
 
-	<div class="container-fluid" id="content">
+					<h1 class="page-title entry-title pt-8 pb-0">Data Extract Page</h1>
+                    <p class="lead">Please make sure that this page is always in draft mode instead of a published page.</p>
+					<hr>
 
-		<main class="site-main" id="main">
-
-			<div class="row">
-				<div class="col-md-12">
-					<h1 class="page-title entry-title">Data Extract Page</h1>
-                    <p>Please make sure that this page is always in draft mode instead of a published page.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
+					<section class="alignfull">
 
 						<?php
 							// Get list of terms with term meta 'furi_symposium_session_display' = 'yes'
@@ -183,11 +176,8 @@ get_header();
                         ?>
                             </tbody>
                         </table>
+					</section>
 
 			</main><!-- #main -->
-
-		</div><!-- #primary -->
-
-</div><!-- Wrapper end -->
 
 <?php get_footer(); ?>

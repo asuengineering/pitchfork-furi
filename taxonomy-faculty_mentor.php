@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays an individual term from faculty_mentor. 
+ * Displays an individual term from faculty_mentor.
  * Pulls demographic data from iSearch, including current school affiliation.
  * Displays a featured quote or the excerpt/link to a featured post.
  */
@@ -9,9 +9,9 @@ get_header();
 $term = get_queried_object();
 
 function get_isearch_data($term_id) {
-	
+
 	// Parse results based on supplied email address.
-	// If the email address is blank, attempt to query for the address from the old ASU Solr feed. 
+	// If the email address is blank, attempt to query for the address from the old ASU Solr feed.
 	$mentor_email = get_field( '_mentor_email', $term_id );
 
 	if ( empty( $mentor_email )) {
@@ -56,9 +56,9 @@ function get_isearch_data($term_id) {
 		$search_term = strstr($mentor_email, "@", true);
 		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff?query=' . $search_term . '&size=1';
 		// do_action('qm/debug', $search_json);
-		
+
 		$search_request = wp_safe_remote_get( $search_json );
-		
+
 		// Error check for invalid JSON.
 		if ( is_wp_error( $search_request ) ) {
 			return false; // Bail early.
@@ -138,13 +138,13 @@ $demos = get_isearch_data($term);
 ?>
 <main class="site-main" id="main">
 
-	<div class="container" id="page-header">
+	<div id="page-header">
 
 		<div class="row">
 
 			<?php
 			// Deal with mentor profile images. Uploaded image overrides default iSearch portrait.
-			$portrait = '';				
+			$portrait = '';
 
 			// Check if iSearch has an image for us and if it's available for display.
 			do_action( 'qm/debug', $demos);
@@ -184,7 +184,7 @@ $demos = get_isearch_data($term);
 				$mentorstring = '<h2><span class="highlight-gold">Featured mentor, ' . esc_html( $mentorprogram->name ) . '</span></h2>';
 				echo $mentorstring;
 			}
-			
+
 			// Build job title and linked school affiliation.
 			if ($demos['deptURL']) {
 				$schoollink = '<a href="' . $demos['deptURL'] . '">' . $demos['school'] . '</a>';
@@ -193,7 +193,7 @@ $demos = get_isearch_data($term);
 			}
 
 			echo '<p class="lead">' . $demos['title'] . ', ' . $schoollink . '</p>';
-			echo '<p class="lead">Total mentored projects: ' . $wp_query->post_count . '</p>';	
+			echo '<p class="lead">Total mentored projects: ' . $wp_query->post_count . '</p>';
 
 			// If there's a custom portrait, assume it's vertical and therefore we have more space for the bio.
 			$bio = '';
@@ -248,12 +248,12 @@ $demos = get_isearch_data($term);
 	// Is this person a featured mentor? (Look at $mentorprogram from above again.)
 	// If so, which content should be displayed? The quote or the post?
 	$mentor_use_quote = get_field( '_mentor_use_quote_yn', $term );
-	
+
 	if ( ! empty( $mentorprogram )) {
 
 		if ( $mentor_use_quote ) {
 
-			// Display a quote. 
+			// Display a quote.
 			echo '<div class="container" id="quote-content" >';
 			echo '<div class="row">';
 			echo '<div class="col-md-8">';
@@ -276,10 +276,10 @@ $demos = get_isearch_data($term);
 				echo '<figcaption>';
 
 				if ( ! empty( $mentorlinkcite )) {
-					
+
 					$citedname = furi_participant_name( $mentorlinkcite->ID );
 					$citedmajor = wp_strip_all_tags( get_the_term_list( $mentorlinkcite->ID, 'degree_program', '', ', ', '' ) );
-				
+
 					echo '<cite class="name">';
 					echo '<a href="' . esc_url( get_permalink( $mentorlinkcite ) ) . '" title="' . esc_html( $citedname ) . '">';
 					echo  esc_html( trim( $citedname ) ) . '</a>';
@@ -298,14 +298,14 @@ $demos = get_isearch_data($term);
 				echo '</figcaption>';
 				echo '</div>';
 				echo '</figure>';
-			}	
+			}
 
 			echo '</div>';
 			echo '</div><!-- end .row -->';
 			echo '</div><!-- end .quote-content -->';
 
 		} else {
-			
+
 			// Display the blog post excerpt for the featured person.
 			echo '<div class="container" id="blog-post-excerpt">';
 			echo '<div class="row">';
@@ -313,8 +313,8 @@ $demos = get_isearch_data($term);
 
 			// Use the content from the blog post.
 			$mentorpost = get_field( '_mentor_featured_post', $term );
-			
-			$mentor_excerpt = '';	
+
+			$mentor_excerpt = '';
 			if ( !empty ($mentorpost)) {
 				$mentor_excerpt = apply_filters( 'the_excerpt', $mentorpost->post_excerpt );
 				echo '<div class="post-teaser-box">';
@@ -330,9 +330,9 @@ $demos = get_isearch_data($term);
 		}
 
 	} else {
-		// This person isn't a featured mentor. 
+		// This person isn't a featured mentor.
 	}
-	
+
 	// Begin related projects
 	$_events = get_terms(
 		'symposium_date',
@@ -373,7 +373,7 @@ $demos = get_isearch_data($term);
 
 		if ( $relatedprojects->have_posts() ) :
 			?>
-			<div class="section-head">
+			<div class="section-head alignfull">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
@@ -382,11 +382,11 @@ $demos = get_isearch_data($term);
 					</div>
 				</div>
 			</div>
-		
-			<section class="related-projects">
+
+			<section class="related-projects alignfull">
 				<div class="container">
 					<div class="row">
-		
+
 						<?php
 
 						while ( $relatedprojects->have_posts() ) :
@@ -426,17 +426,17 @@ $demos = get_isearch_data($term);
 									</div>
 								</div>
 							</div>
-		
+
 							<?php
 
 						endwhile;
 
 						?>
-		
-					</div><!-- end .row -->
-				</div><!-- end .container -->
-			</section><!-- end #related-projects-->
-		
+
+					</div>
+				</div>
+			</section>
+
 			<?php
 
 		endif;
@@ -444,10 +444,6 @@ $demos = get_isearch_data($term);
 	endforeach;
 	?>
 
-	</div><!-- end #main -->
-
-</div><!-- Container end -->
-
-</div><!-- Wrapper end -->
+</main>
 
 <?php get_footer(); ?>

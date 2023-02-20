@@ -23,7 +23,7 @@
 .tax-faculty_mentor #page-header .isearch-image,.tax-industry_sponsor #page-header .isearch-image{border-radius:50%;-o-object-fit:cover;object-fit:cover;width:250px;height:250px}
 .tax-faculty_mentor #page-header .acf-image,.tax-industry_sponsor #page-header .acf-image{padding-right:1rem}
 .tax-faculty_mentor #page-header .mentor-name,.tax-industry_sponsor #page-header .mentor-name{margin-top:0}
-.tax-faculty_mentor #page-header .info-bar,.tax-industry_sponsor #page-header .info-bar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;margin-bottom:2rem}
+.tax-faculty_mentor #page-header .info-bar,.tax-industry_sponsor #page-header .info-bar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:start;gap:1rem;margin-bottom:2rem}
 .tax-faculty_mentor #page-header .info-bar a svg,.tax-industry_sponsor #page-header .info-bar a svg{margin-right:.5rem}
 .tax-faculty_mentor #page-header .info-bar .social-icons,.tax-industry_sponsor #page-header .info-bar .social-icons{margin-bottom:0;padding-left:1rem}
 .tax-faculty_mentor #page-header .info-bar .social-icons li,.tax-industry_sponsor #page-header .info-bar .social-icons li{list-style-type:none;display:inline-block;margin-right:1rem;font-size:1.5rem}
