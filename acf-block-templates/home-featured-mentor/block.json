@@ -1,0 +1,14 @@
+{
+	"name": "pitchfork-furi/home-featured-mentor",
+	"title": "Featured Mentor",
+	"description": "A formatted display of a featured mentor & arbitrary quote.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"home",
+		"mentor"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "home-featured-mentor.php"
+	}
+}

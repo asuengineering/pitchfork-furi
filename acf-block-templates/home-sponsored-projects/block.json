@@ -1,0 +1,15 @@
+{
+	"name": "pitchfork-furi/home-sponsored-projects",
+	"title": "Sponsored Projects",
+	"description": "Display a layout of companies/organizations that sponsor FURI projects.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"home",
+		"sponsored",
+		"project"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "home-sponsored-projects.php"
+	}
+}

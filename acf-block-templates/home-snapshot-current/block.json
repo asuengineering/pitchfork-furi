@@ -1,7 +1,8 @@
 {
-	"name": "pf-furi/home_snapshot_current",
-	"title": "Symposium Snapshot (Current)",
+	"name": "pitchfork-furi/home-snapshot-current",
+	"title": "Symposium Snapshot",
 	"description": "Display a row of data pertaining to the current symposium.",
+	"category": "pitchfork-furi",
 	"keywords": [
 		"home",
 		"snapshot"

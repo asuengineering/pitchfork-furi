@@ -31,7 +31,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/home-featured-mentor"
+                "value": "pitchfork-furi\/home-featured-mentor"
             }
         ]
     ],
@@ -43,6 +43,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676915826
+    "show_in_rest": 0,
+    "modified": 1676934442
 }

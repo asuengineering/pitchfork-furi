@@ -139,7 +139,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/about-director-message"
+                "value": "pitchfork-furi\/about-director-message"
             }
         ]
     ],
@@ -151,6 +151,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676915826
+    "show_in_rest": 0,
+    "modified": 1676934433
 }

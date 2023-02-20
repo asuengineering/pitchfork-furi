@@ -58,7 +58,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/home-program-descriptions"
+                "value": "pitchfork-furi\/home-program-descriptions"
             }
         ]
     ],
@@ -71,5 +71,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676916129
+    "modified": 1676934553
 }

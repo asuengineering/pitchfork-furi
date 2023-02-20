@@ -1,0 +1,16 @@
+{
+	"name": "pitchfork-furi/about-life-after-furi",
+	"title": "Life after FURI",
+	"description": "Circle graph of survey results for alumni.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"home",
+		"graph",
+		"alumni"
+	],
+	"script": "furi-life-after",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "about-life-after-furi.php"
+	}
+}

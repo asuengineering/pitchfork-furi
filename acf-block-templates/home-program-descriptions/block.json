@@ -1,0 +1,15 @@
+{
+	"name": "pitchfork-furi/home-program-descriptions",
+	"title": "Program Descriptions",
+	"description": "Display program descriptions from term meta data.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"home",
+		"program",
+		"description"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "home-program-descriptions.php"
+	}
+}

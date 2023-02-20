@@ -1,0 +1,16 @@
+{
+	"name": "pitchfork-furi/home-featured-project-carousel",
+	"title": "Featured Project Carousel",
+	"description": "Display the featured image + project card in a carousel for the home page.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"home",
+		"carousel",
+		"featured"
+	],
+	"style": "pitchfork-furi-animate",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "home-featured-carousel.php"
+	}
+}

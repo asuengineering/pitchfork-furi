@@ -58,7 +58,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/home-sponsored-projects"
+                "value": "pitchfork-furi\/home-sponsored-projects"
             }
         ]
     ],
@@ -70,6 +70,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676915826
+    "show_in_rest": 0,
+    "modified": 1676934584
 }

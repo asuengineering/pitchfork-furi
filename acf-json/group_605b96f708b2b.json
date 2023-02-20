@@ -213,7 +213,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/about-life-after-furi"
+                "value": "pitchfork-furi\/about-life-after-furi"
             }
         ]
     ],
@@ -225,6 +225,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676915826
+    "show_in_rest": 0,
+    "modified": 1676934462
 }

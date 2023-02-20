@@ -81,7 +81,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/home-featured-project-carousel"
+                "value": "pitchfork-furi\/home-featured-project-carousel"
             }
         ]
     ],
@@ -93,6 +93,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676915826
+    "show_in_rest": 0,
+    "modified": 1676934452
 }
