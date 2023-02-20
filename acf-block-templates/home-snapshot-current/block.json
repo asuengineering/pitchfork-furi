@@ -1,0 +1,13 @@
+{
+	"name": "pf-furi/home_snapshot_current",
+	"title": "Symposium Snapshot (Current)",
+	"description": "Display a row of data pertaining to the current symposium.",
+	"keywords": [
+		"home",
+		"snapshot"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "home-snapshot-current.php"
+	}
+}
