@@ -12,7 +12,7 @@
 /**
  * Register a new save point for the Local JSON feature for this theme.
  *
- * @param  mixed $path // path to ACF safe point.
+ * @param  mixed $path // path to ACF save point.
  * @return $path
  */
 function pitchfork_furi_acf_json_save_point( $path ) {
