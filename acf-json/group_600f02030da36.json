@@ -6,6 +6,7 @@
             "key": "field_600f020d140af",
             "label": "Display which sponsors?",
             "name": "block_project_sponsors_select",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "Select which industry sponsors to display.",
             "required": 1,
@@ -28,6 +29,7 @@
             "key": "field_600f114795579",
             "label": "Layout Options",
             "name": "block_project_sponsors_columns",
+            "aria-label": "",
             "type": "radio",
             "instructions": "Select the layout you would like for your displayed project sponsors.",
             "required": 1,
@@ -68,5 +70,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1611607297
+    "show_in_rest": false,
+    "modified": 1676915826
 }

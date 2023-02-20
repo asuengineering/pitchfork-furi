@@ -6,6 +6,7 @@
             "key": "field_5f9885e0b204b",
             "label": "Theme Icon - Normal",
             "name": "researchtheme_icon",
+            "aria-label": "",
             "type": "image",
             "instructions": "This is the approved icon for a particular research theme.",
             "required": 1,
@@ -30,6 +31,7 @@
             "key": "field_5fa46dab70764",
             "label": "Theme Icon - Enabled",
             "name": "researchtheme_icon_enabled",
+            "aria-label": "",
             "type": "image",
             "instructions": "This is the approved icon for a particular research theme.",
             "required": 1,
@@ -54,6 +56,7 @@
             "key": "field_5f988a67b204c",
             "label": "Theme Background Color",
             "name": "researchtheme_bg_color",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -63,12 +66,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "#191919"
+            "default_value": "#191919",
+            "enable_opacity": false,
+            "return_format": "string"
         },
         {
             "key": "field_5f99108b06faa",
             "label": "Theme Text Color",
             "name": "researchtheme_text_color",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -78,7 +84,9 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
         }
     ],
     "location": [
@@ -98,5 +106,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1605429877
+    "show_in_rest": false,
+    "modified": 1676915826
 }

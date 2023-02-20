@@ -6,6 +6,7 @@
             "key": "field_5fe253b6cd154",
             "label": "Programs to Display",
             "name": "block_snapshot_current_programs",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "Select the programs that you would like to include in the snapshot data row. Reorder the terms to alter the layout. All returned data will reflect the actively selected symposium.",
             "required": 1,
@@ -42,5 +43,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608668253
+    "show_in_rest": false,
+    "modified": 1676915826
 }

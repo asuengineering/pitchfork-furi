@@ -6,6 +6,7 @@
             "key": "field_600f2fabf2051",
             "label": "Display which featured mentors?",
             "name": "block_featured_mentor_select",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 1,
@@ -42,5 +43,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612481787
+    "show_in_rest": false,
+    "modified": 1676915826
 }

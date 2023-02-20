@@ -6,6 +6,7 @@
             "key": "field_605bade1ea562",
             "label": "Descriptions",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_605b9e73ce1d7",
             "label": "Description paragraph",
             "name": "life_after_furi_description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -41,6 +43,7 @@
             "key": "field_605b9ebbce1d8",
             "label": "Percentage Callouts",
             "name": "life_after_furi_callout_row",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -54,12 +57,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_605b9ee0ce1d9",
                     "label": "Percentage",
                     "name": "life_after_furi_callout_percentage",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Text string is literal. Include the % sign.",
                     "required": 0,
@@ -73,12 +77,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_605b9ebbce1d8"
                 },
                 {
                     "key": "field_605b9f01ce1da",
                     "label": "Label",
                     "name": "life_after_furi_callout_label",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Text field is literal. Include <br\/> tags if needed.",
                     "required": 0,
@@ -92,14 +98,17 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_605b9ebbce1d8"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_605badb6ea561",
             "label": "Chart Data",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -116,6 +125,7 @@
             "key": "field_605bae2aea563",
             "label": "Chart Segment",
             "name": "life_after_furi_segments",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -129,12 +139,13 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_605bae76ea564",
                     "label": "Segment Count",
                     "name": "life_after_furi_segment_count",
+                    "aria-label": "",
                     "type": "number",
                     "instructions": "",
                     "required": 1,
@@ -150,12 +161,14 @@
                     "append": "",
                     "min": 1,
                     "max": "",
-                    "step": ""
+                    "step": "",
+                    "parent_repeater": "field_605bae2aea563"
                 },
                 {
                     "key": "field_605baeb7ea565",
                     "label": "Segment Label",
                     "name": "life_after_furi_segment_label",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -169,12 +182,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_605bae2aea563"
                 },
                 {
                     "key": "field_605baf40ea566",
                     "label": "Segment Color",
                     "name": "life_after_furi_segment_color",
+                    "aria-label": "",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 1,
@@ -184,9 +199,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "#8C1D40"
+                    "default_value": "#8C1D40",
+                    "enable_opacity": false,
+                    "return_format": "string",
+                    "parent_repeater": "field_605bae2aea563"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -206,5 +225,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1616623603
+    "show_in_rest": false,
+    "modified": 1676915826
 }

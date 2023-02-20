@@ -6,6 +6,7 @@
             "key": "field_5fb4141adf033",
             "label": "Sponsor URL",
             "name": "sponsor_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "Appear as a button on the individual sponsor pages.",
             "required": 0,
@@ -36,5 +37,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1605637215
+    "show_in_rest": false,
+    "modified": 1676915826
 }

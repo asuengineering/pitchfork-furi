@@ -6,6 +6,7 @@
             "key": "field_5fe380003f0e1",
             "label": "Display which themes?",
             "name": "block_research_themes_select",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "Select the research theme descriptions that you would like to include on the page. Reorder the terms to alter the layout.",
             "required": 1,
@@ -28,6 +29,7 @@
             "key": "field_5fe3813b69be4",
             "label": "Layout Options",
             "name": "block_research_themes_colclass",
+            "aria-label": "",
             "type": "radio",
             "instructions": "How would you like to layout the research theme descriptions?",
             "required": 1,
@@ -54,6 +56,7 @@
             "key": "field_600f02ca877a9",
             "label": "Layout Options (copy)",
             "name": "block_research_themes_colclass_copy",
+            "aria-label": "",
             "type": "radio",
             "instructions": "How would you like to layout the research theme descriptions?",
             "required": 1,
@@ -80,6 +83,7 @@
             "key": "field_5fe383b331b1c",
             "label": "Background Image",
             "name": "block_research_theme_background_class",
+            "aria-label": "",
             "type": "text",
             "instructions": "This class will be added to the <section> element to produce a background image. Separate multiple classes with a space. (Renders as class=\"{string}\".)",
             "required": 0,
@@ -113,5 +117,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1611596498
+    "show_in_rest": false,
+    "modified": 1676915826
 }

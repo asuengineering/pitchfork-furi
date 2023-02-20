@@ -6,6 +6,7 @@
             "key": "field_5fe116a532754",
             "label": "Program Name (Formal)",
             "name": "presentertype_program_name",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -39,5 +40,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608587592
+    "show_in_rest": false,
+    "modified": 1676915826
 }

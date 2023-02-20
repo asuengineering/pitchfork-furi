@@ -6,6 +6,7 @@
             "key": "field_601c85470b388",
             "label": "Which symposium date to include?",
             "name": "block_featured_project_carousel_year",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 1,
@@ -16,7 +17,7 @@
                 "id": ""
             },
             "taxonomy": "symposium_date",
-            "field_type": "multi_select",
+            "field_type": "select",
             "allow_null": 0,
             "add_term": 0,
             "save_terms": 0,
@@ -28,6 +29,7 @@
             "key": "field_601c86450b389",
             "label": "Include all images from the selected date?",
             "name": "block_featured_project_carousel_include_all",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 1,
@@ -47,6 +49,7 @@
             "key": "field_601c87230b38a",
             "label": "How many projects should we include?",
             "name": "block_featured_project_carousel_include_count",
+            "aria-label": "",
             "type": "number",
             "instructions": "The carousel will include a random selection of projects limited to the amount indicated here.",
             "required": 0,
@@ -90,5 +93,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635453454
+    "show_in_rest": false,
+    "modified": 1676915826
 }

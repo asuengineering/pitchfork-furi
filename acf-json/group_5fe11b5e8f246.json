@@ -6,6 +6,7 @@
             "key": "field_5fe11c2f211ea",
             "label": "Select the programs to display.",
             "name": "block_progdesc_terms",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "Please select the programs to display in the block. Reorder the terms in the control to change their display order.",
             "required": 1,
@@ -28,6 +29,34 @@
             "key": "field_5fe11b6c211e9",
             "label": "Layout Options",
             "name": "block_progdesc_layout",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Select the layout of the program descriptions",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "col-md-8": "Single (1 col, 75%)",
+                "col-md-6": "Halves (2 col)",
+                "col-md-4": "Thirds (3 col)",
+                "col-md-3": "Quarters (4 col)"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "col-md-6",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5fe3813b69be4",
+            "label": "Layout Options",
+            "name": "block_progdesc_layout_copy",
+            "aria-label": "",
             "type": "radio",
             "instructions": "Select the layout of the program descriptions",
             "required": 1,
@@ -68,5 +97,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617648072
+    "show_in_rest": false,
+    "modified": 1676915826
 }
