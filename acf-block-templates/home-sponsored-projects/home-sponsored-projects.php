@@ -15,11 +15,6 @@ if ( $sponsors ) {
 
     echo '<section id="sponsored-students">';
     echo '<div class="container">';
-    echo '<div class="row row-header">';
-    echo '<div class="col-md-8">';
-    echo '<h2>' . $headline . '</h2>';
-    echo wp_kses_post($description);
-    echo '</div></div>';
     echo '<div class="row">';
 
     foreach ($sponsors as $sponsor) {

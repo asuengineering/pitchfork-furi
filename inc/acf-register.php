@@ -55,7 +55,6 @@ function pitchfork_furi_register_blocks() {
 	);
 
 	foreach ($paths as $path) {
-		do_action('qm/debug', '/acf-block-templates/' . $path);
 		register_block_type(
 			get_stylesheet_directory() . '/acf-block-templates/' . $path,
 			array('icon' => $furi_svg_icon)

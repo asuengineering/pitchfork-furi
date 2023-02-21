@@ -18,11 +18,6 @@ if ( $programs ) {
 
     echo '<div class="container" id="current-snapshot">';
     echo '<div class="row">';
-    echo '<div class="col-md-8">';
-    echo '<h2>' . $headline . '</h2>';
-    echo wp_kses_post($description);
-    echo '</div></div>';
-    echo '<div class="row">';
 
     foreach ($programs as $program) {
 

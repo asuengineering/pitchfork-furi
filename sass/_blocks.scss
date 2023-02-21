@@ -13,17 +13,17 @@
 #program-descriptions {}
 
 @include media-breakpoint-up($md) {
-    #program-descriptions {
-        div[class*="col"] {
-            padding:1rem;
-        }
-    }
+	#program-descriptions {
+		div[class*="col"] {
+			padding: 1rem;
+		}
+	}
 }
 
 @include media-breakpoint-down($md) {
-    #program-descriptions {
-        margin-top:4rem;
-    }
+	#program-descriptions {
+		margin-top: 4rem;
+	}
 }
 
 
@@ -32,39 +32,38 @@
 --------------------------------------------------------------*/
 
 #current-snapshot {
-    display:block;
-    margin-top: 4em;
-    padding-top: 2em;
-    border-top:1px solid $uds-color-base-gray-4;
+	display: block;
 
-    .stat-package {
-        display:flex;
-        flex-direction:row;
-        justify-content:center;
-        margin-bottom: 1.5em;
-        padding: 10px;
-        
-        h3 {
-            font-size: 1.75rem;
-            line-height: 0.95;
-            color: $uds-color-base-gray-7;
-            font-weight: 700;
-            text-align: right;
-            margin-right: 20px;
-            span {
-                display: block;
-                color: $uds-color-base-gold;
-            }
-        }
-        .counter {
-            font-size: 3.5rem;
-            line-height: 0.95;
-            color: $uds-color-base-gray-7;
-            font-weight: 700;
-            align-self:center;
-            margin-left:1rem;
-        }
-    }
+	.stat-package {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-bottom: 1.5em;
+		padding: 10px;
+
+		h3 {
+			font-size: 1.75rem;
+			line-height: 0.95;
+			color: $uds-color-base-gray-7;
+			font-weight: 700;
+			text-align: right;
+			margin-right: 20px;
+
+			span {
+				display: block;
+				color: $uds-color-base-gold;
+			}
+		}
+
+		.counter {
+			font-size: 3.5rem;
+			line-height: 0.95;
+			color: $uds-color-base-gray-7;
+			font-weight: 700;
+			align-self: center;
+			margin-left: 1rem;
+		}
+	}
 }
 
 /*--------------------------------------------------------------
@@ -72,304 +71,317 @@
 --------------------------------------------------------------*/
 
 #research-themes {
-    margin-top: 6rem;
-    padding-top:6rem;
-    padding-bottom: 6rem;
-    .row-header {
-        margin-bottom:2rem;
-    }
-    .container {
-        background-color:#ffffff;
-        padding:2rem;
-    }
-    .media {
-        margin-bottom:4rem;
-        img {
-            width:5rem;
-            height:auto;
-        }
-    }
+	margin-top: 6rem;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+
+	.row-header {
+		margin-bottom: 2rem;
+	}
+
+	.container {
+		background-color: #ffffff;
+		padding: 2rem;
+	}
+
+	.media {
+		margin-bottom: 4rem;
+
+		img {
+			width: 5rem;
+			height: auto;
+		}
+	}
 }
 
 /*--------------------------------------------------------------
 4. Featured Students / Sponsored Mentors
 --------------------------------------------------------------*/
 
-#sponsored-students,
 #featured-mentors {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
 }
 
 #featured-mentors {
-    .row + .row {
-        margin-top: 4rem;
-    }
+	.row+.row {
+		margin-top: 4rem;
+	}
 
-    .cited-degree-program {
-        text-transform: lowercase;
-    }
+	.cited-degree-program {
+		text-transform: lowercase;
+	}
 
-    .featured-mentor-post {
+	.featured-mentor-post {
 
-        display: grid;
-        grid-template-columns: 3rem 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: $uds-size-spacing-4;
-        grid-row-gap: $uds-size-spacing-2;
-        padding: $uds-size-spacing-3;
+		display: grid;
+		grid-template-columns: 3rem 1fr;
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: $uds-size-spacing-4;
+		grid-row-gap: $uds-size-spacing-2;
+		padding: $uds-size-spacing-3;
 
-        svg {
-            color: $uds-color-base-gold;
-            width: 3rem;
-            height: auto;
-            grid-column: 1;
-            grid-row: 1;
-        }
+		svg {
+			color: $uds-color-base-gold;
+			width: 3rem;
+			height: auto;
+			grid-column: 1;
+			grid-row: 1;
+		}
 
-        p.excerpt {
-            font-size:1.25rem;
-            font-weight:700;
+		p.excerpt {
+			font-size: 1.25rem;
+			font-weight: 700;
 
-            grid-column: 2;
-            grid-row: 1;
+			grid-column: 2;
+			grid-row: 1;
 
-            // Remove the excerpt "read more" link. Freehand a button instead.
-            a {
-                display:none;
-            }
-        }
+			// Remove the excerpt "read more" link. Freehand a button instead.
+			a {
+				display: none;
+			}
+		}
 
-        .read-more {
-            grid-column: 2;
-            grid-row: 2;
-            display:inline-block;
-            text-align:right;
-        }
-    }
+		.read-more {
+			grid-column: 2;
+			grid-row: 2;
+			display: inline-block;
+			text-align: right;
+		}
+	}
 }
 
 /*--------------------------------------------------------------
 5. Featured project carousel
 --------------------------------------------------------------*/
 #featured-carousel {
-    .carousel {
-        .card-symposium {
-            position: absolute;
-            top:2rem;
-            right:4rem;
-            width:24rem;
-            height:auto;
-            animation-name: fadeInRight;
-            animation-duration: .65s;
-            animation-delay: 1.5s;
-        }
-        .featured-image {
-            animation-name: fadeInLeft;
-            animation-duration: .65s;
-            animation-delay: 1s;
-        }
-        .carousel-label {
-            position: absolute;
-            top: 1rem;
-            left:2rem;
-        }
-        .carousel-controls {
-            position:absolute;
-            bottom:0;
-            left:2rem;
-            text-align:left;
+	.carousel {
+		.card-symposium {
+			position: absolute;
+			top: 2rem;
+			right: 4rem;
+			width: 24rem;
+			height: auto;
+			animation-name: fadeInRight;
+			animation-duration: .65s;
+			animation-delay: 1.5s;
+		}
 
-            .carousel-indicators {
-                position:relative;
-                margin:1rem 0;
-                
-                li {
-                    background-color: $uds-color-base-gray-4;
-                }
-            }
-        }
-    }
+		.featured-image {
+			animation-name: fadeInLeft;
+			animation-duration: .65s;
+			animation-delay: 1s;
+		}
+
+		.carousel-label {
+			position: absolute;
+			top: 1rem;
+			left: 2rem;
+		}
+
+		.carousel-controls {
+			position: absolute;
+			bottom: 0;
+			left: 2rem;
+			text-align: left;
+
+			.carousel-indicators {
+				position: relative;
+				margin: 1rem 0;
+
+				li {
+					background-color: $uds-color-base-gray-4;
+				}
+			}
+		}
+	}
 }
 
 @include media-breakpoint-down($md) {
-    #featured-carousel {
-        display:none;
-    }
+	#featured-carousel {
+		display: none;
+	}
 }
 
 /*--------------------------------------------------------------
 6. Director Message
 --------------------------------------------------------------*/
 #director-message {
-    
-    .row-title {
-        padding-top:2rem;
-    }
 
-    .row-letter {
-        padding-top:32rem;
-        div[class^="col-"] {
-            padding:3rem 3rem 0 3rem;
-        }
-    }
-    
-    .row-signature {
+	.row-title {
+		padding-top: 2rem;
+	}
 
-        div[class^="col-"] {
-            padding:3rem 3rem 0 3rem;
-        }
+	.row-letter {
+		padding-top: 32rem;
 
-        .signatures {
-            display: flex;
-            flex-wrap:wrap;
-        }
-        
-        .signee {
-            width:50%;
-            padding-bottom:1.5rem;
-            span {
-                font-weight:700;
-                display:block;
-            }
-        }
-    }
+		div[class^="col-"] {
+			padding: 3rem 3rem 0 3rem;
+		}
+	}
+
+	.row-signature {
+
+		div[class^="col-"] {
+			padding: 3rem 3rem 0 3rem;
+		}
+
+		.signatures {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.signee {
+			width: 50%;
+			padding-bottom: 1.5rem;
+
+			span {
+				font-weight: 700;
+				display: block;
+			}
+		}
+	}
 }
 
 /*--------------------------------------------------------------
 6. FURI Alumni
 --------------------------------------------------------------*/
 .furi-alumni {
-    background-color: #99e4ff; /* 80% saturated from ASU Blue. */
-    background-image: url("../img/amountain.png");
-    background-size: 55%;
-    background-position: 100% 108%;
-    background-repeat: no-repeat;
-    padding: 4rem 0;
+	background-color: #99e4ff;
+	/* 80% saturated from ASU Blue. */
+	background-image: url("../img/amountain.png");
+	background-size: 55%;
+	background-position: 100% 108%;
+	background-repeat: no-repeat;
+	padding: 4rem 0;
 
-    div[class^="col-"] {
-        > * {
-            padding:.5rem 1rem;
-            margin-bottom:0;
-            background-color: rgba(255, 255, 255, 0.85);
-        }
+	div[class^="col-"] {
+		>* {
+			padding: .5rem 1rem;
+			margin-bottom: 0;
+			background-color: rgba(255, 255, 255, 0.85);
+		}
 
-        > *:first-child {
-            padding-top:1.5rem;
-        }
-    }
+		>*:first-child {
+			padding-top: 1.5rem;
+		}
+	}
 
-    h4 {
-        margin: 1em 0 1.5em;
-    }
+	h4 {
+		margin: 1em 0 1.5em;
+	}
 }
 
 /*--------------------------------------------------------------
 7. Life after FURI graph
 --------------------------------------------------------------*/
 #life-after-furi {
-    margin: 3rem 0;
-    .col-wrap {
-        h4 {
-            display: none;
-        }
-        .intro {
-            position: relative;
-            width: inherit;
-        }
+	margin: 3rem 0;
 
-        #donutchart {
-            display: none;
-        }
+	.col-wrap {
+		h4 {
+			display: none;
+		}
 
-        .distribution {
-            font-size: 3em;
-            font-weight: 700;
+		.intro {
+			position: relative;
+			width: inherit;
+		}
 
-            line-height: 1;
-            z-index: 20;
+		#donutchart {
+			display: none;
+		}
 
-            div {
-                margin-left: 0;
-                p {
-                    display: table-cell;
-                    font-size: 14px;
-                    background-color: #ffc627;
-                    color: #222222;
-                    padding: 5px;
-                }
-            }
-        }
-    }
+		.distribution {
+			font-size: 3em;
+			font-weight: 700;
+
+			line-height: 1;
+			z-index: 20;
+
+			div {
+				margin-left: 0;
+
+				p {
+					display: table-cell;
+					font-size: 14px;
+					background-color: #ffc627;
+					color: #222222;
+					padding: 5px;
+				}
+			}
+		}
+	}
 }
 
 @include media-breakpoint-up($md) {
-    #life-after-furi {    
-        .col-wrap {
-            position: relative;
+	#life-after-furi {
+		.col-wrap {
+			position: relative;
 
-            .intro {
-                position: absolute;
-                width: 35%;
-                right: 5px;
-                top: 0;
-                font-size: 14px;
-                z-index: 20;
-            }
+			.intro {
+				position: absolute;
+				width: 35%;
+				right: 5px;
+				top: 0;
+				font-size: 14px;
+				z-index: 20;
+			}
 
-            h4 {
-                font-size: 3em;
-                font-weight: bold;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                left: 22%;
-                display: block;
-                line-height: 1;
-                z-index: 20;
+			h4 {
+				font-size: 3em;
+				font-weight: bold;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 22%;
+				display: block;
+				line-height: 1;
+				z-index: 20;
 
-                span {
-                    display: block;
-                    font-size: 6rem;
-                    line-height: 1;
-                }
-            }
+				span {
+					display: block;
+					font-size: 6rem;
+					line-height: 1;
+				}
+			}
 
-            #donutchart {
-                display:block;
-            }
+			#donutchart {
+				display: block;
+			}
 
-            .distribution {
-                position: absolute;
-                bottom: 0;
-                right: 0;
+			.distribution {
+				position: absolute;
+				bottom: 0;
+				right: 0;
 
-                font-size: 4em;
-                font-weight: 700;
+				font-size: 4em;
+				font-weight: 700;
 
-                line-height: 1;
-                z-index: 20;
+				line-height: 1;
+				z-index: 20;
 
-                div {
-                    margin-left: 0.75em;
-                    p {
-                        display: table-cell;
-                        font-size: 14px;
-                        background-color: #ffc627;
-                        color: #222222;
-                        padding: 5px;
-                    }
-                }
-            }
+				div {
+					margin-left: 0.75em;
 
-            #donutchart {
-                z-index: 10;
-            }
-        }
+					p {
+						display: table-cell;
+						font-size: 14px;
+						background-color: #ffc627;
+						color: #222222;
+						padding: 5px;
+					}
+				}
+			}
 
-        #donutchart {
-            width: 100%;
-            min-height: 600px;
-        }
-    }
+			#donutchart {
+				z-index: 10;
+			}
+		}
+
+		#donutchart {
+			width: 100%;
+			min-height: 600px;
+		}
+	}
 }
