@@ -5,7 +5,7 @@
  * @package uds-wordpress-furi
  */
 
-add_action( 'wp_enqueue_scripts', 'pitchfork_wordpress_child_scripts' );
+add_action( 'enqueue_block_assets', 'pitchfork_wordpress_child_scripts' );
 /**
  * Enqueue theme assets.
  */
@@ -15,7 +15,7 @@ function pitchfork_wordpress_child_scripts() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	$css_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/css/child-theme.min.css' );
-	wp_enqueue_style( 'pitchfork-furi-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array( 'pitchfork-styles' ), $css_child_version );
+	wp_enqueue_style( 'pitchfork-furi-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array(), $css_child_version );
 
 	$js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/child-theme.js' );
 	wp_enqueue_script( 'pitchfork-furi-child-script', get_stylesheet_directory_uri() . '/js/child-theme.js', array( 'jquery' ), $js_child_version );

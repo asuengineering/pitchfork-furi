@@ -63,5 +63,10 @@ foreach ($themes as $theme) {
 
 wp_localize_script('furi-project-category', 'barsArray', $bar_segment);
 
-echo '<div id="subject-chart"></div>';
+if (! $is_preview) {
+	echo '<div id="subject-chart"></div>';
+} else {
+	echo '<div class="chart-placeholder"><h2><span class="highlight-black">Google Chart Placeholder</span></h2></div>';
+}
+
 echo '</section>';

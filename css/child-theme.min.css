@@ -105,6 +105,8 @@
 #research-themes .container{background-color:#fff;padding:2rem}
 #research-themes .media{margin-bottom:4rem}
 #research-themes .media img{width:5rem;height:auto}
+#project-graph .chart-placeholder{height:400px;width:auto;background-image:url("../img/bar-chart-placeholder.png");background-size:cover;position:relative}
+#project-graph h2{position:absolute;top:3rem;left:6rem}
 #featured-mentors{margin-top:4rem;margin-bottom:4rem}
 #featured-mentors .row+.row{margin-top:4rem}
 #featured-mentors .cited-degree-program{text-transform:lowercase}

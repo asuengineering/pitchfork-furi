@@ -95,7 +95,7 @@ function pitchfork_furi_register_additional_assets() {
 	wp_register_script( 'furi-life-after', get_stylesheet_directory_uri() . '/js/custom-chart-life-after-furi.js', array( 'google-charts' ), $theme_version, true );
 
 }
-add_action( 'wp_enqueue_scripts', 'pitchfork_furi_register_additional_assets' );
+add_action( 'enqueue_block_assets', 'pitchfork_furi_register_additional_assets' );
 
 // /**
 //  * Register additional custom blocks for the theme.

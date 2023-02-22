@@ -8,7 +8,6 @@
 		"themes",
 		""
 	],
-	"script": "furi-project-category",
 	"acf": {
 		"mode": "preview",
 		"renderTemplate": "home-research-themes.php"
