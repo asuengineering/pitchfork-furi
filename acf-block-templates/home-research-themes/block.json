@@ -1,12 +1,12 @@
 {
 	"name": "pitchfork-furi/home-research-themes",
-	"title": "Research Themes / Project Graph",
-	"description": "Display a layout of research themes and the 'project count by theme' graph.",
+	"title": "Research Themes",
+	"description": "Display a layout of research themes.",
 	"category": "pitchfork-furi",
 	"keywords": [
 		"home",
 		"themes",
-		"graph"
+		""
 	],
 	"script": "furi-project-category",
 	"acf": {

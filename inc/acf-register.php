@@ -9,17 +9,29 @@
  * @package pitchfork-furi
  */
 
+// /**
+//  * Register a new save point for the Local JSON feature for this theme.
+//  *
+//  * @param  mixed $path // path to ACF save point.
+//  * @return $path
+//  */
+// function pitchfork_furi_acf_json_save_point( $path ) {
+// 	$path = get_stylesheet_directory_uri() . '/acf-json';
+// 	return $path;
+// }
+// add_filter( 'acf/settings/save_json', 'pitchfork_furi_acf_json_save_point' );
+
 /**
- * Register a new save point for the Local JSON feature for this theme.
+ * Register a new load point for the Local JSON feature for this theme.
  *
  * @param  mixed $path // path to ACF save point.
  * @return $path
  */
-function pitchfork_furi_acf_json_save_point( $path ) {
+function pitchfork_furi_acf_json_load_point( $path ) {
 	$path = get_stylesheet_directory_uri() . '/acf-json';
 	return $path;
 }
-add_filter( 'acf/settings/save_json', 'pitchfork_furi_acf_json_save_point' );
+add_filter( 'acf/settings/load_json', 'pitchfork_furi_acf_json_load_point' );
 
 
 /**
@@ -49,6 +61,7 @@ function pitchfork_furi_register_blocks() {
 		'home-featured-mentor',
 		'home-featured-project-carousel',
 		'home-program-descriptions',
+		'home-project-graph',
 		'home-research-themes',
 		'home-snapshot-current',
 		'home-sponsored-projects',

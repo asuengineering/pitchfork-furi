@@ -1,0 +1,16 @@
+{
+	"name": "pitchfork-furi/home-project-graph",
+	"title": "Project Graph",
+	"description": "Display a bar chart of the total project count by research theme.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"home",
+		"themes",
+		"graph"
+	],
+	"script": "furi-project-category",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "home-project-graph.php"
+	}
+}
