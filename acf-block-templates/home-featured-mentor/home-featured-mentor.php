@@ -5,36 +5,23 @@
  * @package pitchfork-furi
  */
 
-$headline = get_field('block_generic_headline');
-$description = get_field('block_generic_description');
 $mentors = get_field('block_featured_mentor_select');
 
 if ( $mentors ) {
 
     echo '<section id="featured-mentors">';
-    echo '<div class="container">';
-    echo '<div class="row row-header">';
-    echo '<div class="col-md-8">';
-    echo '<h2>' . $headline . '</h2>';
-    echo wp_kses_post($description);
-    echo '</div></div>';
-    echo '<div class="row">';
 
     foreach ($mentors as $mentor) {
 
         $mentorprogram = get_field( '_mentor_featured_program', $mentor );
         $mentorimage = get_field( '_mentor_acf_thumbnail', $mentor );
 
-        echo '<div class="row">';
+        echo '<div class="mentor">';
+        echo '<h3><a href="'. get_term_link($mentor) . '" title="' . esc_html( $mentor->name ). '">' . esc_html( $mentor->name ) . '</a>, featured ' . esc_html( $mentorprogram->name ) . ' mentor</h3>';
 
         if ( ! empty( $mentorimage ) ) {
-            echo '<div class="col-md-3">';
             echo '<img class="img-fluid" src="' . esc_html( $mentorimage ) . '" alt="' . esc_html( $mentor->name ) . '" />';
-            echo '</div>';
         }
-
-        echo '<div class="col-md-9">';
-        echo '<h3><a href="'. get_term_link($mentor) . '" title="' . esc_html( $mentor->name ). '">' . esc_html( $mentor->name ) . '</a>, featured ' . esc_html( $mentorprogram->name ) . ' mentor</h3>';
 
         // Which content should be displayed? The quote or the post?
         $mentor_use_quote = get_field( '_mentor_use_quote_yn', $mentor );
@@ -89,24 +76,17 @@ if ( $mentors ) {
             $mentorpost = get_field( '_mentor_featured_post', $mentor );
 
             if ( !empty ($mentorpost)) {
-                do_action( 'qm/debug', $mentorpost);
                 echo '<div class="featured-mentor-post">';
-                echo '<span class="fas fa-stars"></span>';
                 $mentorpost_excerpt = apply_filters( 'the_excerpt', $mentorpost->post_excerpt );
                 $mentorpost_readmore = '<a href="' . esc_url(get_permalink($mentorpost->ID)) . '" class="read-more btn btn-maroon">Read more</a>';
-                echo '<p class="excerpt">' . $mentorpost_excerpt . '</p><p class="read-more">' . $mentorpost_readmore . '</p>';
+                echo $mentorpost_excerpt . '<p class="read-more">' . $mentorpost_readmore . '</p>';
                 echo '</div>';
             }
 
-
-
         }
 
-        echo '</div>';  // End col.
-        echo '</div>'; // End row.
+        echo '</div>';  // End .mentor
     }
-
-    echo '</div>';  // End container.
     echo '</section>'; // End section.
 }
 

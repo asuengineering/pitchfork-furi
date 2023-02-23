@@ -119,55 +119,53 @@
 --------------------------------------------------------------*/
 
 #featured-mentors {
-	margin-top: 4rem;
-	margin-bottom: 4rem;
-}
 
-#featured-mentors {
-	.row+.row {
-		margin-top: 4rem;
+	.mentor {
+		margin-bottom: $uds-size-spacing-8;
+
+		display: grid;
+		grid-template-columns: 180px 1fr;
+		grid-template-rows: auto auto;
+		grid-column-gap: $uds-size-spacing-8;
+		grid-row-gap: $uds-size-spacing-2;
+
+		h3 {
+			grid-column: 1 / span 2;
+			grid-row: 1;
+		}
+
+		img {
+			grid-column: 1;
+			grid-row: 2;
+			border-radius: 100%;
+		}
+
+
+		.featured-mentor-post {
+			// The first child p of .mentor should be the excerpt if there's one there.
+			// Target subsequent anchor for "Read me" tag and hide it.
+
+			p:first-child>a {
+				display: none;
+			}
+
+			.read-more {
+				display: inline-block;
+			}
+
+			// Quote SVG
+			svg {
+				color: $uds-color-base-gold;
+				width: 3rem;
+				height: auto;
+				grid-column: 1;
+				grid-row: 1;
+			}
+		}
 	}
 
 	.cited-degree-program {
 		text-transform: lowercase;
-	}
-
-	.featured-mentor-post {
-
-		display: grid;
-		grid-template-columns: 3rem 1fr;
-		grid-template-rows: repeat(2, 1fr);
-		grid-column-gap: $uds-size-spacing-4;
-		grid-row-gap: $uds-size-spacing-2;
-		padding: $uds-size-spacing-3;
-
-		svg {
-			color: $uds-color-base-gold;
-			width: 3rem;
-			height: auto;
-			grid-column: 1;
-			grid-row: 1;
-		}
-
-		p.excerpt {
-			font-size: 1.25rem;
-			font-weight: 700;
-
-			grid-column: 2;
-			grid-row: 1;
-
-			// Remove the excerpt "read more" link. Freehand a button instead.
-			a {
-				display: none;
-			}
-		}
-
-		.read-more {
-			grid-column: 2;
-			grid-row: 2;
-			display: inline-block;
-			text-align: right;
-		}
 	}
 }
 
