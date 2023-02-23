@@ -138,13 +138,13 @@
 #life-after-furi .col-wrap .distribution{font-size:3em;font-weight:700;line-height:1;z-index:20}
 #life-after-furi .col-wrap .distribution div{margin-left:0}
 #life-after-furi .col-wrap .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
+#snapshot-footer{display:none}
 #page>div{max-width:1920px;margin-left:auto;margin-right:auto}
 .page-template-default .uds-hero+article{margin-top:2rem}
 .section-head{height:20px}
 .section-head h3{background-color:#222;color:#fff;font-weight:700;display:inline-block;padding:.5rem 1rem;margin:0;height:40px}
 #additional-projects,#related-projects{background-color:#e8e8e8;padding:4rem 0}
 #additional-projects+#related-projects-title{background-color:#e8e8e8}
-#snapshot-global,#snapshot-global-title{display:none}
 @media(min-width:calc(768px)){.single-participant #main-content .participant-name{margin-bottom:.5rem}
 .single-participant #main-content .participant-major{margin-top:.5rem;margin-bottom:.5rem}
 .single-participant #main-content .hometown,.single-participant #main-content .graduation-date{margin-bottom:0}
@@ -162,17 +162,16 @@
 #life-after-furi .col-wrap .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
 #life-after-furi .col-wrap #donutchart{z-index:10}
 #life-after-furi #donutchart{width:100%;min-height:600px}
-#snapshot-global-title{display:block}
-#snapshot-global{display:block;padding-top:4em;background-color:#e8e8e8}
-#snapshot-global .stat-package{margin-bottom:1.5em;padding:10px;background-color:#bfbfbf}
-#snapshot-global .stat-package h3{font-size:1.25rem;line-height:.95;color:#191919;font-weight:700;text-align:right}
-#snapshot-global .stat-package h3 span{display:block;color:#fff}
-#snapshot-global .stat-package .counter{font-size:2rem;line-height:.95;color:#191919;font-weight:700;-ms-flex-item-align:center;align-self:center;margin-left:1rem}
-}@media(min-width:calc(992px)) { .single-participant #page-wrapper, .single-furiproject #page-wrapper, .tax-faculty_mentor #page-wrapper, .tax-industry_sponsor #page-wrapper, .tax-symposium_date #page-wrapper, .page-template-fullpage-about #page-wrapper { margin-top: calc(1rem + 153px)}
-.page-template-symposium #page-wrapper{margin-top:calc(2rem + 153px)}
+}@media(min-width:calc(992px)){#snapshot-footer{display:block;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+#snapshot-footer .stat-package{display:grid;grid-template-columns:1fr 1fr;padding:12px}
+#snapshot-footer .stat-package h3{margin:0;font-size:1.25rem;line-height:.95;color:#fff;font-weight:700;text-align:right}
+#snapshot-footer .stat-package h3 span{display:block;color:#ffc627}
+#snapshot-footer .stat-package .counter{font-size:2rem;line-height:.95;color:#fff;font-weight:700;-ms-flex-item-align:center;align-self:center;margin-left:1rem}
 #snapshot-global .stat-package h3{font-size:2rem}
 #snapshot-global .stat-package .counter{font-size:2.5rem;margin-left:1rem}
 #snapshot-global .stat-package.focus-areas h3{margin:1rem}
+.single-participant #page-wrapper,.single-furiproject #page-wrapper,.tax-faculty_mentor #page-wrapper,.tax-industry_sponsor #page-wrapper,.tax-symposium_date #page-wrapper,.page-template-fullpage-about #page-wrapper{margin-top:calc(1rem + 153px)}
+.page-template-symposium #page-wrapper{margin-top:calc(2rem + 153px)}
 }@media(min-width:calc(1224px)){#snapshot-global .stat-package h3{font-size:1.75rem;margin-left:1rem}
 #snapshot-global .stat-package .counter{font-size:3.5rem;margin-left:2rem}
 #snapshot-global .stat-package.focus-areas h3{margin-right:2rem}
