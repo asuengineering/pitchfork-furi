@@ -3,11 +3,11 @@
     "title": "BLOCK: Project Graphs",
     "fields": [
         {
-            "key": "field_63f5512aebc12",
-            "label": "This block has no configurable options.",
-            "name": "",
+            "key": "field_63f672737eaa3",
+            "label": "Display data from active symposium?",
+            "name": "project_graph_display_active_event",
             "aria-label": "",
-            "type": "message",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,9 +16,42 @@
                 "class": "",
                 "id": ""
             },
-            "message": "This block has no configurable options.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "Active",
+            "ui_off_text": "Custom",
+            "ui": 1
+        },
+        {
+            "key": "field_63f66e2f6e4fc",
+            "label": "Display which symposium dates?",
+            "name": "project_graph_select_dates",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63f672737eaa3",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "symposium_date",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "multiple": 0
         }
     ],
     "location": [
@@ -39,5 +72,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677034337
+    "modified": 1677096532
 }
