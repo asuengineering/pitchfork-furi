@@ -222,46 +222,6 @@
 }
 
 /*--------------------------------------------------------------
-6. Director Message
---------------------------------------------------------------*/
-#director-message {
-
-	.row-title {
-		padding-top: 2rem;
-	}
-
-	.row-letter {
-		padding-top: 32rem;
-
-		div[class^="col-"] {
-			padding: 3rem 3rem 0 3rem;
-		}
-	}
-
-	.row-signature {
-
-		div[class^="col-"] {
-			padding: 3rem 3rem 0 3rem;
-		}
-
-		.signatures {
-			display: flex;
-			flex-wrap: wrap;
-		}
-
-		.signee {
-			width: 50%;
-			padding-bottom: 1.5rem;
-
-			span {
-				font-weight: 700;
-				display: block;
-			}
-		}
-	}
-}
-
-/*--------------------------------------------------------------
 6. FURI Alumni
 --------------------------------------------------------------*/
 .furi-alumni {
@@ -292,114 +252,100 @@
 
 /*--------------------------------------------------------------
 7. Life after FURI graph
+
+// Mobile first, hide graph and inner label on mobile.
+// Tablet sizes need further adjustment. (23-Feb-2023)
 --------------------------------------------------------------*/
 #life-after-furi {
-	margin: 3rem 0;
+	display: inline;
 
-	.col-wrap {
-		h4 {
-			display: none;
-		}
+	#donutchart,
+	h4 {
+		display: none;
+	}
 
-		.intro {
-			position: relative;
-			width: inherit;
-		}
+	.distribution {
+		font-size: 3em;
+		font-weight: 700;
 
-		#donutchart {
-			display: none;
-		}
+		line-height: 1;
+		z-index: 20;
 
-		.distribution {
-			font-size: 3em;
-			font-weight: 700;
+		div {
+			margin-left: 0;
 
-			line-height: 1;
-			z-index: 20;
-
-			div {
-				margin-left: 0;
-
-				p {
-					display: table-cell;
-					font-size: 14px;
-					background-color: #ffc627;
-					color: #222222;
-					padding: 5px;
-				}
+			p {
+				display: table-cell;
+				font-size: 14px;
+				background-color: #ffc627;
+				color: #222222;
+				padding: 5px;
 			}
 		}
 	}
 }
 
 @include media-breakpoint-up($md) {
+
 	#life-after-furi {
-		.col-wrap {
-			position: relative;
 
-			.intro {
-				position: absolute;
-				width: 35%;
-				right: 5px;
-				top: 0;
-				font-size: 14px;
-				z-index: 20;
-			}
+		display: grid;
+		grid-template-columns: auto 27rem;
+		grid-template-rows: 1fr 1fr;
 
-			h4 {
-				font-size: 3em;
-				font-weight: bold;
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				left: 22%;
-				display: block;
-				line-height: 1;
-				z-index: 20;
+		.intro {
+			grid-column: 2;
+			grid-row: 1;
+			z-index: 20;
+		}
 
-				span {
-					display: block;
-					font-size: 6rem;
-					line-height: 1;
-				}
-			}
-
-			#donutchart {
-				display: block;
-			}
-
-			.distribution {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-
-				font-size: 4em;
-				font-weight: 700;
-
-				line-height: 1;
-				z-index: 20;
-
-				div {
-					margin-left: 0.75em;
-
-					p {
-						display: table-cell;
-						font-size: 14px;
-						background-color: #ffc627;
-						color: #222222;
-						padding: 5px;
-					}
-				}
-			}
-
-			#donutchart {
-				z-index: 10;
-			}
+		.distribution {
+			grid-column: 2;
+			grid-row: 2;
+			align-self: flex-end;
 		}
 
 		#donutchart {
+			display: block;
+
+			grid-column: 1 / span 2;
+			grid-row: 1 / span 2;
 			width: 100%;
 			min-height: 600px;
+			z-index: 10;
 		}
+
+		h4 {
+			display: block;
+
+			grid-column: 1;
+			grid-row: 1 / span 2;
+			align-self: center;
+			justify-self: center;
+
+			font-size: 3em;
+			font-weight: bold;
+			line-height: 1;
+			z-index: 20;
+
+			span {
+				display: block;
+				font-size: 6rem;
+				line-height: 1;
+			}
+		}
+
+
 	}
+}
+
+#life-after-furi .block-preview {
+	background-image: url(../img/after-furi-placeholder.png);
+	background-repeat: no-repeat;
+	background-position: 6rem top;
+	grid-column: 1;
+	grid-row: 1 / span 2;
+	width: auto;
+	min-height: 550px;
+
 }

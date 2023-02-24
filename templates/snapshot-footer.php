@@ -36,7 +36,7 @@ foreach ($presentations as $presentation) {
 	$projects[$presentation->name] = $count;
 }
 ?>
-<div class="col-lg-9">
+<div class="col-lg-7 offset-lg-2">
 	<!-- <h3><span class="highlight-white">FURI Totals</span></h3> -->
 	<div id="snapshot-footer">
 		<div class="stat-package">
@@ -48,13 +48,13 @@ foreach ($presentations as $presentation) {
 			<div class="counter" data-count="<?php echo esc_html( $mentors ); ?>">0</div>
 		</div>
 		<div class="stat-package">
-			<h3><span>Symposia</span>Archived</h3>
+			<h3><span>Archived</span>Symposia</h3>
 			<div class="counter" data-count="<?php echo esc_html( $symposia ); ?>">0</div>
 		</div>
-		<div class="stat-package focus-areas">
+		<!-- <div class="stat-package focus-areas">
 			<h3><span>Focus</span>Areas</h3>
 			<div class="counter" data-count="<?php echo esc_html( $focusareas ); ?>">0</div>
-		</div>
+		</div> -->
 		<div class="stat-package">
 			<h3><span>FURI</span>Projects</h3>
 			<div class="counter" data-count="<?php echo esc_html( $projects['FURI'] ); ?>">0</div>

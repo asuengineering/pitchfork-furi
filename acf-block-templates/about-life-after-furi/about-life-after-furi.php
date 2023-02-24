@@ -9,13 +9,14 @@
 $description = get_field('life_after_furi_description');
 
 echo '<section id="life-after-furi">';
-echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-md-12">';
-echo '<div class="col-wrap">';
 echo '<h4>Life After<span>FURI</span></h4>';
 echo '<p class="intro">' . $description . '</p>';
-echo '<div id="donutchart"></div>';
+
+if (! $is_preview ) {
+	echo '<div id="donutchart"></div>';
+} else {
+	echo '<div class="block-preview"></div>';
+}
 
 // Check for signee rows and output the correct strings.
 if( have_rows('life_after_furi_callout_row') ):
@@ -35,7 +36,6 @@ if( have_rows('life_after_furi_callout_row') ):
 
 endif;
 
-echo '</div></div></div></div>';
 echo '</section>';
 
 // Build the array to send to the Google charts init script.

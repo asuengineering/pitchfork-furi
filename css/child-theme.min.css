@@ -120,24 +120,16 @@
 #featured-carousel .carousel .carousel-controls{position:absolute;bottom:0;left:2rem;text-align:left}
 #featured-carousel .carousel .carousel-controls .carousel-indicators{position:relative;margin:1rem 0}
 #featured-carousel .carousel .carousel-controls .carousel-indicators li{background-color:#bfbfbf}
-#director-message .row-title{padding-top:2rem}
-#director-message .row-letter{padding-top:32rem}
-#director-message .row-letter div[class^="col-"]{padding:3rem 3rem 0 3rem}
-#director-message .row-signature div[class^="col-"]{padding:3rem 3rem 0 3rem}
-#director-message .row-signature .signatures{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
-#director-message .row-signature .signee{width:50%;padding-bottom:1.5rem}
-#director-message .row-signature .signee span{font-weight:700;display:block}
 .furi-alumni{background-color:#99e4ff;background-image:url("../img/amountain.png");background-size:55%;background-position:100% 108%;background-repeat:no-repeat;padding:4rem 0}
 .furi-alumni div[class^="col-"]>*{padding:.5rem 1rem;margin-bottom:0;background-color:rgba(255,255,255,0.85)}
 .furi-alumni div[class^="col-"]>*:first-child{padding-top:1.5rem}
 .furi-alumni h4{margin:1em 0 1.5em}
-#life-after-furi{margin:3rem 0}
-#life-after-furi .col-wrap h4{display:none}
-#life-after-furi .col-wrap .intro{position:relative;width:inherit}
-#life-after-furi .col-wrap #donutchart{display:none}
-#life-after-furi .col-wrap .distribution{font-size:3em;font-weight:700;line-height:1;z-index:20}
-#life-after-furi .col-wrap .distribution div{margin-left:0}
-#life-after-furi .col-wrap .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
+#life-after-furi{display:inline}
+#life-after-furi #donutchart,#life-after-furi h4{display:none}
+#life-after-furi .distribution{font-size:3em;font-weight:700;line-height:1;z-index:20}
+#life-after-furi .distribution div{margin-left:0}
+#life-after-furi .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
+#life-after-furi .block-preview{background-image:url(../img/after-furi-placeholder.png);background-repeat:no-repeat;background-position:6rem top;grid-column:1;grid-row:1 / span 2;width:auto;min-height:550px}
 #snapshot-footer{display:none}
 #page>div{max-width:1920px;margin-left:auto;margin-right:auto}
 .page-template-default .uds-hero+article{margin-top:2rem}
@@ -152,17 +144,13 @@
 .single-participant #main-content .presentation-details{margin-top:0}
 .single-participant #main-content .cta-buttons .btn+.btn{margin-left:1rem}
 #program-descriptions div[class*="col"]{padding:1rem}
-#life-after-furi .col-wrap{position:relative}
-#life-after-furi .col-wrap .intro{position:absolute;width:35%;right:5px;top:0;font-size:14px;z-index:20}
-#life-after-furi .col-wrap h4{font-size:3em;font-weight:bold;position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);left:22%;display:block;line-height:1;z-index:20}
-#life-after-furi .col-wrap h4 span{display:block;font-size:6rem;line-height:1}
-#life-after-furi .col-wrap #donutchart{display:block}
-#life-after-furi .col-wrap .distribution{position:absolute;bottom:0;right:0;font-size:4em;font-weight:700;line-height:1;z-index:20}
-#life-after-furi .col-wrap .distribution div{margin-left:.75em}
-#life-after-furi .col-wrap .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
-#life-after-furi .col-wrap #donutchart{z-index:10}
-#life-after-furi #donutchart{width:100%;min-height:600px}
-}@media(min-width:calc(992px)){#snapshot-footer{display:block;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+#life-after-furi{display:grid;grid-template-columns:auto 27rem;grid-template-rows:1fr 1fr}
+#life-after-furi .intro{grid-column:2;grid-row:1;z-index:20}
+#life-after-furi .distribution{grid-column:2;grid-row:2;align-self:flex-end}
+#life-after-furi #donutchart{display:block;grid-column:1 / span 2;grid-row:1 / span 2;width:100%;min-height:600px;z-index:10}
+#life-after-furi h4{display:block;grid-column:1;grid-row:1 / span 2;align-self:center;justify-self:center;font-size:3em;font-weight:bold;line-height:1;z-index:20}
+#life-after-furi h4 span{display:block;font-size:6rem;line-height:1}
+}@media(min-width:calc(992px)){#snapshot-footer{display:block;color:#fff;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 #snapshot-footer .stat-package{display:grid;grid-template-columns:1fr 1fr;padding:12px}
 #snapshot-footer .stat-package h3{margin:0;font-size:1.25rem;line-height:.95;color:#fff;font-weight:700;text-align:right}
 #snapshot-footer .stat-package h3 span{display:block;color:#ffc627}
