@@ -4,82 +4,20 @@
     "fields": [
         {
             "key": "field_605cf36eb570e",
-            "label": "Photo & Display",
+            "label": "Display Options",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
-            "instructions": "Add a featured image. Control the visibility as a featured mentor.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 1,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_5f88d3ff02646",
-            "label": "Profile Photo",
-            "name": "_mentor_acf_thumbnail",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Even if this is empty, a profile photo may already be enabled from the earlier theme or directly from iSearch. Uploaded images here will override any other image associated with this mentor.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5fa5d5d9a6e60",
-            "label": "Profile Photo (legacy)",
-            "name": "_mentor_thumbnail",
-            "aria-label": "",
-            "type": "image",
+            "type": "tab",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5f88d3ff02646",
-                        "operator": "!=empty"
-                    },
-                    {
-                        "field": "field_5f88d3ff02646",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_5fb563dadd9d0",
@@ -105,6 +43,31 @@
             "multiple": 0
         },
         {
+            "key": "field_5f88d3ff02646",
+            "label": "Custom Profile Photo",
+            "name": "_mentor_acf_thumbnail",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Images uploaded here will override the default iSearch profile image for the faculty member.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_605cf45eb5712",
             "label": "Use Quote or Profile",
             "name": "_mentor_use_quote_yn",
@@ -125,62 +88,41 @@
             "ui_off_text": "Post"
         },
         {
-            "key": "field_605cf387b570f",
-            "label": "Affiliations & Links",
-            "name": "",
+            "key": "field_5f88d56f02649",
+            "label": "iSearch (Legacy)",
+            "name": "_mentor_isearch",
             "aria-label": "",
-            "type": "accordion",
-            "instructions": "Job title and affiliation. URLs for social media, iSearch and their website.",
-            "required": 0,
-            "conditional_logic": 0,
+            "type": "url",
+            "instructions": "All demographic data for faculty members is sourced from iSearch. Returned data includes a profile image, current school affiliation, a small bio and social\/web links.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6307e44d777f4",
+                        "operator": "!=empty"
+                    },
+                    {
+                        "field": "field_6307e44d777f4",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_5f88d49402648",
-            "label": "School Affiliation",
-            "name": "_mentor_affiliation",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "https:\/\/ssebe.engineering.asu.edu": "SSEBE",
-                "https:\/\/sbhse.engineering.asu.edu": "SBHSE",
-                "https:\/\/cidse.engineering.asu.edu": "SCAI",
-                "https:\/\/ecee.engineering.asu.edu": "ECEE",
-                "https:\/\/semte.engineering.asu.edu": "SEMTE",
-                "https:\/\/poly.engineering.asd.edu": "Poly",
-                "https:\/\/engineering.asu.edu\/faculty-directory-asa\/": "ASA"
-            },
-            "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 0,
-            "return_format": "value",
+            "default_value": "",
             "placeholder": ""
         },
         {
-            "key": "field_5f88d43402647",
-            "label": "Job Title",
-            "name": "_mentor_title",
+            "key": "field_6307e44d777f4",
+            "label": "Email address",
+            "name": "_mentor_email",
             "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
+            "type": "email",
+            "instructions": "All demographic data for faculty members is sourced from ASU Search which returns results based on an email address. Returned data includes a profile image, current school affiliation, a small bio and social\/web links.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -190,101 +132,40 @@
             "default_value": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5f88d56f02649",
-            "label": "iSearch",
-            "name": "_mentor_isearch",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5f88d5a00264a",
-            "label": "Twitter URL",
-            "name": "_mentor_social_twitter",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5f88d5bc0264b",
-            "label": "Linkedin URL",
-            "name": "_mentor_social_linkedin",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5f88d5d40264c",
-            "label": "Facebook URL",
-            "name": "_mentor_social_facebook",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5f88d5e50264d",
-            "label": "Faculty Website",
-            "name": "_mentor_social_website",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
+            "append": ""
         },
         {
             "key": "field_605cf3c1b5710",
             "label": "Featured Quote",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
-            "instructions": "One of two possible content displays. Includes an option to show a simple blockquote + a citation for that quote to another participant within the website.",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_605cf45eb5712",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6182cd2f2645f",
+            "label": "Featured Quote Message",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -292,9 +173,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "message": "One of two possible content displays. Includes an option to show a simple blockquote + a citation for that quote to another participant within the website.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5fb56363dd9ce",
@@ -302,7 +183,7 @@
             "name": "_mentor_featured_quote",
             "aria-label": "",
             "type": "text",
-            "instructions": "Displays as block quote on home page.",
+            "instructions": "Don't include quotation marks in the text. Displays as block quote on home page.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -315,6 +196,29 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5fb585948babc",
+            "label": "Use a linked citation?",
+            "name": "_mentor_featured_linked_citation",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "If selected, this produces a linked citation to the profile page of a known participant. (Overrides the manual citation if present.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "participant"
+            ],
+            "taxonomy": "",
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
         },
         {
             "key": "field_5fb563addd9cf",
@@ -324,7 +228,14 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fb585948babc",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -344,7 +255,14 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fb585948babc",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -357,18 +275,18 @@
             "maxlength": ""
         },
         {
-            "key": "field_5fb585948babc",
-            "label": "Featured Mentor Linked Citation",
-            "name": "_mentor_featured_linked_citation",
+            "key": "field_605cf418b5711",
+            "label": "Featured Profile",
+            "name": "",
             "aria-label": "",
-            "type": "post_object",
-            "instructions": "Produces a linked citation to an individual student. Overrides the manual citation if present.",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5fb56219daf7b",
-                        "operator": "==",
+                        "field": "field_605cf45eb5712",
+                        "operator": "!=",
                         "value": "1"
                     }
                 ]
@@ -378,22 +296,16 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "participant"
-            ],
-            "taxonomy": "",
-            "allow_null": 1,
-            "multiple": 0,
-            "return_format": "object",
-            "ui": 1
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_605cf418b5711",
-            "label": "Featured Profile",
+            "key": "field_6182cd6d26460",
+            "label": "Featured Profile Message",
             "name": "",
             "aria-label": "",
-            "type": "accordion",
-            "instructions": "The second of two possible content displays. Define a blog post to use as the source for an expanded profile piece for a FURI mentor.",
+            "type": "message",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -401,9 +313,9 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
+            "message": "The second of two possible content displays. Define a blog post to use as the source for an expanded profile piece for a FURI mentor.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_605cfc47bc2dd",
@@ -448,6 +360,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_rest": false,
-    "modified": 1676915826
+    "show_in_rest": 0,
+    "modified": 1677802271
 }
