@@ -88,21 +88,21 @@
             "ui_off_text": "Post"
         },
         {
-            "key": "field_5f88d56f02649",
-            "label": "iSearch (Legacy)",
-            "name": "_mentor_isearch",
+            "key": "field_6307e44d777f4",
+            "label": "Email address (legacy)",
+            "name": "_mentor_email",
             "aria-label": "",
-            "type": "url",
-            "instructions": "All demographic data for faculty members is sourced from iSearch. Returned data includes a profile image, current school affiliation, a small bio and social\/web links.",
+            "type": "email",
+            "instructions": "All demographic data for faculty members is sourced from ASU Search which returns results based on an email address. Returned data includes a profile image, current school affiliation, a small bio and social\/web links.",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_6307e44d777f4",
+                        "field": "field_64064d5e3be01",
                         "operator": "!=empty"
                     },
                     {
-                        "field": "field_6307e44d777f4",
+                        "field": "field_64064d5e3be01",
                         "operator": "==empty"
                     }
                 ]
@@ -113,15 +113,17 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6307e44d777f4",
-            "label": "Email address",
-            "name": "_mentor_email",
+            "key": "field_64064d5e3be01",
+            "label": "ASURITE ID",
+            "name": "_mentor_asurite",
             "aria-label": "",
-            "type": "email",
-            "instructions": "All demographic data for faculty members is sourced from ASU Search which returns results based on an email address. Returned data includes a profile image, current school affiliation, a small bio and social\/web links.",
+            "type": "text",
+            "instructions": "The ASURITE ID is required to automate the presentation of the profile data present on the faculty mentor landing pages.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -130,6 +132,7 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -361,5 +364,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1677802271
+    "modified": 1678138336
 }

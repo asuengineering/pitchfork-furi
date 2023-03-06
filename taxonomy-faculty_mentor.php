@@ -10,34 +10,34 @@ $term = get_queried_object();
 
 function get_isearch_data($term_id) {
 
-	// Parse results based on supplied email address.
-	// If the email address is blank, attempt to query for the address from the old ASU Solr feed.
 	$mentor_email = get_field( '_mentor_email', $term_id );
+	$mentor_asurite = get_field( '_mentor_asurite', $term_id );
 
-	if ( empty( $mentor_email )) {
-		// Let's dig for an email address associated with the eid from the Search URL.
-		// Pattern for old iSearch URL should be: https://isearch.asu.edu/profile/####
-		$mentor_isearch_url = get_field( '_mentor_isearch', $term_id );
-		$mentor_eid = substr(strrchr($mentor_isearch_url, "/"), 1);
-		$mentor_isearch_json = 'https://asudir-solr.asu.edu/asudir/directory/select?q=eid:' . $mentor_eid . '&wt=json';
+	$output = array();
 
-		$solr_request = wp_safe_remote_get( $mentor_isearch_json );
+	// If there is no ASURITE ID but there happens to be an email address on file,
+	// Let's try to use the email address to set the ASURITE ID behind the scenes.
+	if ((empty($mentor_asurite)) && (! empty( $mentor_email ))) {
+		// Let's dig for an ASURITE ID associated with the email identity.
+		// Remove the '@asu.edu' from the string, query the main search index for a possible match.
+
+		$mentor_emailstr = strstr($mentor_email, "@", true);
+		$mentor_unfiltered_search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff?query=' . $mentor_emailstr . '&size=1';
+
+		$email_lookup_request = wp_safe_remote_get( $mentor_unfiltered_search_json );
 
 		// Error check for invalid JSON.
-		if ( is_wp_error( $solr_request ) ) {
+		if ( is_wp_error( $email_lookup_request ) ) {
 			return false; // Bail early.
 		}
 
-		$solr_body   = wp_remote_retrieve_body( $solr_request );
-		$solr_data   = json_decode( $solr_body );
-		$solr_output = array();
-		do_action('qm/debug', $mentor_isearch_url);
+		$email_lookup_body   = wp_remote_retrieve_body( $email_lookup_request );
+		$email_lookup_data   = json_decode( $email_lookup_body );
 
-		if ( ! empty( $solr_data ) ) {
+		if ( ! empty( $email_lookup_data ) ) {
 			// Check # of responses to see if the returned result actually has data.
-			if ( $solr_data->response->numFound) {
-				$solr_path = $solr_data->response->docs[0];
-				$solr_email = $solr_path->emailAddress;
+			if ( $email_lookup_data->meta->page->total_results) {
+				$email_lookup_id = $email_lookup_data->results[0]->asurite_id->raw;
 			} else {
 				// The call was successful, but there's no data.
 			}
@@ -45,17 +45,14 @@ function get_isearch_data($term_id) {
 			// The call was successful, but $solr_data was empty.
 		}
 
-		// If after all of that, we've obtained an email address, update the ACF field with it.
-		update_field( '_mentor_email', $solr_email, $term_id );
+		// If after all of that, if we obtained an ASURITE ID, update the ACF field with it.
+		update_field( '_mentor_asurite', $email_lookup_id, $term_id );
 	}
 
-	// Go ahead and get the field again. There's a good chance it was updated just now.
-	$mentor_email = get_field( '_mentor_email', $term_id );
-	if (! empty( $mentor_email )) {
-		// Parse the identifier from the email address, use it as the search term.
-		$search_term = strstr($mentor_email, "@", true);
-		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff?query=' . $search_term . '&size=1';
-		// do_action('qm/debug', $search_json);
+	// Go ahead and get the field again. There's a chance it was updated just now.
+	$mentor_asurite = get_field( '_mentor_asurite', $term_id );
+	if (! empty( $mentor_asurite )) {
+		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff/filtered?asurite_ids=' . $mentor_asurite . '&size=1';
 
 		$search_request = wp_safe_remote_get( $search_json );
 
@@ -66,7 +63,6 @@ function get_isearch_data($term_id) {
 
 		$search_body   = wp_remote_retrieve_body( $search_request );
 		$search_data   = json_decode( $search_body );
-		$search_output = array();
 
 		if ( ! empty( $search_data ) ) {
 			$path = $search_data->results[0];
@@ -76,6 +72,7 @@ function get_isearch_data($term_id) {
 			$output['school'] = $path->primary_department->raw;
 			$output['photo'] = $path->photo_url->raw;
 			$output['bio'] = wp_kses_post($path->bio->raw);
+			$output['shortBio'] = wp_kses_post($path->short_bio->raw);
 			$output['expertise_areas'] = $path->expertise_areas->raw;
 			$output['email_address'] = $path->email_address->raw;
 			$output['research_website'] = $path->research_website->raw;
@@ -114,7 +111,7 @@ function get_isearch_data($term_id) {
 				'35559' => 'https://poly.engineering.asu.edu',
 				'35560' => 'https://poly.engineering.asu.edu',
 
-				// 'currently null' => 'https://msn.engineering.asu.edu',
+				'N1659649552' => 'https://msn.engineering.asu.edu',
 				// 'defaults back to SCAI' => 'https://cidse.engineering.asu.edu',
 			);
 
@@ -127,9 +124,29 @@ function get_isearch_data($term_id) {
 			}
 
 		}
+	} else {
+		// There's no ASURITE for this term, therefore nothing returned.
+		// Define basic attributes for all expected returned values anyhow.
+
+		$output['title'] = 'Faculty';
+		$output['school'] = 'Arizona State University';
+		$output['photo'] = '';
+		$output['bio'] = '';
+		$output['shortBio'] = '';
+		$output['expertise_areas'] = '';
+		$output['email_address'] = '';
+		$output['research_website'] = '';
+		$output['facebook'] = '';
+		$output['twitter'] = '';
+		$output['linkedin'] = '';
+		$output['eid'] = '';
+		$output['deptid'] = '';
+		$output['department'] = '';
+		$output['deptURL'] = '';
+
 	}
 
-	// do_action('qm/debug', $output);
+	do_action('qm/debug', $output);
 	return $output;
 }
 
@@ -143,11 +160,10 @@ $demos = get_isearch_data($term);
 		<div class="row">
 
 			<?php
-			// Deal with mentor profile images. Uploaded image overrides default iSearch portrait.
 			$portrait = '';
 
-			// Check if iSearch has an image for us and if it's available for display.
-			do_action( 'qm/debug', $demos);
+			// Uploaded image from the FURI website overrides default Search portrait.
+			// Check if Search has an image for us and if it's available for display.
 			if (! empty( $demos['photo'])) {
 
 				$portrait = '<img class="isearch-image img-fluid" src="' . $demos['photo'] . '" alt="Portrait of ' . get_queried_object()->term_name . '"/>';
@@ -195,48 +211,45 @@ $demos = get_isearch_data($term);
 			echo '<p class="lead">' . $demos['title'] . ', ' . $schoollink . '</p>';
 			echo '<p class="lead">Total mentored projects: ' . $wp_query->post_count . '</p>';
 
-			// If there's a custom portrait, assume it's vertical and therefore we have more space for the bio.
+			// Use the full bio if there is one. Look for a short bio if the long one is empty.
 			$bio = '';
-			if ( ! empty( $portrait_acf )) {
-				$bio = $demos['bio'];
-			} else {
+			$bio = $demos['bio'];
+			if ( empty( $bio )) {
 				$bio = '<p>' . $demos['shortBio'] . '</p>';
-			}
-
-			// Override whatever is happening with the bios iSearch with the tag description.
-			$description = get_the_archive_description();
-			if ($description) {
-				$bio = $description;
 			}
 
 			echo wp_kses_post($bio);
 
 			// div.infobar: Social media icons, email address and isearch button.
-			$isearch_btn = '<a class="isearch btn btn-md btn-gray" href="https://search.asu.edu/profile/' . $demos['eid'] . '" target="_blank">ASU Search</a>';
-			$email_btn = '<a class="email btn btn-md btn-gray" href="mailto:' . $demos['email_address'] . '" target=_blank><span class="fas fa-envelope"></span>Email</a>';
-			$socialbar = '';
+			// Do a basic check for an employee ID number. If absent, assume no Search data.
+			if (! empty( $demos['eid'] ) ) {
+				$isearch_btn = '<a class="isearch btn btn-md btn-gray" href="https://search.asu.edu/profile/' . $demos['eid'] . '" target="_blank">ASU Search</a>';
+				$email_btn = '<a class="email btn btn-md btn-gray" href="mailto:' . $demos['email_address'] . '" target=_blank><span class="fas fa-envelope"></span>Email</a>';
+				$socialbar = '';
 
-			if ( ! empty( trim($demos['twitter'] ) ) ) {
-				$socialbar .= '<li><a href="' . $demos['twitter'] . '" target=_blank><span class="fab fa-twitter"></span></a></li>';
+				if ( ! empty( trim($demos['twitter'] ) ) ) {
+					$socialbar .= '<li><a href="' . $demos['twitter'] . '" target=_blank><span class="fab fa-twitter"></span></a></li>';
+				}
+
+				if ( ! empty( trim($demos['linkedin'] ) ) ) {
+					$socialbar .= '<li><a href="' . $demos['linkedin'] . '" target=_blank><span class="fab fa-linkedin"></span></a></li>';
+				}
+
+				if ( ! empty( trim($demos['facebook'] ) ) ) {
+					$socialbar .= '<li><a href="' . $demos['facebook'] . '" target=_blank><span class="fab fa-facebook"></span></a></li>';
+				}
+
+				if ( ! empty( trim($demos['research_website'] ) ) ) {
+					$socialbar .= '<li><a href="' . $demos['research_website'] . '" target=_blank><span class="fas fa-globe"></span></a></li>';
+				}
+
+				if ( ! empty( $socialbar ) ) {
+					$socialbar =  '<ul class="social-icons">' . $socialbar . '</ul>';
+				}
+
+				echo '<div class="info-bar">' . $isearch_btn . $email_btn . $socialbar . '</div>';
 			}
 
-			if ( ! empty( trim($demos['linkedin'] ) ) ) {
-				$socialbar .= '<li><a href="' . $demos['linkedin'] . '" target=_blank><span class="fab fa-linkedin"></span></a></li>';
-			}
-
-			if ( ! empty( trim($demos['facebook'] ) ) ) {
-				$socialbar .= '<li><a href="' . $demos['facebook'] . '" target=_blank><span class="fab fa-facebook"></span></a></li>';
-			}
-
-			if ( ! empty( trim($demos['research_website'] ) ) ) {
-				$socialbar .= '<li><a href="' . $demos['research_website'] . '" target=_blank><span class="fas fa-globe"></span></a></li>';
-			}
-
-			if ( ! empty( $socialbar ) ) {
-				$socialbar =  '<ul class="social-icons">' . $socialbar . '</ul>';
-			}
-
-			echo '<div class="info-bar">' . $isearch_btn . $email_btn . $socialbar . '</div>';
 
 			?>
 
