@@ -3,7 +3,7 @@
  * Single Furi Participant
  *
  * @package uds-wordpress-theme
- * 
+ *
  */
 
 get_header();
@@ -123,10 +123,10 @@ while ( have_posts() ) :
 			<div id="project-icon-column" class="col-md-2"></div>
 
 		</div>
-		
+
 		<!-- Featured Image -->
 		<div class="row">
-			
+
 			<?php
 
 			if ( has_post_thumbnail() ) {
@@ -137,7 +137,7 @@ while ( have_posts() ) :
 			}
 
 			?>
-			
+
 			<div class="col-md-8">
 
 				<?php
@@ -177,7 +177,7 @@ while ( have_posts() ) :
 						</h2>
 
 						<?php the_content(); ?>
-						
+
 						<p class="project-mentor"><strong>Mentor: </strong><?php echo wp_kses_post( get_the_term_list( $post->ID, 'faculty_mentor', '', ', ', '' ) ); ?></p>
 
 						<div class="cta-buttons">
@@ -187,13 +187,13 @@ while ( have_posts() ) :
 
 							// Is there an uploaded research poster?
 							$poster = get_field( '_furiproject_poster', $post->ID );
-							
+
 							if ( ! empty( $poster ) ) {
 								$postermarkup = '<a class="btn btn-maroon btn-poster" href="' . esc_url( $poster['url'] );
 								$postermarkup .= '" target="_blank">View the poster<span class="fas fa-external-link-alt"></span></a>';
 								echo wp_kses_post( $postermarkup );
 							}
-							
+
 							// insert the QR code modal button and modal window.
 							echo qr_code_modal_window();
 							?>
@@ -214,18 +214,18 @@ while ( have_posts() ) :
 
 								$featured_content = get_field( '_furiproject_featured_text' );
 								if (! empty( $featured_content ) ) {
-									
-									echo '<div class="col-md-8">';								
+
+									echo '<div class="col-md-8">';
 									echo '<h3><span class="highlight-gold">Featured project | ' . esc_html( $symposiumdate ) . '</span></h3>';
 									echo wp_kses_post( $featured_content );
 									echo '</div>';
 								}
-								
+
 								$featured_images = get_field( '_furiproject_featured_images' );
 								if (! empty( $featured_images ) ) {
 
 									echo '<div class="col-md-12">';
-									echo '<div class="d-md-flex flex-md-row">';
+									echo '<div class="featured-image-set d-md-flex flex-md-row">';
 									foreach( $featured_images as $image ):
 										?>
 										<a href="<?php echo esc_url($image['url']); ?>" class="featured-image" target="_blank">
@@ -238,15 +238,15 @@ while ( have_posts() ) :
 							}
 
 							if ($sponsored_yn) {
-								
+
 								$sponsored_content = get_field( '_furiproject_sponsored_text' );
 								if (! empty( $sponsored_content ) ) {
-									echo '<div class="col-md-8">';								
+									echo '<div class="col-md-8">';
 									echo '<h3><span class="highlight-gold">Sponsored project | ' . esc_html( $symposiumdate ) . '</span></h3>';
 									echo wp_kses_post( $sponsored_content );
 									echo '</div>';
 								}
-								
+
 								$sponsored_images = get_field( '_furiproject_sponsored_images' );
 								if (! empty( $sponsored_images ) ) {
 									echo '<div class="col-md-12">';
@@ -275,7 +275,7 @@ while ( have_posts() ) :
 	</div><!-- end .container -->
 
 	<!-- Other projects by the same person. -->
-	
+
 	<?php
 
 	// Find the rest of the connected projects.
@@ -335,7 +335,7 @@ while ( have_posts() ) :
 							</ul>
 						</div>
 					</div><!-- end .col -->
-					
+
 					<?php
 
 				endwhile;

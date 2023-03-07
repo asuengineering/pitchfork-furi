@@ -7,6 +7,7 @@
 .single-participant #main-content .cta-buttons svg{margin-left:.5rem}
 .single-participant #main-content .cta-buttons .btn{margin-bottom:1.5rem}
 .single-participant .row-featured{margin-top:1rem}
+.single-participant .row-featured .featured-image-set{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}
 .single-participant .row-featured a.featured-image{border:1px solid #fff;margin-right:1rem;margin-top:1rem;display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}
 .single-participant .row-featured a.featured-image:last-child{margin-right:none}
 .single-participant .row-featured a.featured-image:hover{border-color:#8c1d40}

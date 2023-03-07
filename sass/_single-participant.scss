@@ -9,128 +9,135 @@
 1. Mobile
 --------------------------------------------------------------*/
 .single-participant {
-    #main-content {
-        margin-bottom:4rem;
+	#main-content {
+		margin-bottom: 4rem;
 
-        .participant-social {
-            margin:1rem 0 0 0;
-            padding:0;
-            font-size: 2rem;
+		.participant-social {
+			margin: 1rem 0 0 0;
+			padding: 0;
+			font-size: 2rem;
 
-            li {
-                list-style-type: none;
-                display:inline;
-                margin-right:1rem;
+			li {
+				list-style-type: none;
+				display: inline;
+				margin-right: 1rem;
 
-                a:visited {
-                    color: $uds-color-base-maroon;
-                }
-            }
-        }
+				a:visited {
+					color: $uds-color-base-maroon;
+				}
+			}
+		}
 
-        .project-icon img {
-            display:none;
-        }
+		.project-icon img {
+			display: none;
+		}
 
-        .project-mentor {
-            margin:2rem 0;
-        }
+		.project-mentor {
+			margin: 2rem 0;
+		}
 
-        .cta-buttons {
-            svg {
-                margin-left: .5rem;
-            }
-            .btn {
-                margin-bottom:1.5rem;
-            }
-        }
-    }
+		.cta-buttons {
+			svg {
+				margin-left: .5rem;
+			}
 
-    .row-featured {
-        margin-top:1rem;
+			.btn {
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
 
-        a.featured-image {
-            border: 1px solid #ffffff;
-            margin-right:1rem;
-            margin-top:1rem;
-            display: inline-flex;
+	.row-featured {
 
-            &:last-child {
-                margin-right:none;
-            }
+		.featured-image-set {
+			align-items: flex-start;
+		}
 
-            &:hover {
-                border-color: $uds-color-base-maroon;
-            }
-        }
-    }
+		margin-top: 1rem;
 
-    .uds-modal-container {
-        width:auto;
-        max-width:800px;
-        height: auto;
+		a.featured-image {
+			border: 1px solid #ffffff;
+			margin-right: 1rem;
+			margin-top: 1rem;
+			display: inline-flex;
 
-        .qr-code-wrap {
+			&:last-child {
+				margin-right: none;
+			}
 
-            h3 {
-                padding-top: $uds-size-spacing-2;
-            }
+			&:hover {
+				border-color: $uds-color-base-maroon;
+			}
+		}
+	}
 
-            img {
-                max-width: 300px;
-                height:auto;
-                float:left;
-                margin-right: $uds-size-spacing-3;
-            }
-        }
-    }
+	.uds-modal-container {
+		width: auto;
+		max-width: 800px;
+		height: auto;
+
+		.qr-code-wrap {
+
+			h3 {
+				padding-top: $uds-size-spacing-2;
+			}
+
+			img {
+				max-width: 300px;
+				height: auto;
+				float: left;
+				margin-right: $uds-size-spacing-3;
+			}
+		}
+	}
 
 }
 
 @include media-breakpoint-down($md) {
-    #additional-projects-title h3,
-    #related-projects-title h3 {
-        height:70px;
-    }
+
+	#additional-projects-title h3,
+	#related-projects-title h3 {
+		height: 70px;
+	}
 }
+
 /*--------------------------------------------------------------
 2. Desktop
 --------------------------------------------------------------*/
 
 @include media-breakpoint-up($md) {
-    .single-participant {
-        #main-content {
+	.single-participant {
+		#main-content {
 
-            .participant-name {
-                margin-bottom:.5rem;
-            }
-            
-            .participant-major {
-                margin-top:.5rem;
-                margin-bottom:.5rem;
-            }
+			.participant-name {
+				margin-bottom: .5rem;
+			}
 
-            .hometown, 
-            .graduation-date {
-                margin-bottom:0;
-            }
+			.participant-major {
+				margin-top: .5rem;
+				margin-bottom: .5rem;
+			}
 
-            .project-icon img {
-                margin:2rem 0 3rem 0;
-                display:block;
-                max-width:8rem;
-            }
+			.hometown,
+			.graduation-date {
+				margin-bottom: 0;
+			}
 
-            .presentation-details {
-                margin-top:0;
-            }
+			.project-icon img {
+				margin: 2rem 0 3rem 0;
+				display: block;
+				max-width: 8rem;
+			}
 
-            .cta-buttons {
-                .btn + .btn {
-                    margin-left:1rem;
-                }
-            }
-        }
-    }
+			.presentation-details {
+				margin-top: 0;
+			}
+
+			.cta-buttons {
+				.btn+.btn {
+					margin-left: 1rem;
+				}
+			}
+		}
+	}
 }
-
