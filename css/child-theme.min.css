@@ -138,6 +138,7 @@
 .section-head h3{background-color:#222;color:#fff;font-weight:700;display:inline-block;padding:.5rem 1rem;margin:0;height:40px}
 #additional-projects,#related-projects{background-color:#e8e8e8;padding:4rem 0}
 #additional-projects+#related-projects-title{background-color:#e8e8e8}
+.uds-modal.open{z-index:1050;position:fixed}
 @media(min-width:calc(768px)){.single-participant #main-content .participant-name{margin-bottom:.5rem}
 .single-participant #main-content .participant-major{margin-top:.5rem;margin-bottom:.5rem}
 .single-participant #main-content .hometown,.single-participant #main-content .graduation-date{margin-bottom:0}
