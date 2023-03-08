@@ -11,6 +11,9 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 
+	// Setting participant ID in a variable to pass to the modal window function.
+	$participant_id = $post->ID;
+
 	/**
 	 * Gathers meta data relates to a furi participant and returns a formatted location string.
 	 *
@@ -72,17 +75,6 @@ while ( have_posts() ) :
 		return $participantsocial;
 	}
 	?>
-
-<!-- <div class="container-fluid">
-	<button id="openModalButton" class="btn btn-dark">Show modal</button>
-    <div id="uds-modal" class="uds-modal">
-        <div class="uds-modal-container">
-			<button id="closeModalButton" class="uds-modal-close-btn">
-				<i class="fas fa-times fa-stack-1x"></i><span class="sr-only">Close</span></button>
-            <h1>Content</h1>
-        </div>
-    </div>
-</div> -->
 
 <!-- Markup for the page -->
 <div class="wrapper" id="page-wrapper">
@@ -195,7 +187,7 @@ while ( have_posts() ) :
 							}
 
 							// insert the QR code modal button and modal window.
-							echo qr_code_modal_window();
+							echo qr_code_modal_window( $participant_id );
 							?>
 
 						</div>

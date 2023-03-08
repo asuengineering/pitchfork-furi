@@ -1,6 +1,6 @@
 <?php
 /**
- * QR code settings and utility functions. 
+ * QR code settings and utility functions.
  *  - Add an options panel for the ability to set the text and size of the code.
  *  - Include options for button size, color, etc.
  *
@@ -12,7 +12,7 @@ use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
 
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'QR code settings',
 		'menu_title'	=> 'QR Code Settings',
@@ -23,10 +23,10 @@ if( function_exists('acf_add_options_page') ) {
         'update_button' => __('Update', 'acf'),
         'updated_message' => __('QR Code options updated.', 'acf'),
 	));
-	
+
 }
 
-function qr_code_modal_window() {
+function qr_code_modal_window( $participant_id ) {
 
     $qr_display     = get_field('qr_options_display', 'option');
     $qr_message     = get_field('qr_options_message', 'option');
@@ -48,7 +48,7 @@ function qr_code_modal_window() {
     $qrcode = new QRCode($options);
 
     // Format the produced link.
-    $permalink = get_the_permalink();
+    $permalink = get_the_permalink( $participant_id );
     $data = str_replace('http://furi.test/', 'https://furi.engineering.asu.edu/', $permalink); // Local development bonus.
     $data .= $qr_tracking;
 
@@ -66,12 +66,12 @@ function qr_code_modal_window() {
                     </div>
                 </div>
             </div>';
-    
+
     if ( $qr_display ) {
         return $modal;
     } else {
         return;
     }
-    
+
 }
 
