@@ -15,44 +15,10 @@ function get_isearch_data($term_id) {
 
 	$output = array();
 
-	// If there is no ASURITE ID but there happens to be an email address on file,
-	// Let's try to use the email address to set the ASURITE ID behind the scenes.
-	if ((empty($mentor_asurite)) && (! empty( $mentor_email ))) {
-		// Let's dig for an ASURITE ID associated with the email identity.
-		// Remove the '@asu.edu' from the string, query the main search index for a possible match.
-
-		$mentor_emailstr = strstr($mentor_email, "@", true);
-		$mentor_unfiltered_search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff?query=' . $mentor_emailstr . '&size=1';
-
-		$email_lookup_request = wp_safe_remote_get( $mentor_unfiltered_search_json );
-
-		// Error check for invalid JSON.
-		if ( is_wp_error( $email_lookup_request ) ) {
-			return false; // Bail early.
-		}
-
-		$email_lookup_body   = wp_remote_retrieve_body( $email_lookup_request );
-		$email_lookup_data   = json_decode( $email_lookup_body );
-
-		if ( ! empty( $email_lookup_data ) ) {
-			// Check # of responses to see if the returned result actually has data.
-			if ( $email_lookup_data->meta->page->total_results) {
-				$email_lookup_id = $email_lookup_data->results[0]->asurite_id->raw;
-			} else {
-				// The call was successful, but there's no data.
-			}
-		} else {
-			// The call was successful, but $solr_data was empty.
-		}
-
-		// If after all of that, if we obtained an ASURITE ID, update the ACF field with it.
-		update_field( '_mentor_asurite', $email_lookup_id, $term_id );
-	}
-
-	// Go ahead and get the field again. There's a chance it was updated just now.
+	// Get Search data from ASURITE ID field.
 	$mentor_asurite = get_field( '_mentor_asurite', $term_id );
 	if (! empty( $mentor_asurite )) {
-		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff/filtered?asurite_ids=' . $mentor_asurite . '&size=1';
+		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff/filtered?asurite_ids=' . $mentor_asurite . '&size=1&client=fse_furl';
 
 		$search_request = wp_safe_remote_get( $search_json );
 
@@ -66,10 +32,8 @@ function get_isearch_data($term_id) {
 
 		if ( ! empty( $search_data ) ) {
 			$path = $search_data->results[0];
-			// do_action('qm/debug', $path);
+			do_action('qm/debug', $path);
 
-			$output['title'] = $path->primary_title->raw[0];
-			$output['school'] = $path->primary_department->raw;
 			$output['photo'] = $path->photo_url->raw;
 			$output['bio'] = wp_kses_post($path->bio->raw);
 			$output['shortBio'] = wp_kses_post($path->short_bio->raw);
@@ -80,16 +44,34 @@ function get_isearch_data($term_id) {
 			$output['twitter'] = $path->twitter->raw;
 			$output['linkedin'] = $path->linkedin->raw;
 			$output['eid'] = $path->eid->raw;
-			$output['deptid'] = $path->primary_deptid->raw;
-			$output['department'] = $path->primary_department->raw;
+
+			// Checking if primary indicators are present with faculty members.
+			// If nothing marked as primary, default is not to guess.
+			if (! empty( $path->primary_title->raw[0] ) ) {
+				$output['title'] = $path->primary_title->raw[0];
+			} else {
+				// We know they are at least a faculty member if they have a Search record.
+				$output['title'] = 'Faculty';
+			}
+
+			// Department building. Check for empty primary, add link if available.
+			$dept = $path->primary_deptid->raw;
+			if (! empty( $dept ) ) {
+				$output['deptid'] = $dept;
+				$output['department'] = $path->primary_department->raw;
+			} else {
+				$output['deptid'] = '';
+				$output['department'] = 'Arizona State University';
+			}
 
 			// Get link to affiliated school based on recorded department ID.
 			// We can pre-determine the department IDs for common results and look up the rest.
-			$dept = $path->primary_deptid->raw;
+
 			$dept_links = array(
 				'1659' => 'https://sbhse.engineering.asu.edu',
 				'1660' => 'https://ssebe.engineering.asu.edu',
 				'1662' => 'https://semte.engineering.asu.edu',
+				'1663' => 'https://ecee.engineering.asu.edu',
 				'1405' => 'https://ecee.engineering.asu.edu',
 				'1661' => 'https://scai.engineering.asu.edu',
 				'35480' => 'https://poly.engineering.asu.edu',
@@ -121,15 +103,13 @@ function get_isearch_data($term_id) {
 			} else {
 				// Not found. Eventually we can include the code to look it up from the API.
 				// https://search.asu.edu/api/v1/webdir-departments
+				$output['deptURL'] = '';
 			}
 
 		}
 	} else {
 		// There's no ASURITE for this term, therefore nothing returned.
 		// Define basic attributes for all expected returned values anyhow.
-
-		$output['title'] = 'Faculty';
-		$output['school'] = 'Arizona State University';
 		$output['photo'] = '';
 		$output['bio'] = '';
 		$output['shortBio'] = '';
@@ -141,8 +121,10 @@ function get_isearch_data($term_id) {
 		$output['linkedin'] = '';
 		$output['eid'] = '';
 		$output['deptid'] = '';
-		$output['department'] = '';
 		$output['deptURL'] = '';
+		$output['title'] = 'Faculty';
+		$output['department'] = 'Arizona State University';
+
 
 	}
 
@@ -201,14 +183,16 @@ $demos = get_isearch_data($term);
 				echo $mentorstring;
 			}
 
-			// Build job title and linked school affiliation.
-			if ($demos['deptURL']) {
-				$schoollink = '<a href="' . $demos['deptURL'] . '">' . $demos['school'] . '</a>';
+			// Build job title and linked school affiliation output.
+			$school ='';
+			if ( ($demos['deptURL']) ) {
+				$school = '<a href="' . $demos['deptURL'] . '">' . $demos['department'] . '</a>';
 			} else {
-				$schoollink = $demos['school'];
+				$school = $demos['department'];
 			}
 
-			echo '<p class="lead">' . $demos['title'] . ', ' . $schoollink . '</p>';
+			echo '<p class="lead">' . $demos['title'] . ', ' . $school . '</p>';
+
 			echo '<p class="lead">Total mentored projects: ' . $wp_query->post_count . '</p>';
 
 			// Use the full bio if there is one. Look for a short bio if the long one is empty.

@@ -11,8 +11,11 @@ $term = get_queried_object();
 ?>
 
 <main>
-
-<h1 class="page-title entry-title pt-8"><?php echo $term->name; ?> symposium archive</h1>
+	<section class="archive-header">
+		<!-- <h3><span class="highlight-gold">Symposium archive</span></h3> -->
+		<div class="subtitle"><span class="highlight-gold">Symposium archive</span></div>
+		<h1 class="page-title entry-title">Event: <?php echo $term->name; ?></h1>
+	</section>
 
 <?php
 
@@ -21,64 +24,67 @@ p2p_type( 'participants_to_projects' )->each_connected( $wp_query );
 if ( $wp_query->have_posts() ) :
 
 	?>
-	<section id="table-wrapper" class="mb-12">
-		<table class="symposium-archive table table-striped table-bordered">
+	<section class="uds-section alignfull allowed-after-hero bg-color bg-gray-1">
+		<div class="container" id="table-wrapper">
 
-			<thead>
-				<tr>
-					<th>Project Title</th>
-					<th>Participant</th>
-					<th>Mentor</th>
-					<th>Focus</th>
-					<th>Type</th>
-				</tr>
-			</thead>
-			<tbody>
+			<table class="symposium-archive table table-striped table-bordered">
 
-				<?php
-				while ( $wp_query->have_posts() ) :
-					$wp_query->the_post();
-					?>
-
-					<tr <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-						<td>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-						</td>
-
-						<td>
-							<?php
-							foreach ( $post->connected as $post ) :
-								setup_postdata( $post );
-
-								$participant = get_field( '_participant_first_name', $post->ID ) . ' ' . get_field( '_participant_last_name', $post->ID );
-								$participantlink = get_the_permalink();
-
-								echo '<a href="' . $participantlink . '" title="Participant: ' . $participant . '">' . $participant . '</a>';
-
-							endforeach;
-
-							wp_reset_postdata(); // set $post back to original post
-							?>
-						</td>
-
-						<td>
-							<?php echo get_the_term_list( $post->ID, 'faculty_mentor', '', ', ', '' ); ?>
-						</td>
-
-						<td>
-							<?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'research_theme', '', ', ', '' ) ); ?>
-						</td>
-
-						<td>
-							<?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'presentation_type', '', ', ', '' ) ); ?>
-						</td>
+				<thead>
+					<tr>
+						<th>Project Title</th>
+						<th>Participant</th>
+						<th>Mentor</th>
+						<th>Focus</th>
+						<th>Type</th>
 					</tr>
+				</thead>
+				<tbody>
 
-				<?php endwhile; ?>
+					<?php
+					while ( $wp_query->have_posts() ) :
+						$wp_query->the_post();
+						?>
 
-			</tbody>
-		</table>
+						<tr <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
+							<td>
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+							</td>
+
+							<td>
+								<?php
+								foreach ( $post->connected as $post ) :
+									setup_postdata( $post );
+
+									$participant = get_field( '_participant_first_name', $post->ID ) . ' ' . get_field( '_participant_last_name', $post->ID );
+									$participantlink = get_the_permalink();
+
+									echo '<a href="' . $participantlink . '" title="Participant: ' . $participant . '">' . $participant . '</a>';
+
+								endforeach;
+
+								wp_reset_postdata(); // set $post back to original post
+								?>
+							</td>
+
+							<td>
+								<?php echo get_the_term_list( $post->ID, 'faculty_mentor', '', ', ', '' ); ?>
+							</td>
+
+							<td>
+								<?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'research_theme', '', ', ', '' ) ); ?>
+							</td>
+
+							<td>
+								<?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'presentation_type', '', ', ', '' ) ); ?>
+							</td>
+						</tr>
+
+					<?php endwhile; ?>
+
+				</tbody>
+			</table>
+		</div>
 	</section>
 
 <?php endif; ?>
