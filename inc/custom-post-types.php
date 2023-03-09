@@ -173,7 +173,7 @@ function asufse_register_symposium_group_taxonomy() {
 	$args = array(
 		'labels'                     => $labels,
 		'hierarchical'               => false,
-		'public'                     => true,
+		'public'                     => false,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
@@ -400,7 +400,7 @@ function asufse_register_degree_program_taxonomy() {
 	$args = array(
 		'labels'                     => $labels,
 		'hierarchical'               => true,
-		'public'                     => true,
+		'public'                     => false,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
@@ -442,7 +442,7 @@ function asufse_register_graduation_date_taxonomy() {
 	$args = array(
 		'labels'                     => $labels,
 		'hierarchical'               => false,
-		'public'                     => true,
+		'public'                     => false,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
@@ -485,7 +485,7 @@ function asufse_register_participant_details_taxonomy() {
 	$args = array(
 		'labels'                     => $labels,
 		'hierarchical'               => false,
-		'public'                     => true,
+		'public'                     => false,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
