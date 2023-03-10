@@ -1,9 +1,11 @@
 /*--------------------------------------------------------------
-Taxonomy Term Page: Symposium Date
-
-1. Desktop
+Taxonomy Term Page: symposium_date
+Taxonomy Term Page: research_theme
+Taxonomy Term Page: presentation_type
 --------------------------------------------------------------*/
-.tax-symposium_date {
+.tax-symposium_date,
+.tax-research_theme,
+.tax-presentation_type {
 
 	.archive-header {
 
@@ -28,6 +30,12 @@ Taxonomy Term Page: Symposium Date
 
 		h1 {
 			margin-top: 0;
+		}
+
+		.theme-icon {
+			float: right;
+			max-width: 300px;
+			margin-left: 2rem;
 		}
 	}
 
@@ -56,13 +64,46 @@ Taxonomy Term Page: Symposium Date
 	}
 }
 
+.tax-presentation_type .archive-header {
+	padding-right: 16rem;
+}
+
+/*--------------------------------------------------------------
+Mobile considerations
+--------------------------------------------------------------*/
+
 @include media-breakpoint-down($md) {
 
+	// Presentation type
+	.tax-presentation_type .archive-header {
+		padding-right: 0;
+	}
+
+	// Research theme
+	.tax-research_theme .archive-header {
+		.theme-icon {
+			max-width: 64px;
+			margin-left: .5rem;
+		}
+	}
+
+	// Symposium date
 	.tax-symposium_date .archive-header {
 		padding: 0 0 $uds-size-spacing-2 0;
 	}
 
-	.tax-symposium_date #table-wrapper .dataTables_wrapper {
+	// Any of the pages
+	.archive .archive-header {
+
+		padding-top: 0;
+		padding-bottom: $uds-size-spacing-4;
+
+		.lead {
+			font-size: 1rem;
+		}
+	}
+
+	.archive #table-wrapper .dataTables_wrapper {
 		.dataTables_info {
 			padding: 0 0 1rem 0;
 			width: 100%;

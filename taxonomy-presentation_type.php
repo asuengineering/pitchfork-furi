@@ -1,19 +1,21 @@
 <?php
 /**
- * The template for displaying results from a specific symposium date.
- * Used as an archive listing for all projects in the DB.
+ * The template for displaying results from a specific research theme.
  *
- * @package UDS-WordPress-FURI
+ * @package pitchfork-furi
  */
 
 get_header();
 $term = get_queried_object();
+$formalname = get_field( 'presentertype_program_name', $term );
+
 ?>
 
 <main>
 	<section class="archive-header">
-		<div class="subtitle"><span class="highlight-gold">Symposium archive</span></div>
-		<h1 class="page-title entry-title">Event: <?php echo $term->name; ?></h1>
+		<div class="subtitle"><span class="highlight-gold">Presentation type</span></div>
+		<h1 class="page-title entry-title"><?php echo $formalname; ?></h1>
+		<p class="lead"><?php echo wp_kses_post( $term->description ); ?></p>
 	</section>
 
 <?php
@@ -33,8 +35,8 @@ if ( $wp_query->have_posts() ) :
 						<th>Project Title</th>
 						<th>Participant</th>
 						<th>Mentor</th>
-						<th>Focus</th>
-						<th>Type</th>
+						<th>Theme</th>
+						<th>Year</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -75,7 +77,7 @@ if ( $wp_query->have_posts() ) :
 							</td>
 
 							<td>
-								<?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'presentation_type', '', ', ', '' ) ); ?>
+								<?php echo wp_strip_all_tags( get_the_term_list( $post->ID, 'symposium_date', '', ', ', '' ) ); ?>
 							</td>
 						</tr>
 

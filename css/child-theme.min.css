@@ -45,13 +45,15 @@
 .tax-faculty_mentor blockquote+p{margin-top:4rem}
 .tax-industry_sponsor .btn svg{margin-right:.5rem}
 .tax-industry_sponsor #snapshot-global-title{background-color:#e8e8e8}
-.tax-symposium_date .archive-header{padding:4rem 0}
-.tax-symposium_date .archive-header .subtitle{-webkit-box-shadow:-0.15em 0 0 #ffc627,0.15em 0 0 #ffc627;box-shadow:-0.15em 0 0 #ffc627,0.15em 0 0 #ffc627;background:#ffc627;color:#191919;font-size:1.5rem;font-weight:700;line-height:1.75rem;letter-spacing:-0.0525rem;margin-left:.15em;display:inline-block}
-.tax-symposium_date .archive-header h1{margin-top:0}
-.tax-symposium_date .uds-section{padding:4rem 0}
-.tax-symposium_date #table-wrapper .dataTables_wrapper .dataTables_info{padding:.25em 0 0 .5em;width:49%;float:left}
-.tax-symposium_date #table-wrapper .dataTables_wrapper .dataTables_filter input{width:300px}
-.tax-symposium_date #table-wrapper .dataTables_wrapper table>thead>tr>th{background-color:#8c1d40;color:#fff}
+.tax-symposium_date .archive-header,.tax-research_theme .archive-header,.tax-presentation_type .archive-header{padding:4rem 0}
+.tax-symposium_date .archive-header .subtitle,.tax-research_theme .archive-header .subtitle,.tax-presentation_type .archive-header .subtitle{-webkit-box-shadow:-0.15em 0 0 #ffc627,0.15em 0 0 #ffc627;box-shadow:-0.15em 0 0 #ffc627,0.15em 0 0 #ffc627;background:#ffc627;color:#191919;font-size:1.5rem;font-weight:700;line-height:1.75rem;letter-spacing:-0.0525rem;margin-left:.15em;display:inline-block}
+.tax-symposium_date .archive-header h1,.tax-research_theme .archive-header h1,.tax-presentation_type .archive-header h1{margin-top:0}
+.tax-symposium_date .archive-header .theme-icon,.tax-research_theme .archive-header .theme-icon,.tax-presentation_type .archive-header .theme-icon{float:right;max-width:300px;margin-left:2rem}
+.tax-symposium_date .uds-section,.tax-research_theme .uds-section,.tax-presentation_type .uds-section{padding:4rem 0}
+.tax-symposium_date #table-wrapper .dataTables_wrapper .dataTables_info,.tax-research_theme #table-wrapper .dataTables_wrapper .dataTables_info,.tax-presentation_type #table-wrapper .dataTables_wrapper .dataTables_info{padding:.25em 0 0 .5em;width:49%;float:left}
+.tax-symposium_date #table-wrapper .dataTables_wrapper .dataTables_filter input,.tax-research_theme #table-wrapper .dataTables_wrapper .dataTables_filter input,.tax-presentation_type #table-wrapper .dataTables_wrapper .dataTables_filter input{width:300px}
+.tax-symposium_date #table-wrapper .dataTables_wrapper table>thead>tr>th,.tax-research_theme #table-wrapper .dataTables_wrapper table>thead>tr>th,.tax-presentation_type #table-wrapper .dataTables_wrapper table>thead>tr>th{background-color:#8c1d40;color:#fff}
+.tax-presentation_type .archive-header{padding-right:16rem}
 .page-template-symposium .above-filters h4{margin-top:.5rem;margin-bottom:0}
 .page-template-symposium button#filter-mobile-panel{display:none;position:absolute;top:4.25rem;right:1rem}
 .page-template-symposium button#filter-mobile-panel svg{margin-right:.5rem}
@@ -170,10 +172,14 @@
 #snapshot-global .stat-package.focus-areas h3{margin-right:2rem}
 }@media(max-width:calc(768px - .02px)){#additional-projects-title h3,#related-projects-title h3{height:70px}
 .tax-faculty_mentor #page-header .info-bar{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
+.tax-presentation_type .archive-header{padding-right:0}
+.tax-research_theme .archive-header .theme-icon{max-width:64px;margin-left:.5rem}
 .tax-symposium_date .archive-header{padding:0 0 1rem 0}
-.tax-symposium_date #table-wrapper .dataTables_wrapper .dataTables_info{padding:0 0 1rem 0;width:100%;float:none}
-.tax-symposium_date #table-wrapper .dataTables_wrapper .dataTables_filter input{width:200px}
-.tax-symposium_date #table-wrapper .dataTables_wrapper .table{font-size:10px}
+.archive .archive-header{padding-top:0;padding-bottom:2rem}
+.archive .archive-header .lead{font-size:1rem}
+.archive #table-wrapper .dataTables_wrapper .dataTables_info{padding:0 0 1rem 0;width:100%;float:none}
+.archive #table-wrapper .dataTables_wrapper .dataTables_filter input{width:200px}
+.archive #table-wrapper .dataTables_wrapper .table{font-size:10px}
 .page-template-symposium button#filter-mobile-panel{display:block}
 .page-template-symposium #symposium-grid-col{min-height:100vh}
 .page-template-symposium .above-filters h4{font-size:1.5rem;margin-top:1.5rem}

@@ -62,8 +62,8 @@ function pitchfork_furi_enqueue_styles() {
 	// 	wp_enqueue_style( 'animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), null );
 	// }
 
-	// Check for symposium-date archive pages and load DataTables JS.
-	if ( is_tax( 'symposium_date' ) ) {
+	// Check for filterable archive pages and load DataTables JS.
+	if ( ( is_tax( 'symposium_date' )) || ( is_tax( 'research_theme' )) || ( is_tax( 'presentation_type' ))  ) {
 		wp_enqueue_style( 'datatables-bootstrap4', '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css', array(), null );
 		wp_enqueue_script( 'datatables-js', '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js', array(), '', true );
 		wp_enqueue_script( 'datatables-bootstrap4-js', '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js', array(), '', true );
