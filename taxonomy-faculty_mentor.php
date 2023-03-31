@@ -10,9 +10,6 @@ $term = get_queried_object();
 
 function get_isearch_data($term_id) {
 
-	$mentor_email = get_field( '_mentor_email', $term_id );
-	$mentor_asurite = get_field( '_mentor_asurite', $term_id );
-
 	$output = array();
 
 	// Get Search data from ASURITE ID field.
@@ -192,8 +189,6 @@ $demos = get_isearch_data($term);
 			}
 
 			echo '<p class="lead">' . $demos['title'] . ', ' . $school . '</p>';
-
-			echo '<p class="lead">Total mentored projects: ' . $wp_query->post_count . '</p>';
 
 			// Use the full bio if there is one. Look for a short bio if the long one is empty.
 			$bio = '';
