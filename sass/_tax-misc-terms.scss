@@ -139,6 +139,11 @@ Taxonomy Term Page: Industry Sponsor
 	blockquote+p {
 		margin-top: 4rem;
 	}
+
+	// Remove internal read more link
+	.post-teaser-box .mb-2 a {
+		display: none;
+	}
 }
 
 @include media-breakpoint-down($md) {

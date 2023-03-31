@@ -43,6 +43,7 @@
 .tax-faculty_mentor .related-projects+.section-head,.tax-industry_sponsor .related-projects+.section-head{background-color:#e8e8e8}
 .tax-faculty_mentor #snapshot-global-title,.tax-faculty_mentor #snapshot-global,.tax-industry_sponsor #snapshot-global-title,.tax-industry_sponsor #snapshot-global{display:none}
 .tax-faculty_mentor blockquote+p{margin-top:4rem}
+.tax-faculty_mentor .post-teaser-box .mb-2 a{display:none}
 .tax-industry_sponsor .btn svg{margin-right:.5rem}
 .tax-industry_sponsor #snapshot-global-title{background-color:#e8e8e8}
 .tax-symposium_date .archive-header,.tax-research_theme .archive-header,.tax-presentation_type .archive-header{padding:4rem 0}
