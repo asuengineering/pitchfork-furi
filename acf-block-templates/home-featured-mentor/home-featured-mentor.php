@@ -33,24 +33,20 @@ if ( $mentors ) {
             $mentorlinkcite = get_field( '_mentor_featured_linked_citation', $mentor );
 
             if ( !empty ($mentorquote)) {
-                echo '<figure class="uds-blockquote accent-gold bq-color-padding">';
-                echo '<div class="feature-wrapper">';
+                echo '<div class="uds-blockquote accent-gold">';
                 echo '<svg title="Open quote" role="decorative" viewBox="0 0 302.87 245.82">';
                 echo '<path d="M113.61,245.82H0V164.56q0-49.34,8.69-77.83T40.84,35.58Q64.29,12.95,100.67,0l22.24,46.9q-34,11.33-48.72,31.54T58.63,132.21h55Zm180,0H180V164.56q0-49.74,8.7-78T221,35.58Q244.65,12.95,280.63,0l22.24,46.9q-34,11.33-48.72,31.54t-15.57,53.77h55Z"></path>';
                 echo '</svg>';
-                echo '</div>';
-                echo '<div class="content-wrapper">';
                 echo '<blockquote>';
                 echo '<p>' . wp_kses_post( $mentorquote ) .'</p>';
-                echo '</blockquote>';
-                echo '<figcaption>';
+				echo '<div class="citation"><div class="citation-content">';
 
                 if ( ! empty( $mentorlinkcite )) {
 
                     $citedname = furi_participant_name( $mentorlinkcite->ID );
                     $citedmajor = wp_strip_all_tags( get_the_term_list( $mentorlinkcite->ID, 'degree_program', '', ', ', '' ) );
 
-                    echo '<cite class="name">';
+					echo '<cite class="name">';
                     echo '<a href="' . esc_url( get_permalink( $mentorlinkcite ) ) . '" title="' . esc_html( $citedname ) . '">';
                     echo  esc_html( trim( $citedname ) ) . '</a>';
                     echo '</cite>';
@@ -65,9 +61,9 @@ if ( $mentors ) {
                     echo '<cite class="description">' . wp_kses_post( $mentorcitedesc ) . '</cite>';
                 }
 
-                echo '</figcaption>';
+				echo '</div></div>';
+                echo '</blockquote>';
                 echo '</div>';
-                echo '</figure>';
             }
 
         } else {
