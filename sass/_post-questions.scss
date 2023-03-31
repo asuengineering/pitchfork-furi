@@ -1,0 +1,115 @@
+/*--------------------------------------------------------------
+# Single Participant
+
+1. Mobile
+2. Desktop
+--------------------------------------------------------------*/
+
+.single.post-template-post-questions {
+
+	#article-header .entry {
+		padding: 0 2rem;
+	}
+
+	article {
+		padding: 2rem 2rem;
+	}
+
+	#article-header .featured-mentor {
+		background-image: url('../img/az-subtle.png');
+		padding: 2rem 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: 0rem;
+		align-items: center;
+
+		img {
+			border-radius: 50%;
+			object-fit: cover;
+			width: 250px;
+			height: 250px;
+		}
+	}
+}
+
+@include media-breakpoint-up($lg) {
+
+	.single.post-template-post-questions {
+
+		background-color: #ffffff;
+		background-image: url('../img/az-subtle.png');
+		// Pattern from https://www.transparenttextures.com/patterns/az-subtle.png
+		background-repeat: repeat;
+
+		#article-header {
+			display: grid;
+			grid-template-columns: 60% auto;
+			z-index: 20;
+			position: relative;
+
+			.entry {
+				grid-column: 1;
+				padding: 2rem 6rem;
+				margin-bottom: 6rem;
+			}
+
+			.featured-mentor {
+				background-image: none;
+				background-color: #ffffff;
+				gap: 2rem;
+
+				grid-column: 2;
+				background-color: $uds-color-base-white;
+				border-left: 10px solid $uds-color-base-gray-2;
+				border-bottom: 10px solid $uds-color-base-gray-2;
+				border-radius: 0 0 0 50px;
+				padding: 4rem 2rem;
+			}
+		}
+
+		article {
+			padding: 0;
+			display: grid;
+			grid-template-columns: 65% auto;
+			z-index: 10;
+			position: relative;
+
+			&.post {
+				max-width: 1920px;
+
+				>*:not(.alignfull):not(.alignwide) {
+					max-width: none;
+				}
+			}
+
+			#content {
+				grid-column: 1;
+				background-color: $uds-color-base-white;
+				border-top: 10px solid $uds-color-base-gray-2;
+				border-right: 10px solid $uds-color-base-gray-2;
+				border-radius: 0 50px 0 0;
+
+				padding: 6rem;
+				margin-top: -6rem;
+			}
+
+			#sidebar {
+				grid-column: 2;
+				margin-left: 2rem;
+				margin-right: auto;
+				padding-top: 3rem;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up($xl) {
+	.single.post-template-post-questions {
+		#article-header {
+			.featured-mentor {
+				flex-direction: row;
+			}
+		}
+	}
+}

@@ -136,6 +136,10 @@
 #life-after-furi .distribution div p{display:table-cell;font-size:14px;background-color:#ffc627;color:#222;padding:5px}
 #life-after-furi .block-preview{background-image:url(../img/after-furi-placeholder.png);background-repeat:no-repeat;background-position:6rem top;grid-column:1;grid-row:1 / span 2;width:auto;min-height:550px}
 #snapshot-footer{display:none}
+.single.post-template-post-questions #article-header .entry{padding:0 2rem}
+.single.post-template-post-questions article{padding:2rem 2rem}
+.single.post-template-post-questions #article-header .featured-mentor{background-image:url("../img/az-subtle.png");padding:2rem 0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:0;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.single.post-template-post-questions #article-header .featured-mentor img{border-radius:50%;-o-object-fit:cover;object-fit:cover;width:250px;height:250px}
 #page>div{max-width:1920px;margin-left:auto;margin-right:auto}
 .page-template-default .uds-hero+article{margin-top:2rem}
 .section-head{height:20px}
@@ -164,11 +168,21 @@
 #snapshot-global .stat-package h3{font-size:2rem}
 #snapshot-global .stat-package .counter{font-size:2.5rem;margin-left:1rem}
 #snapshot-global .stat-package.focus-areas h3{margin:1rem}
+.single.post-template-post-questions{background-color:#fff;background-image:url("../img/az-subtle.png");background-repeat:repeat}
+.single.post-template-post-questions #article-header{display:grid;grid-template-columns:60% auto;z-index:20;position:relative}
+.single.post-template-post-questions #article-header .entry{grid-column:1;padding:2rem 6rem;margin-bottom:6rem}
+.single.post-template-post-questions #article-header .featured-mentor{background-image:none;background-color:#fff;gap:2rem;grid-column:2;background-color:#fff;border-left:10px solid #e8e8e8;border-bottom:10px solid #e8e8e8;border-radius:0 0 0 50px;padding:4rem 2rem}
+.single.post-template-post-questions article{padding:0;display:grid;grid-template-columns:65% auto;z-index:10;position:relative}
+.single.post-template-post-questions article.post{max-width:1920px}
+.single.post-template-post-questions article.post>*:not(.alignfull):not(.alignwide){max-width:none}
+.single.post-template-post-questions article #content{grid-column:1;background-color:#fff;border-top:10px solid #e8e8e8;border-right:10px solid #e8e8e8;border-radius:0 50px 0 0;padding:6rem;margin-top:-6rem}
+.single.post-template-post-questions article #sidebar{grid-column:2;margin-left:2rem;margin-right:auto;padding-top:3rem}
 .single-participant #page-wrapper,.single-furiproject #page-wrapper,.tax-faculty_mentor #page-wrapper,.tax-industry_sponsor #page-wrapper,.tax-symposium_date #page-wrapper,.page-template-fullpage-about #page-wrapper{margin-top:calc(1rem + 153px)}
 .page-template-symposium #page-wrapper{margin-top:calc(2rem + 153px)}
 }@media(min-width:calc(1224px)){#snapshot-global .stat-package h3{font-size:1.75rem;margin-left:1rem}
 #snapshot-global .stat-package .counter{font-size:3.5rem;margin-left:2rem}
 #snapshot-global .stat-package.focus-areas h3{margin-right:2rem}
+.single.post-template-post-questions #article-header .featured-mentor{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 }@media(max-width:calc(768px - .02px)){#additional-projects-title h3,#related-projects-title h3{height:70px}
 .tax-faculty_mentor #page-header .info-bar{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .tax-presentation_type .archive-header{padding-right:0}

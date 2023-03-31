@@ -264,7 +264,7 @@ function asufse_register_faculty_mentor_taxonomy() {
 		'show_tagcloud'              => true,
 		'show_in_rest'               => true,
 	);
-	register_taxonomy( 'faculty_mentor', array( 'furiproject' ), $args );
+	register_taxonomy( 'faculty_mentor', array( 'furiproject', 'post' ), $args );
 
 }
 add_action( 'init', 'asufse_register_faculty_mentor_taxonomy', 0 );
