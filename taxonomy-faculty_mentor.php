@@ -311,7 +311,7 @@ $demos = get_isearch_data($term);
 				$mentor_excerpt = apply_filters( 'the_excerpt', $mentorpost->post_excerpt );
 				echo '<div class="post-teaser-box">';
 				echo '<h3>Featured Mentor Q&amp;A</h3>';
-				echo '<p class="lead"> ' . wp_kses_post( $mentor_excerpt ) .'</p>';
+				echo wp_kses_post( $mentor_excerpt );
 				echo '<p class="read-more-button"><a href="' . esc_url(get_permalink($mentorpost->ID)) . '" class="btn btn-gold">Read more</a></p>';
 				echo '</div>';
 			}
