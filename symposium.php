@@ -12,7 +12,6 @@ get_header();
 <div class="wrapper" id="page-wrapper">
 	<div class="container" id="main-content">
 		<div class="row">
-
 			<div class="col-lg-9 order-2" id="symposium-grid-col">
 				<div class="row" id="symposium-grid">
 
@@ -90,7 +89,7 @@ get_header();
 							if (has_post_thumbnail( $post->ID ) ) {
 								$featured_thumb = get_the_post_thumbnail( $post->ID, 'large', array( 'class' => 'img-fluid featured' ) );
 							}
-							
+
 							// Get Connected particpant data and assign variables.
 							foreach ( $post->connected as $post ) :
 								setup_postdata( $post );
@@ -114,34 +113,26 @@ get_header();
 							// Output a single card with correct classes for filtering. Check for featured card format.
 							if ( ( $featured_yn ) && ( $featured_thumb ) ) {
 								?>
-								<div class="col-md-8 grid-item <?php echo esc_html( $project_classes . $participant_classes ); ?>">
-									<div class="card card-hover card-featured-symposium">
-										
-										<a href="<?php echo esc_url( $participantlink ); ?>" rel="bookmark">
-											<?php echo $featured_thumb; ?>
-										</a>
-										
-										<div class="card card-foldable card-symposium">
-											<div class="card-header <?php echo esc_html( $projectclassname ); ?>">
-												<a class="<?php echo esc_html( $projectclassname ); ?>" id="example-header-1" class="collapsed" data-toggle="collapse" href="#example-content-1" role="button" aria-expanded="false" aria-controls="example-content-1">
-													<h4 class="participant"><?php echo esc_html( $relatedparticipant ); ?></h3>
-													<h5 class="major"><?php echo esc_html( $major ); ?></h5>	
-													<span class="fas fa-chevron-up"></span>
-												</a>
-											</div>
-											<div id="example-content-1" class="card-body collapse" aria-labelledby="example-header-1">
-												<h5 class="card-title">
-													<a href="<?php echo esc_url( $participantlink ); ?>" rel="bookmark">
-														<?php echo esc_html( $projecttitle ); ?>
+								<div class="col-md-8 grid-item card-ranking large-image <?php echo esc_html( $project_classes . $participant_classes ); ?>">
+									<?php echo $featured_thumb; ?>
+									<div class="info-layer">
+										<div class="content">
+											<div class="header">
+												<h4 class="participant">
+													<a aria-label="Read more" href="<?php echo esc_url( $participantlink ); ?>">
+														<?php echo esc_html( $relatedparticipant ); ?>
 													</a>
-												</h5>
-												<p class="card-text"><?php echo esc_html( $projectimpact ); ?></p>
-												<p class="card-text project-mentor">
-													<strong>Mentor: </strong><?php echo wp_kses_post( $mentorlist ); ?>
-												</p>
-												<p class="card-text project-type">
-													<strong>Program: </strong><?php echo esc_html( $presentationtype ); ?>
-												</p>
+													<span class="major"><?php echo esc_html( $major ); ?></span>
+												</h4>
+												<button class="btn btn-circle btn-alt-white btn-expand" aria-label="Expand ranking" type="button" aria-expanded="false">
+													<span class="fa-solid fa-chevron-up"></span>
+													<span class="sr-only">Expand</span>
+												</button>
+											</div>
+											<div class="body">
+												<p class="project-impact"><?php echo esc_html( $projectimpact ); ?></p>
+												<p class="project-mentor"><strong>Mentor: </strong><?php echo wp_kses_post( $mentorlist ); ?></p>
+												<p class="project-type"><strong>Program: </strong><?php echo esc_html( $presentationtype ); ?></p>
 											</div>
 										</div>
 									</div>
@@ -195,19 +186,19 @@ get_header();
 				</div>
 				<div class="filter-group">
 					<div class="filter-container">
-						
+
 						<form id="research-theme-filters">
 							<label for="filter-research_theme">Research Themes</label>
 							<?php echo get_research_theme_radios( $filterargs, 'research_theme', 'Research Theme' ); ?>
 						</form>
-					
+
 						<form id="presentation-type-filters">
 							<label for="filter-presentation_type">Presentation Types</label>
 							<?php echo get_project_type_radios( $filterargs, 'presentation_type', 'Presentation Type' ); ?>
 						</form>
 
 						<label class="pt-2">Additional Filters</label>
-						
+
 						<form class="form-inline">
 							<!-- <label data-placeholder="Search for a Participant" for="filter-participant">Participant Name</label> -->
 							<select id="filter-participant" class="filter" multiple title="Select a participant">
@@ -221,17 +212,17 @@ get_header();
 								<?php echo $titleselect; ?>
 							</select>
 						</form>
-					
+
 						<form class="form-inline">
 							<!-- <label for="filter-degree_program">Degree Program</label> -->
 							<?php echo get_all_participant_tax_terms( $participant_ids, 'degree_program', 'degree program' ); ?>
 						</form>
-						
+
 						<form class="form-inline">
 							<!-- <label for="filter-faculty_mentor">Faculty Mentor</label> -->
 							<?php echo get_all_project_tax_terms( $filterargs, 'faculty_mentor', 'faculty mentor' ); ?>
 						</form>
-						
+
 						<form class="form-inline">
 							<!-- <label for="filter-symposium_group">Symposium Group</label> -->
 							<?php echo get_all_project_tax_terms( $filterargs, 'symposium_group', 'symposium group' ); ?>

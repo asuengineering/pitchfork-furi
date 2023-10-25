@@ -79,7 +79,7 @@
 .page-template-symposium .filter-container .bootstrap-select .dropdown-menu.show{width:100%}
 .page-template-symposium .filter-container .bootstrap-select .dropdown-menu.show li a span.text{word-wrap:break-word;white-space:normal;font-size:14px}
 .page-template-symposium .filter-container .bootstrap-select .dropdown-menu>.inner:focus{-webkit-box-shadow:none !important;box-shadow:none !important}
-#symposium-grid .card-symposium{padding-top:0;min-height:24rem;margin-bottom:1.5rem}
+#symposium-grid .card-symposium{padding-top:0;min-height:497px;margin-bottom:1.5rem}
 #symposium-grid .card-symposium .card-header{padding-top:1rem}
 #symposium-grid .card-symposium .card-header a{text-decoration:none}
 #symposium-grid .card-symposium .card-header a:hover{text-decoration:underline}
@@ -87,16 +87,11 @@
 #symposium-grid .card-symposium .card-header .major{margin:0;font-weight:400}
 #symposium-grid .card-symposium .card-title,#symposium-grid .card-symposium .card-text{font-size:14px;line-height:18px}
 #symposium-grid .card-symposium .card-title a{text-decoration:underline;font-size:18px}
-#symposium-grid .card-featured-symposium{position:relative;margin-bottom:1.5rem}
-#symposium-grid .card-featured-symposium a img{padding-top:90px}
-#symposium-grid .card-featured-symposium div.card-foldable{padding-bottom:0;margin-bottom:0;border:0}
-#symposium-grid .card-featured-symposium .card-symposium{position:absolute;top:0;left:0;width:100%;min-height:inherit}
-#symposium-grid .card-featured-symposium .card-header{padding:0;position:relative}
-#symposium-grid .card-featured-symposium .card-header a{border-bottom:0;text-decoration:none}
-#symposium-grid .card-featured-symposium .card-header a h4{padding:1rem 2rem .25rem 2rem;margin-bottom:0}
-#symposium-grid .card-featured-symposium .card-header a h5{padding:0 2rem 1rem 2rem}
-#symposium-grid .card-featured-symposium .card-header a svg{font-size:30px;font-weight:700;position:absolute;right:1.5rem;top:1.5rem;-webkit-transition-duration:.4s;transition-duration:.4s}
-#symposium-grid .card-featured-symposium .card-header a[aria-expanded="true"] svg{-webkit-transform:rotate(180deg);transform:rotate(180deg)}
+#symposium-grid .card-ranking{width:calc(66.66% - 24px);margin-left:12px;margin-right:12px}
+#symposium-grid .card-ranking .header h4{max-width:none}
+#symposium-grid .card-ranking .header h4 a{font-size:1.25rem;font-weight:700}
+#symposium-grid .card-ranking .header h4 span{display:block;font-size:16px;font-weight:400}
+#symposium-grid .card-ranking .content .header .btn-expand svg{font-size:1rem;float:none;margin-left:2px}
 .card.card-hover:hover{cursor:auto}
 .card.card-hover:active{-webkit-transform:scale(1.05);transform:scale(1.05)}
 .scotch-is-showing #scotch-panel{-webkit-box-shadow:-3px 0 3px 0 rgba(0,0,0,0.3);box-shadow:-3px 0 3px 0 rgba(0,0,0,0.3)}
