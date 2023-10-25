@@ -33,8 +33,11 @@ foreach ($presentations as $presentation) {
 	);
 	$countprojects = new WP_Query($args);
 	$count = $countprojects->found_posts;
-	$projects[$presentation->name] = $count;
+	$projects[$presentation->slug] = $count;
 }
+
+do_action('qm/debug', $projects);
+
 ?>
 <div class="col-lg-7 offset-lg-2">
 	<!-- <h3><span class="highlight-white">FURI Totals</span></h3> -->
@@ -57,19 +60,19 @@ foreach ($presentations as $presentation) {
 		</div> -->
 		<div class="stat-package">
 			<h3><span>FURI</span>Projects</h3>
-			<div class="counter" data-count="<?php echo esc_html( $projects['FURI'] ); ?>">0</div>
+			<div class="counter" data-count="<?php echo esc_html( $projects['furi'] ); ?>">0</div>
 		</div>
 		<div class="stat-package">
 			<h3><span>MORE</span>Projects</h3>
-			<div class="counter" data-count="<?php echo esc_html( $projects['MORE'] ); ?>">0</div>
+			<div class="counter" data-count="<?php echo esc_html( $projects['more'] ); ?>">0</div>
 		</div>
 		<!-- <div class="stat-package">
 			<h3><span>KEEN</span>Projects</h3>
-			<div class="counter" data-count="<?php echo esc_html( $projects['KEEN'] ); ?>">0</div>
+			<div class="counter" data-count="<?php echo esc_html( $projects['keen'] ); ?>">0</div>
 		</div> -->
 		<div class="stat-package">
 			<h3><span>GCSP</span>Projects</h3>
-			<div class="counter" data-count="<?php echo esc_html( $projects['GCSP'] ); ?>">0</div>
+			<div class="counter" data-count="<?php echo esc_html( $projects['gcsp'] ); ?>">0</div>
 		</div>
 	</div>
 </div>
