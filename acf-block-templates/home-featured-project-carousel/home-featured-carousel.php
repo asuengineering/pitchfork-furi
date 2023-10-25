@@ -12,8 +12,8 @@ $display_number = get_field('block_featured_project_carousel_include_count');
 pitchfork_blocks_acf_calculate_spacing($block);
 
 if ( $display_date ) {
-    echo '<div class="container" id="featured-carousel"><div class="row"><div class="col">';
-    echo '<div id="featured-projects" class="carousel carousel-animation slide" data-ride="carousel" data-interval="10000">';
+    echo '<div id="featured-carousel">';
+    echo '<div id="featured-projects" class="carousel carousel-animation slide" data-bs-ride="carousel" data-bs-interval="10000">';
     echo '<div class="carousel-inner">';
 
     // Set posts_per_page. Default for $display_all control is true. Default value = -1.
@@ -46,6 +46,7 @@ if ( $display_date ) {
 
     $activeclass = 0;
     $indicators = '';
+	$mobile_proj_list = '';
     while ( $query->have_posts() ) :
 
         $query->the_post();
@@ -73,11 +74,11 @@ if ( $display_date ) {
         $projectimpact = get_field( '_furiproject_impact_statement', get_the_id() );
         $projectclassname = get_research_theme_class_names( $query->ID );
 
-        $indicators .= '<li data-target="#featured-projects" data-slide-to="' . $activeclass . '"';
+        $indicators .= '<button aria-label="Slide ' . $activeclass . '" data-bs-target="#featured-projects" data-bs-slide-to="' . $activeclass . '"';
         if ( 0 == $activeclass ) {
-            $indicators .= ' class="active"';
+            $indicators .= ' class="active" aria-current="true"';
         }
-        $indicators .= "></li>";
+        $indicators .= "></button>";
 
         // Output.
 
@@ -112,11 +113,12 @@ if ( $display_date ) {
                     <strong>Program: </strong><?php echo esc_html( $presentationtype ); ?>
                 </p>
             </div>
-        </div>
+		</div>
+		</div>
 
         <?php
 
-        echo '</div><!-- end .carousel-item -->';
+		$mobile_proj_list .= '<li><a href="' . esc_url( $participantlink ) . '">' . get_the_title() . '</a> by ' . esc_html( $relatedparticipant ) . '</li>';
 
     $activeclass ++;
     endwhile;
@@ -126,24 +128,25 @@ if ( $display_date ) {
     </div><!-- end .carousel-inner -->
 
     <div class="carousel-controls">
-        <button type="button" class="btn btn-circle btn-circle-alt-white" href="#featured-projects" data-slide="prev">
+        <button type="button" class="btn btn-circle btn-circle-alt-white" data-bs-target="#featured-projects" data-bs-slide="prev">
             <i class="fas fa-chevron-left"></i>
             <span class="sr-only" >Previous</span>
         </button>
 
-        <button type="button" class="btn btn-circle btn-circle-alt-white" href="#featured-projects" data-slide="next">
+        <button type="button" class="btn btn-circle btn-circle-alt-white" data-bs-target="#featured-projects" data-bs-slide="next">
             <i class="fas fa-chevron-right"></i>
             <span class="sr-only" >Next</span>
         </button>
 
-        <ol class="carousel-indicators">
+        <div class="carousel-indicators">
             <?php echo $indicators; ?>
-        </ol>
+		</div>
     </div>
 
     <?php
     echo '</div><!-- end #featured-projects -->';
-    echo '</div><!-- end .col -->';
-    echo '</div><!-- end .row -->';
-    echo '</div><!-- .container --> ';
+
+	echo '<ul id="carousel-mobile-content" class="uds-list">' . $mobile_proj_list . '</ul>';
+
+    echo '</div><!-- end #featured-carousel --> ';
 }

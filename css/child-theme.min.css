@@ -120,12 +120,13 @@
 #featured-mentors .mentor .featured-mentor-post .read-more{display:inline-block}
 #featured-mentors .mentor .featured-mentor-post svg{color:#ffc627;width:3rem;height:auto;grid-column:1;grid-row:1}
 #featured-mentors .cited-degree-program{text-transform:lowercase}
-#featured-carousel .carousel .card-symposium{position:absolute;top:2rem;right:4rem;width:24rem;height:auto;-webkit-animation-name:fadeInRight;animation-name:fadeInRight;-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:1.5s;animation-delay:1.5s}
+#featured-carousel .carousel .card-symposium{position:absolute;top:2rem;right:0;width:26rem;height:auto;-webkit-animation-name:fadeInRight;animation-name:fadeInRight;-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:1.5s;animation-delay:1.5s}
 #featured-carousel .carousel .featured-image{-webkit-animation-name:fadeInLeft;animation-name:fadeInLeft;-webkit-animation-duration:.65s;animation-duration:.65s;-webkit-animation-delay:1s;animation-delay:1s}
 #featured-carousel .carousel .carousel-label{position:absolute;top:1rem;left:2rem}
 #featured-carousel .carousel .carousel-controls{position:absolute;bottom:0;left:2rem;text-align:left}
 #featured-carousel .carousel .carousel-controls .carousel-indicators{position:relative;margin:1rem 0}
 #featured-carousel .carousel .carousel-controls .carousel-indicators li{background-color:#bfbfbf}
+#carousel-mobile-content{display:none}
 .furi-alumni{background-color:#99e4ff;background-image:url("../img/amountain.png");background-size:55%;background-position:100% 108%;background-repeat:no-repeat;padding:4rem 0}
 .furi-alumni div[class^="col-"]>*{padding:.5rem 1rem;margin-bottom:0;background-color:rgba(255,255,255,0.85)}
 .furi-alumni div[class^="col-"]>*:first-child{padding-top:1.5rem}
@@ -184,6 +185,8 @@
 #snapshot-global .stat-package .counter{font-size:3.5rem;margin-left:2rem}
 #snapshot-global .stat-package.focus-areas h3{margin-right:2rem}
 .single.post-template-post-questions #article-header .featured-mentor{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
+}@media(max-width:calc(992px - .02px)){#featured-projects{display:none}
+#carousel-mobile-content{display:block}
 }@media(max-width:calc(768px - .02px)){#additional-projects-title h3,#related-projects-title h3{height:70px}
 .tax-faculty_mentor #page-header .info-bar{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .tax-presentation_type .archive-header{padding-right:0}
@@ -202,5 +205,4 @@
 .page-template-symposium #main-content{padding:0}
 .page-template-symposium .row{padding-right:2rem}
 #program-descriptions{margin-top:4rem}
-#featured-carousel{display:none}
 }

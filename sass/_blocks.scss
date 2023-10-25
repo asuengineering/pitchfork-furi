@@ -174,8 +174,8 @@
 		.card-symposium {
 			position: absolute;
 			top: 2rem;
-			right: 4rem;
-			width: 24rem;
+			right: 0rem;
+			width: 26rem;
 			height: auto;
 			animation-name: fadeInRight;
 			animation-duration: .65s;
@@ -212,9 +212,17 @@
 	}
 }
 
-@include media-breakpoint-down($md) {
-	#featured-carousel {
+#carousel-mobile-content {
+	display: none;
+}
+
+@include media-breakpoint-down($lg) {
+	#featured-projects {
 		display: none;
+	}
+
+	#carousel-mobile-content {
+		display: block;
 	}
 }
 
