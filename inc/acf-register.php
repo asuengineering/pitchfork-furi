@@ -71,3 +71,16 @@ function pitchfork_furi_register_additional_assets() {
 
 }
 add_action( 'enqueue_block_assets', 'pitchfork_furi_register_additional_assets' );
+
+/**
+ * Explicitly define /acf-json as load point in both the parent theme and the child theme.
+ *
+ * @param  mixed $paths // path to ACF load point.
+ * @return $paths
+ */
+function pitchfork_furi_acf_json_load_point( $paths ) {
+	$paths[] = get_template_directory()  . '/acf-json';
+	$paths[] = get_stylesheet_directory() . '/acf-json';
+	return $paths;
+}
+add_filter( 'acf/settings/load_json', 'pitchfork_furi_acf_json_load_point' );
