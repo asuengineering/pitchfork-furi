@@ -1,14 +1,13 @@
 <?php
 /**
  * Additional functions for Gravity Forms within this site.
- * 
+ *
  * Contents:
  *   - Add taxonomy items to intake form's dropdown fields.
  *   - Enqueue additional CSS file for UDS
  *
  * @package uds-wordpress-furi
  */
-
 
 
 // Populate faculty mentor dropdown with taxonomy terms.
@@ -32,7 +31,7 @@ function furi_abstract_submission_populate_mentors($form){
     // Adding tag names to the items array
     foreach($terms as $term) {
         $items[] = array(
-           "value" => $term->term_id, 
+           "value" => $term->term_id,
            "text" =>  $term->name
       );
     }
