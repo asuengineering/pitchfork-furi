@@ -23,30 +23,30 @@ jQuery(document).ready(function ($) {
 
 		// Scotch panel for mobile search.
 		// Is the open/close button visible on the screen? (Handled via media query.)
-		if ($('button#filter-mobile-panel').is(':visible')) {
-			// Build scotch panels mobile menu location.
-			$('#main-content').prepend('<div id="scotch-panel"></div>');
-			$('.filter-group').detach().prependTo('#scotch-panel');
+		// if ($('button#filter-mobile-panel').is(':visible')) {
+		// 	// Build scotch panels mobile menu location.
+		// 	$('#main-content').prepend('<div id="scotch-panel"></div>');
+		// 	$('.filter-group').detach().prependTo('#scotch-panel');
 
-			$('button#filter-mobile-panel')
-				.detach()
-				.insertAfter('.navbar-toggler');
+		// 	$('button#filter-mobile-panel')
+		// 		.detach()
+		// 		.insertAfter('.navbar-toggler');
 
-			$('#header-main .navbar-container .title .subdomain-name').text(
-				'FURI Symposium'
-			);
+		// 	$('#header-main .navbar-container .title .subdomain-name').text(
+		// 		'FURI Symposium'
+		// 	);
 
-			// Make the panel
-			$('#scotch-panel').scotchPanel({
-				containerSelector: '#main-content', // As a jQuery Selector
-				direction: 'right', // Make it toggle in from the left
-				duration: 300, // Speed in ms how fast you want it to be
-				transition: 'ease', // CSS3 transition type: linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(P1x,P1y,P2x,P2y)
-				clickSelector: '#filter-mobile-panel', // Enables toggling when clicking elements of this class
-				distanceX: '85%', // Size fo the toggle
-				enableEscapeKey: true, // Clicking Esc will close the panel
-			});
-		}
+		// 	// Make the panel
+		// 	$('#scotch-panel').scotchPanel({
+		// 		containerSelector: '#main-content', // As a jQuery Selector
+		// 		direction: 'right', // Make it toggle in from the left
+		// 		duration: 300, // Speed in ms how fast you want it to be
+		// 		transition: 'ease', // CSS3 transition type: linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(P1x,P1y,P2x,P2y)
+		// 		clickSelector: '#filter-mobile-panel', // Enables toggling when clicking elements of this class
+		// 		distanceX: '85%', // Size fo the toggle
+		// 		enableEscapeKey: true, // Clicking Esc will close the panel
+		// 	});
+		// }
 
 		var $singleOptions = {
 			maxOptions: 10,

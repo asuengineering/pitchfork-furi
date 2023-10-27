@@ -36,10 +36,10 @@ function pitchfork_furi_enqueue_styles() {
 		$template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
 
 		if ( 'symposium.php' == $template_name ) {
-			wp_enqueue_style( 'bs-select', 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css', array(), null );
+			wp_enqueue_style( 'bs-select', 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css', array(), null );
 			wp_enqueue_script( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array(), '', true );
-			wp_enqueue_script( 'bs-select', 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js', array( 'jquery' ), '', true );
-			wp_enqueue_script( 'scotch-panels', get_stylesheet_directory_uri() . '/node_modules/scotch-panels/dist/scotchPanels.min.js', array( 'jquery' ), '', true );
+			wp_enqueue_script( 'bs-select', 'https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js', array( 'jquery' ), '', true );
+			// wp_enqueue_script( 'scotch-panels', get_stylesheet_directory_uri() . '/node_modules/scotch-panels/dist/scotchPanels.min.js', array( 'jquery' ), '', true );
 			wp_enqueue_script( 'furi-symposium', get_stylesheet_directory_uri() . '/js/custom-symposium.js', array( 'jquery' ), $theme_version, true );
 		}
 
