@@ -166,6 +166,13 @@
 	}
 }
 
+@include media-breakpoint-down($sm) {
+	#featured-mentors .mentor {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
 /*--------------------------------------------------------------
 5. Featured project carousel
 --------------------------------------------------------------*/
