@@ -12,7 +12,7 @@ $web_url = get_field( 'sponsor_url', $term);
 
 <div class="wrapper" id="page-wrapper">
 
-	<div class="container" id="content">
+	<div id="content">
 
 		<main class="site-main" id="main">
 
@@ -82,11 +82,11 @@ $web_url = get_field( 'sponsor_url', $term);
 						</div>
 					</div>
 				</div>
-			
+
 				<section class="related-projects">
 					<div class="container">
 						<div class="row">
-			
+
 							<?php
 
 							while ( $relatedprojects->have_posts() ) :
@@ -126,17 +126,17 @@ $web_url = get_field( 'sponsor_url', $term);
 										</div>
 									</div>
 								</div>
-			
+
 								<?php
 
 							endwhile;
 
 							?>
-			
+
 						</div><!-- end .row -->
 					</div><!-- end .container -->
 				</section><!-- end #related-projects-->
-			
+
 				<?php
 
 			endif;
@@ -146,7 +146,7 @@ $web_url = get_field( 'sponsor_url', $term);
 
 	</div><!-- end #main -->
 
-</div><!-- Container end -->
+</div><!-- #content end -->
 
 </div><!-- Wrapper end -->
 
