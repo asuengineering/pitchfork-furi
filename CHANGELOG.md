@@ -7,6 +7,12 @@ CHANGELOG implemented as of Oct 2023 after several released versions of this chi
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.0.1
+
+This minor release adds styles to various blocks and page templates for better mobile display. It also includes one additional bug fix.
+
+- FIX: Address compatability issue with select boxes within `/expo` page template and Bootstrap 5.3.2. Updated [Bootstrap Select](https://developer.snapappointments.com/bootstrap-select/) package to current beta version for best results.
+
 ### Version 1.0
 
 - FIX: Address PHP warning for missing index in `snapshot-footer.php`
