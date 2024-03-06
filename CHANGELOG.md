@@ -7,6 +7,10 @@ CHANGELOG implemented as of Oct 2023 after several released versions of this chi
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.0.2
+
+- FIX: This minor release removes two page archives for `furiproject` and `participant` which are not really helpful for navigating the contents of the site.
+
 ### Version 1.0.1
 
 This minor release adds styles to various blocks and page templates for better mobile display. It also includes one additional bug fix.
