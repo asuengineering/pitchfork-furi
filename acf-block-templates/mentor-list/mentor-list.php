@@ -37,6 +37,7 @@ $query = new WP_Query($args);
 
  // Array to store matched terms
 $asurite_array = array();
+$termlink_array = array();
 $missing_ids = array();
 
  // The Loop
@@ -55,6 +56,7 @@ if ($query->have_posts()) {
 				$mentor_asurite = get_field( '_mentor_asurite', $mentor );
 				if (! empty($mentor_asurite)) {
 					$asurite_array[] = $mentor_asurite;
+					$termlink_array[$mentor_asurite] = get_term_link($mentor);
 				} else {
 					$missing_ids[] = $mentor->name;
 				}
@@ -79,25 +81,49 @@ if ($query->have_posts()) {
 
 echo '<div class="uds-profile-grid col-four">';
 
-$asurite = implode(',' , array_unique($asurite_array));
+$asurite_query = implode(',' , array_unique($asurite_array));
 // do_action('qm/debug', $asurite);
 // do_action('qm/debug', $missing_ids);
+// do_action('qm/debug', $termlink_array);
 
-$api_query = get_asu_search_profile_results($asurite);
+$api_query = get_asu_search_profile_results($asurite_query);
 $profiles = $api_query->results;
-do_action('qm/debug', $profiles);
+// do_action('qm/debug', $profiles);
+
+// Alphabetize the returned results prior to looping through.
+usort($profiles, function($a, $b) {
+    // Compare last names first
+    $lastNameComparison = strcmp($a->display_last_name->raw, $b->display_last_name->raw);
+
+    // If last names are the same, compare by first name
+    if ($lastNameComparison === 0) {
+        return strcmp($a->first_name->raw, $b->first_name->raw);
+    }
+
+    return $lastNameComparison;
+});
 
 foreach ($profiles as $profile) {
-	echo '<div class="uds-person-profile is-style-vertical">';
 
-	echo '<div class="profile-img-container"><div class="profile-img-placeholder">';
-	echo '<img src="' . $profile->photo_url->raw . '" class="profile-img" alt="Portrait of ' . $profile->display_name->raw . '" decoding="async" loading="lazy">';
-	echo '</div></div>';
+	$asurite 		= $profile->asurite_id->raw;
+	$displayname 	= $profile->display_name->raw ?? '';
+	$dept			= $profile->primary_department->raw ?? '';
 
-	// echo pfpeople_disply_profile_image($profile, true);
-	echo pfpeople_card_displayname($profile, 'vertical');
-	echo pfpeople_card_email_only( $profile );
-	echo '</div>';
+	$person = '<div class="uds-person-profile is-style-vertical"><div class="acf-innerblocks-container">';
+
+	$person .= '<div class="profile-img-container"><div class="profile-img-placeholder">';
+	$person .= '<img src="' . $profile->photo_url->raw . '?blankImage2=1" class="profile-img" alt="Portrait of ' . $profile->display_name->raw . '" decoding="async" loading="lazy">';
+	$person .= '</div></div>';
+
+	$person .= '<h3 class="person-name"><a href="' . $termlink_array[$asurite] . '">' . $displayname . '</a></h3>';
+
+	if ( ! empty ( $dept )) {
+		$person .= '<p class="person-dept"><strong>' . $dept . '</strong></p>';
+	}
+
+	$person .= '</div></div>';
+
+	echo $person;
 }
 
 echo '</div>';
