@@ -68,3 +68,4 @@ dist
 dist-product
 npm-debug.log
 .phpcs-cache
+/languages
