@@ -1,0 +1,26 @@
+{
+	"name": "acf/mentor-list",
+	"title": "Mentor List",
+	"description": "Produces a list of faculty mentors associated with the Forge program.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"mentors",
+		"faculty"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "mentor-list.php"
+	},
+	"supports": {
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"align": false,
+		"color": {
+			"background": false,
+			"text": false,
+			"link": false
+		}
+	}
+}

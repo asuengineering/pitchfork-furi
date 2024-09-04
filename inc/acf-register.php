@@ -40,6 +40,7 @@ function pitchfork_furi_register_blocks() {
 		'home-research-themes',
 		'home-snapshot-current',
 		'home-sponsored-projects',
+		'mentor-list'
 	);
 
 	foreach ($paths as $path) {

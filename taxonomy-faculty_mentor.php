@@ -15,7 +15,7 @@ function get_isearch_data($term_id) {
 	// Get Search data from ASURITE ID field.
 	$mentor_asurite = get_field( '_mentor_asurite', $term_id );
 	if (! empty( $mentor_asurite )) {
-		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff/filtered?asurite_ids=' . $mentor_asurite . '&size=1&client=fse_furl';
+		$search_json = 'https://search.asu.edu/api/v1/webdir-profiles/faculty-staff/filtered?asurite_ids=' . $mentor_asurite . '&size=1&client=fse_forge';
 
 		$search_request = wp_safe_remote_get( $search_json );
 
