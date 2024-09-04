@@ -3,14 +3,76 @@
     "title": "BLOCK: Mentor List",
     "fields": [
         {
+            "key": "field_66d8b07422b54",
+            "label": "Number of columns",
+            "name": "furl_mentorlist_columns",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "two-col": "2 columns",
+                "three-col": "3 columns",
+                "four-col": "4 columns"
+            },
+            "default_value": "two-col",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_66d8b15222b55",
+            "label": "Which faculty mentors?",
+            "name": "furi_mentorlist_display_options",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "current": "From the current expo",
+                "terms": "From a specific expo",
+                "ready": "\"Ready to Mentor\" status"
+            },
+            "default_value": "current",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_66d1017926a09",
-            "label": "Which symposium?",
+            "label": "Which expo?",
             "name": "furi_mentorlist_select_expo",
             "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66d8b15222b55",
+                        "operator": "==",
+                        "value": "terms"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -47,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724973599
+    "modified": 1725478178
 }
