@@ -17,105 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5fb563dadd9d0",
-            "label": "Featured Mentor Program",
-            "name": "_mentor_featured_program",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "presentation_type",
-            "field_type": "select",
-            "allow_null": 1,
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "object",
-            "multiple": 0
-        },
-        {
-            "key": "field_5f88d3ff02646",
-            "label": "Custom Profile Photo",
-            "name": "_mentor_acf_thumbnail",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "Images uploaded here will override the default iSearch profile image for the faculty member.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_605cf45eb5712",
-            "label": "Use Quote or Profile",
-            "name": "_mentor_use_quote_yn",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "The display of this featured mentor information can either show a formatted blockquote or the contents of a related post. Effects the display on both the featured mentor block (home page) and the featured mentor page.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Quote",
-            "ui_off_text": "Post"
-        },
-        {
-            "key": "field_6307e44d777f4",
-            "label": "Email address (legacy)",
-            "name": "_mentor_email",
-            "aria-label": "",
-            "type": "email",
-            "instructions": "All demographic data for faculty members is sourced from ASU Search which returns results based on an email address. Returned data includes a profile image, current school affiliation, a small bio and social\/web links.",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_64064d5e3be01",
-                        "operator": "!=empty"
-                    },
-                    {
-                        "field": "field_64064d5e3be01",
-                        "operator": "==empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64064d5e3be01",
@@ -138,6 +41,81 @@
             "append": ""
         },
         {
+            "key": "field_66da0a489beb0",
+            "label": "Ready to mentor?",
+            "name": "_mentor_ready_yn",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Marks this faculty member as \"ready to mentor\" in their profile page. Their profile will also appear in the \"ready to mentor\" faculty block when this status is enabled.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "True",
+            "ui_off_text": "False",
+            "ui": 1
+        },
+        {
+            "key": "field_5fb563dadd9d0",
+            "label": "Featured Mentor Program",
+            "name": "_mentor_featured_program",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Selection of a program establishes this mentor as a featured mentor and enables further controls for displaying that information on their profile.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "presentation_type",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 1,
+            "allow_in_bindings": 1,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_605cf45eb5712",
+            "label": "Use Quote or Profile",
+            "name": "_mentor_use_quote_yn",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "The display of this featured mentor information can either show a formatted blockquote or the contents of a related post. Effects the display on both the featured mentor block (home page) and the featured mentor page.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fb563dadd9d0",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "allow_in_bindings": 1,
+            "ui_on_text": "Quote",
+            "ui_off_text": "Post",
+            "ui": 1
+        },
+        {
             "key": "field_605cf3c1b5710",
             "label": "Featured Quote",
             "name": "",
@@ -151,6 +129,10 @@
                         "field": "field_605cf45eb5712",
                         "operator": "==",
                         "value": "1"
+                    },
+                    {
+                        "field": "field_5fb563dadd9d0",
+                        "operator": "!=empty"
                     }
                 ]
             ],
@@ -160,7 +142,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6182cd2f2645f",
@@ -221,7 +204,8 @@
             "allow_null": 1,
             "multiple": 0,
             "return_format": "object",
-            "ui": 1
+            "ui": 1,
+            "bidirectional_target": []
         },
         {
             "key": "field_5fb563addd9cf",
@@ -291,6 +275,10 @@
                         "field": "field_605cf45eb5712",
                         "operator": "!=",
                         "value": "1"
+                    },
+                    {
+                        "field": "field_5fb563dadd9d0",
+                        "operator": "!=empty"
                     }
                 ]
             ],
@@ -300,7 +288,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6182cd6d26460",
@@ -343,7 +332,125 @@
             "allow_null": 1,
             "multiple": 0,
             "return_format": "object",
-            "ui": 1
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_66da0b329beb1",
+            "label": "Ready to Mentor",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66da0a489beb0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66da0c0e1b9eb",
+            "label": "Ready mentor message",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "This information is added to the bottom of the faculty profile to emphasize the research areas and programs for which they are looking to be mentor.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_66db4c26035f4",
+            "label": "Mentor for which project types?",
+            "name": "_mentor_ready_project_type",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "research_theme",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_66db77fbf265d",
+            "label": "Mentor for which programs?",
+            "name": "_mentor_ready_programs",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "presentation_type",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_66da0b489beb2",
+            "label": "Ready to mentor description",
+            "name": "_mentor_ready_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Line breaks will result in new paragraph tags within the displayed text. Basic HTML formatting tags are also supported. Uses kses_post() as the filter.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 5,
+            "placeholder": "",
+            "new_lines": "wpautop"
         }
     ],
     "location": [
@@ -364,5 +471,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678138336
+    "modified": 1725663219
 }

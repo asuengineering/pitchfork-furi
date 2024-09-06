@@ -29,7 +29,7 @@ function get_isearch_data($term_id) {
 
 		if ( ! empty( $search_data ) ) {
 			$path = $search_data->results[0];
-			do_action('qm/debug', $path);
+			// do_action('qm/debug', $path);
 
 			$output['photo'] = $path->photo_url->raw;
 			$output['bio'] = wp_kses_post($path->bio->raw);
@@ -125,7 +125,7 @@ function get_isearch_data($term_id) {
 
 	}
 
-	do_action('qm/debug', $output);
+	// do_action('qm/debug', $output);
 	return $output;
 }
 
@@ -139,22 +139,22 @@ $demos = get_isearch_data($term);
 		<div class="row">
 
 			<?php
-			$portrait = '';
 
-			// Uploaded image from the FURI website overrides default Search portrait.
+			$portrait = '';
+			$mentor_ready = get_field( '_mentor_ready_yn', $term );
+
 			// Check if Search has an image for us and if it's available for display.
 			if (! empty( $demos['photo'])) {
 
-				$portrait = '<img class="isearch-image img-fluid" src="' . $demos['photo'] . '" alt="Portrait of ' . get_queried_object()->term_name . '"/>';
-				$portrait = '<div class="col-md-3">' . $portrait . '</div>';
+				$portrait = '<div class="image-col col-md-3">';
 
-			}
+				if ($mentor_ready) {
+					$portrait .= '<img class="isearch-image mentor-ready img-fluid" ';
+				} else {
+					$portrait .= '<img class="isearch-image img-fluid" ';
+				}
 
-			// There's been a photo uploaded. Overwrite the variable and use it instead.
-			$portrait_acf = get_field( '_mentor_acf_thumbnail', $term );
-			if ( ! empty( $portrait_acf )) {
-				$portrait = '<img class="acf-image img-fluid" src="' . $portrait_acf . '" alt="Portrait of ' . get_queried_object()->term_name . '"/>';
-				$portrait = '<div class="col-md-4">' . $portrait . '</div>';
+				$portrait .= 'src="' . $demos['photo'] . '" alt="Portrait of ' . get_queried_object()->term_name . '"/></div>';
 			}
 
 			// As long as we have something in $portrait, output the scaffolding + the image.
@@ -229,7 +229,52 @@ $demos = get_isearch_data($term);
 				echo '<div class="info-bar">' . $isearch_btn . $email_btn . $socialbar . '</div>';
 			}
 
+			// echo mentor ready description if status is set.
+			if ($mentor_ready) {
 
+				$mentor_ready_desc = get_field( '_mentor_ready_description', $term );
+				$mentor_ready_types = get_field( '_mentor_ready_project_type', $term );
+				$mentor_ready_programs = get_field( '_mentor_ready_programs', $term );
+
+				if ( (! empty ($mentor_ready_desc)) || (! empty ($mentor_ready_types)) || (! empty ($mentor_ready_programs)) ) {
+
+					$mentor_ready_text = '<h2 class="mentor-ready-heading"><span class="highlight-gold">Ready to mentor</span></h2><div class="mentor-ready-details">';
+
+					if ( ! empty ($mentor_ready_types)) {
+						$theme_link = '<div class="ready-themes"><h4>Research Themes:</h4>';
+
+						foreach ($mentor_ready_types as $theme) {
+							$theme_icon = get_field( 'researchtheme_icon', $theme );
+							$theme_link .= '<a class="themeicon" href="' . get_term_link($theme) . '">';
+							$theme_link .= '<img src="' . esc_url($theme_icon['url']) . '" alt=' . esc_attr($theme_icon['alt']) . '" /></a>';
+						}
+
+						$theme_link .= '</div>';
+						$mentor_ready_text .= $theme_link;
+					}
+
+					do_action('qm/debug', $mentor_ready_programs);
+					if ( ! empty ($mentor_ready_programs)) {
+
+						$prog_links = '<div class="ready-programs"><h4>Programs:</h4>';
+
+						foreach ($mentor_ready_programs as $prog) {
+							$prog_links .= '<h4 class="program"><a href="' . get_term_link($prog) . '">' . $prog->name . '</a></h4>';
+						}
+
+						$prog_links .= '</div>';
+						$mentor_ready_text .= $prog_links;
+					}
+
+					$mentor_ready_text .= '</div>';
+
+					if (! empty ($mentor_ready_desc)) {
+						$mentor_ready_text .= '<div class="mentor-ready-text">' . $mentor_ready_desc . '</div>';
+					}
+
+					echo $mentor_ready_text;
+				}
+			}
 			?>
 
 			</div>

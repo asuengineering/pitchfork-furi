@@ -17,6 +17,10 @@ Taxonomy Term Page: Industry Sponsor
 			object-fit: cover;
 			width: 250px;
 			height: 250px;
+
+			&.mentor-ready {
+				border: 8px solid $uds-color-base-gold;
+			}
 		}
 
 		.acf-image {
@@ -53,86 +57,131 @@ Taxonomy Term Page: Industry Sponsor
 					}
 				}
 			}
+
+
+		}
+
+		.mentor-ready-heading {
+			margin-top: 6rem;
+			margin-bottom: .5rem;
+		}
+
+		.mentor-ready-details,
+		.ready-themes,
+		.ready-programs {
+			display: flex;
+			align-items: center;
+		}
+
+		.mentor-ready-details {
+			gap: 4rem;
+			margin-bottom: 1rem;
+		}
+
+		.ready-themes h4,
+		.ready-programs h4 {
+			margin-right: 1rem;
+		}
+
+		.ready-themes a img {
+			height: 3em;
+			width: auto;
 		}
 	}
+}
 
-	#quote-content {
-		.uds-blockquote {
-			background-color: $uds-color-base-gray-1;
-			border: 1px solid $uds-color-base-gray-2;
-			margin-bottom: $uds-size-spacing-4;
+@include media-breakpoint-down($md) {
+	.tax-faculty_mentor #page-header {
+
+		.mentor-ready-details {
+			flex-direction: column;
+			gap: 0;
+			align-items: flex-start;
+		}
+
+		.ready-programs h4 {
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 	}
+}
 
-	#blog-post-excerpt {
-		.post-teaser-box {
-			background-color: $uds-color-base-gray-7;
-			color: #ffffff;
-			border: 1px solid $uds-color-base-gray-2;
-			padding: $uds-size-spacing-4;
-			margin: $uds-size-spacing-6 0 $uds-size-spacing-4 0;
-			position: relative;
-
-			h3 {
-				background-color: $uds-color-base-gold;
-				color: $uds-color-base-gray-7;
-				font-weight: 700;
-				display: inline-block;
-				padding: 0.5rem 1rem;
-				margin: 0;
-				height: 40px;
-				position: absolute;
-				top: -1.5rem;
-			}
-
-			.lead a {
-				// Removes native read more link.
-				display: none;
-			}
-
-			.read-more-button {
-				text-align: right;
-			}
-		}
+#quote-content {
+	.uds-blockquote {
+		background-color: $uds-color-base-gray-1;
+		border: 1px solid $uds-color-base-gray-2;
+		margin-bottom: $uds-size-spacing-4;
 	}
+}
 
-	#content {
-		margin-bottom: 4rem;
+#blog-post-excerpt {
+	.post-teaser-box {
+		background-color: $uds-color-base-gray-7;
+		color: #ffffff;
+		border: 1px solid $uds-color-base-gray-2;
+		padding: $uds-size-spacing-4;
+		margin: $uds-size-spacing-6 0 $uds-size-spacing-4 0;
+		position: relative;
 
-		.social-icons {
-			padding: 0;
+		h3 {
+			background-color: $uds-color-base-gold;
+			color: $uds-color-base-gray-7;
+			font-weight: 700;
+			display: inline-block;
+			padding: 0.5rem 1rem;
 			margin: 0;
+			height: 40px;
+			position: absolute;
+			top: -1.5rem;
+		}
 
-			li {
-				list-style-type: none;
-				display: inline;
-				margin-left: 1rem;
-				font-size: 32px;
-			}
+		.lead a {
+			// Removes native read more link.
+			display: none;
+		}
 
-			a:visited {
-				color: $uds-color-base-maroon;
-			}
+		.read-more-button {
+			text-align: right;
 		}
 	}
+}
 
-	.related-projects {
-		background-color: $uds-color-base-gray-2;
-		padding: 4rem 0;
+#content {
+	margin-bottom: 4rem;
 
-		.col-md-4 {
-			margin-bottom: 2rem;
+	.social-icons {
+		padding: 0;
+		margin: 0;
+
+		li {
+			list-style-type: none;
+			display: inline;
+			margin-left: 1rem;
+			font-size: 32px;
+		}
+
+		a:visited {
+			color: $uds-color-base-maroon;
 		}
 	}
+}
 
-	.related-projects+.section-head {
-		background-color: $uds-color-base-gray-2;
-	}
+.related-projects {
+	background-color: $uds-color-base-gray-2;
+	padding: 4rem 0;
 
-	#snapshot-global-title,
-	#snapshot-global {
-		display: none;
+	.col-md-4 {
+		margin-bottom: 2rem;
 	}
+}
+
+.related-projects+.section-head {
+	background-color: $uds-color-base-gray-2;
+}
+
+#snapshot-global-title,
+#snapshot-global {
+	display: none;
 }
 
 .tax-faculty_mentor {
