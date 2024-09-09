@@ -154,7 +154,7 @@ $demos = get_isearch_data($term);
 					$portrait .= '<img class="isearch-image img-fluid" ';
 				}
 
-				$portrait .= 'src="' . $demos['photo'] . '" alt="Portrait of ' . get_queried_object()->term_name . '"/></div>';
+				$portrait .= 'src="' . $demos['photo'] . '?blankImage2=1" alt="Portrait of ' . get_queried_object()->term_name . '"/></div>';
 			}
 
 			// As long as we have something in $portrait, output the scaffolding + the image.
