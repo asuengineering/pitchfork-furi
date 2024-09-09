@@ -11,17 +11,39 @@ if ( $mentors ) {
 
     echo '<section id="featured-mentors">';
 
+
+	/**
+	 * First foreach loop gathers ASURITE IDs from the WP Term objects returned by ACF.
+	 * Then, call the ASU Search API once for all people in the block
+	 * A second foreach loop cycles through the returned API data to build the <img> profile image markup.
+	 */
+
+	$asurite_array = array();
+	$mentor_photos = array();
+
+	foreach ($mentors as $mentor_asurite) {
+		$mentorID = get_field( '_mentor_asurite', $mentor_asurite );
+		$asurite_array[] = $mentorID;
+	}
+
+	$asurite_query = implode(',' , array_unique($asurite_array));
+	$api_query = get_asu_search_profile_results($asurite_query);
+	$profiles = $api_query->results;
+
+	foreach ($profiles as $profile) {
+		$mentor_photos[$profile->asurite_id->raw] = '<img src="' . $profile->photo_url->raw . '?blankImage2=1" class="profile-img img-fluid" alt="Portrait of ' . $profile->display_name->raw . '" decoding="async" loading="lazy">';
+	}
+
+	// Uses $mentor_photos profile image array to output the results.
     foreach ($mentors as $mentor) {
 
         $mentorprogram = get_field( '_mentor_featured_program', $mentor );
-        $mentorimage = get_field( '_mentor_acf_thumbnail', $mentor );
+		$mentor_asurite = get_field( '_mentor_asurite', $mentor );
 
         echo '<div class="mentor">';
         echo '<h3><a href="'. get_term_link($mentor) . '" title="' . esc_html( $mentor->name ). '">' . esc_html( $mentor->name ) . '</a>, featured ' . esc_html( $mentorprogram->name ) . ' mentor</h3>';
 
-        if ( ! empty( $mentorimage ) ) {
-            echo '<img class="img-fluid" src="' . esc_html( $mentorimage ) . '" alt="' . esc_html( $mentor->name ) . '" />';
-        }
+		echo $mentor_photos[$mentor_asurite];
 
         // Which content should be displayed? The quote or the post?
         $mentor_use_quote = get_field( '_mentor_use_quote_yn', $mentor );
