@@ -8,9 +8,6 @@
  * @package pitchfork-furi
  */
 
-// Load selected values from block.
-$expodate = get_field('furi_mentorlist_select_expo');
-
 /**
  * Query loop to gather projects associated with the given symposium dates
  * Return associated faculty mentors from that query as array of ASURITE IDs
@@ -18,116 +15,130 @@ $expodate = get_field('furi_mentorlist_select_expo');
  * Output Names + profile details + images + possibly school affiliation
  */
 
-// WP_Query arguments
+// Gather term names from ACF, Overwrite with current expo terms if necessary.
+$termlist = get_field('furi_mentorlist_select_expo');
+$display = get_field('furi_mentorlist_display_options');
+if ( 'current' == $display ) {
+	$current_terms = get_active_symposium_terms();
+	$termlist = implode(',', $current_terms);
+}
+
 $args = array(
 	'post_type' => 'furiproject',
 	'tax_query' => array(
 		array(
 		'taxonomy' => 'symposium_date',
 		'field'    => 'term_id',
-		'terms'    => $expodate,
+		'terms'    => $termlist,
 		'operator' => 'IN',
 		),
 	),
 );
 
- // The Query
-$query = new WP_Query($args);
-// do_action('qm/debug', $query);
+ // The Query. Only executed if the term list has something within it.
+if (empty ($termlist)) {
 
- // Array to store matched terms
-$asurite_array = array();
-$termlink_array = array();
-$missing_ids = array();
-
- // The Loop
-if ($query->have_posts()) {
-	while ($query->have_posts()) {
-		$query->the_post();
-
-		 // Get the terms associated with the current post from the "faculty_mentors" taxonomy
-		$faculty_mentor = wp_get_post_terms(get_the_ID(), 'faculty_mentor');
-
-		 // Check if there are any terms returned
-		if (!empty($faculty_mentor) && !is_wp_error($faculty_mentor)) {
-			foreach ($faculty_mentor as $mentor) {
-
-				// Reference ACF field for ASURITE IDs for faculty mentors.
-				$mentor_asurite = get_field( '_mentor_asurite', $mentor );
-				if (! empty($mentor_asurite)) {
-					$asurite_array[] = $mentor_asurite;
-					$termlink_array[$mentor_asurite] = get_term_link($mentor);
-				} else {
-					$missing_ids[] = $mentor->name;
-				}
-
-			}
-		}
-
-		 // Do other things with your post here, like displaying it
-		 // Example: the_title();
-	}
+	// Don't run the query unless there are terms available.
+	echo '<div class="mentor-list-warning"><h3>No terms selected.</h3>';
+	echo '<p class="lead">Please select an expo date from the sidebar.</p></div>';
 
 } else {
 
-	// No posts found
+	$query = new WP_Query($args);
+	// do_action('qm/debug', $query);
 
-}
+	// Array to store matched terms
+	$asurite_array = array();
+	$termlink_array = array();
+	$missing_ids = array();
 
-/**
- * Call Search API and retrieve object which includes profile details.
- * Uses functions from Pitchfork People, so this creates a dependency for production.
-*/
+	// The Loop
+	if ($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
 
-echo '<div class="uds-profile-grid col-four">';
+			// Get the terms associated with the current post from the "faculty_mentors" taxonomy
+			$faculty_mentor = wp_get_post_terms(get_the_ID(), 'faculty_mentor');
 
-$asurite_query = implode(',' , array_unique($asurite_array));
-// do_action('qm/debug', $asurite);
-// do_action('qm/debug', $missing_ids);
-// do_action('qm/debug', $termlink_array);
+			// Check if there are any terms returned
+			if (!empty($faculty_mentor) && !is_wp_error($faculty_mentor)) {
+				foreach ($faculty_mentor as $mentor) {
 
-$api_query = get_asu_search_profile_results($asurite_query);
-$profiles = $api_query->results;
-// do_action('qm/debug', $profiles);
+					// Reference ACF field for ASURITE IDs for faculty mentors.
+					$mentor_asurite = get_field( '_mentor_asurite', $mentor );
+					if (! empty($mentor_asurite)) {
+						$asurite_array[] = $mentor_asurite;
+						$termlink_array[$mentor_asurite] = get_term_link($mentor);
+					} else {
+						$missing_ids[] = $mentor->name;
+					}
 
-// Alphabetize the returned results prior to looping through.
-usort($profiles, function($a, $b) {
-    // Compare last names first
-    $lastNameComparison = strcmp($a->display_last_name->raw, $b->display_last_name->raw);
+				}
+			}
 
-    // If last names are the same, compare by first name
-    if ($lastNameComparison === 0) {
-        return strcmp($a->first_name->raw, $b->first_name->raw);
-    }
+			// Do other things with your post here, like displaying it
+			// Example: the_title();
+		}
 
-    return $lastNameComparison;
-});
+	} else {
+		// No posts found
 
-foreach ($profiles as $profile) {
-
-	$asurite 		= $profile->asurite_id->raw;
-	$displayname 	= $profile->display_name->raw ?? '';
-	$dept			= $profile->primary_department->raw ?? '';
-
-	$person = '<div class="uds-person-profile is-style-vertical"><div class="acf-innerblocks-container">';
-
-	$person .= '<div class="profile-img-container"><div class="profile-img-placeholder">';
-	$person .= '<img src="' . $profile->photo_url->raw . '?blankImage2=1" class="profile-img" alt="Portrait of ' . $profile->display_name->raw . '" decoding="async" loading="lazy">';
-	$person .= '</div></div>';
-
-	$person .= '<h3 class="person-name"><a href="' . $termlink_array[$asurite] . '">' . $displayname . '</a></h3>';
-
-	if ( ! empty ( $dept )) {
-		$person .= '<p class="person-dept"><strong>' . $dept . '</strong></p>';
 	}
 
-	$person .= '</div></div>';
+	/**
+	 * Call Search API and retrieve object which includes profile details.
+	 * Uses functions from Pitchfork People, so this creates a dependency for production.
+	*/
 
-	echo $person;
+	echo '<div class="uds-profile-grid col-four">';
+
+	$asurite_query = implode(',' , array_unique($asurite_array));
+	// do_action('qm/debug', $asurite);
+	// do_action('qm/debug', $missing_ids);
+	// do_action('qm/debug', $termlink_array);
+
+	$api_query = get_asu_search_profile_results($asurite_query);
+	$profiles = $api_query->results;
+	// do_action('qm/debug', $profiles);
+
+	// Alphabetize the returned results prior to looping through.
+	usort($profiles, function($a, $b) {
+		// Compare last names first
+		$lastNameComparison = strcmp($a->display_last_name->raw, $b->display_last_name->raw);
+
+		// If last names are the same, compare by first name
+		if ($lastNameComparison === 0) {
+			return strcmp($a->first_name->raw, $b->first_name->raw);
+		}
+
+		return $lastNameComparison;
+	});
+
+	foreach ($profiles as $profile) {
+
+		$asurite 		= $profile->asurite_id->raw;
+		$displayname 	= $profile->display_name->raw ?? '';
+		$dept			= $profile->primary_department->raw ?? '';
+
+		$person = '<div class="uds-person-profile is-style-vertical"><div class="acf-innerblocks-container">';
+
+		$person .= '<div class="profile-img-container"><div class="profile-img-placeholder">';
+		$person .= '<img src="' . $profile->photo_url->raw . '?blankImage2=1" class="profile-img" alt="Portrait of ' . $profile->display_name->raw . '" decoding="async" loading="lazy">';
+		$person .= '</div></div>';
+
+		$person .= '<h3 class="person-name"><a href="' . $termlink_array[$asurite] . '">' . $displayname . '</a></h3>';
+
+		if ( ! empty ( $dept )) {
+			$person .= '<p class="person-dept"><strong>' . $dept . '</strong></p>';
+		}
+
+		$person .= '</div></div>';
+
+		echo $person;
+	}
+
+	echo '</div>';
+
 }
-
-echo '</div>';
-
-
 
 

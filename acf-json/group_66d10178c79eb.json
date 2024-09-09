@@ -45,8 +45,7 @@
             },
             "choices": {
                 "current": "From the current expo",
-                "terms": "From a specific expo",
-                "ready": "\"Ready to Mentor\" status"
+                "terms": "From a specific expo"
             },
             "default_value": "current",
             "return_format": "value",
@@ -109,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1725478178
+    "modified": 1725919762
 }
