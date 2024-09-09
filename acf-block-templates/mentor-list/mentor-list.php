@@ -38,9 +38,13 @@ $args = array(
  // The Query. Only executed if the term list has something within it.
 if (empty ($termlist)) {
 
-	// Don't run the query unless there are terms available.
-	echo '<div class="mentor-list-warning"><h3>No terms selected.</h3>';
-	echo '<p class="lead">Please select an expo date from the sidebar.</p></div>';
+	if ( $is_preview ) {
+		// Show a warning to the logged in user. Display nothing if on the front end.
+		echo '<div class="mentor-list-warning"><h3>No terms selected.</h3>';
+		echo '<p class="lead">Please select an expo date from the sidebar.</p></div>';
+	} else {
+		// Silence is golden.
+	}
 
 } else {
 
