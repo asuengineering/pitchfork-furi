@@ -5,7 +5,7 @@
         {
             "key": "field_66d8b07422b54",
             "label": "Number of columns",
-            "name": "furl_mentorlist_columns",
+            "name": "furi_mentorlist_columns",
             "aria-label": "",
             "type": "radio",
             "instructions": "",
@@ -17,9 +17,9 @@
                 "id": ""
             },
             "choices": {
-                "two-col": "2 columns",
-                "three-col": "3 columns",
-                "four-col": "4 columns"
+                "col-two": "2 columns",
+                "col-three": "3 columns",
+                "col-four": "4 columns"
             },
             "default_value": "two-col",
             "return_format": "value",
@@ -108,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1725919762
+    "modified": 1725924974
 }

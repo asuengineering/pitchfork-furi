@@ -94,16 +94,13 @@ if (empty ($termlist)) {
 	 * Uses functions from Pitchfork People, so this creates a dependency for production.
 	*/
 
-	echo '<div class="uds-profile-grid col-four">';
+	$columns = get_field('furi_mentorlist_columns');
+	echo '<div class="uds-profile-grid ' . $columns . '">';
 
 	$asurite_query = implode(',' , array_unique($asurite_array));
-	// do_action('qm/debug', $asurite);
-	// do_action('qm/debug', $missing_ids);
-	// do_action('qm/debug', $termlink_array);
 
 	$api_query = get_asu_search_profile_results($asurite_query);
 	$profiles = $api_query->results;
-	// do_action('qm/debug', $profiles);
 
 	// Alphabetize the returned results prior to looping through.
 	usort($profiles, function($a, $b) {
