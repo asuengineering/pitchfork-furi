@@ -361,3 +361,58 @@
 	min-height: 550px;
 
 }
+
+// Mentor Ready List block
+.uds-profile-grid .uds-person-profile.ready-mentor {
+
+	.profile-img-container {
+		width: 160px;
+
+		.profile-img-placeholder {
+			height: 160px;
+			width: 160px;
+		}
+
+		img.profile-img {
+			border: 4px solid $uds-color-base-gold;
+			height: 160px;
+			width: 160px;
+		}
+	}
+
+	.person-dept {
+		margin-bottom: 0;
+	}
+
+	.interests {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		margin-bottom: $uds-size-spacing-2;
+
+		p {
+			margin-right: $uds-size-spacing-2;
+			margin-bottom: 0;
+		}
+
+		.themeicon {
+			margin-right: $uds-size-spacing-1;
+
+			img {
+				height: 2em;
+				width: auto;
+			}
+		}
+
+		.program {
+			margin-right: $uds-size-spacing-1;
+
+			&:last-child {
+				margin-right: $uds-size-spacing-3;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down($md) {}

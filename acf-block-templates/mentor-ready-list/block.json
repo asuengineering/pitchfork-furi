@@ -1,0 +1,26 @@
+{
+	"name": "acf/mentor-ready-list",
+	"title": "Mentor Ready List",
+	"description": "Renders a list of faculty mentors flagged as ready to mentor.",
+	"category": "pitchfork-furi",
+	"keywords": [
+		"mentors",
+		"faculty"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "mentor-ready-list.php"
+	},
+	"supports": {
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"align": false,
+		"color": {
+			"background": false,
+			"text": false,
+			"link": false
+		}
+	}
+}

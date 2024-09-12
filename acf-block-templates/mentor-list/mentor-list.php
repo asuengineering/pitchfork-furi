@@ -18,6 +18,7 @@
 // Gather term names from ACF, Overwrite with current expo terms if necessary.
 $termlist = get_field('furi_mentorlist_select_expo');
 $display = get_field('furi_mentorlist_display_options');
+
 if ( 'current' == $display ) {
 	$current_terms = get_active_symposium_terms();
 	$termlist = implode(',', $current_terms);
