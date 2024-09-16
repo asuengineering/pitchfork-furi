@@ -78,9 +78,25 @@ function create_project_connections( $entry, $form ) {
 	// The created post ids are stored as an array in the entry meta
 	$created_posts = gform_get_meta( $entry['id'], 'gravityformsadvancedpostcreation_post_id' );
 
+	// Log stuff from this submission.
+
+	$log_file = WP_CONTENT_DIR . '/gravity-forms-log.txt'; // Path to the log file
+
+	$form_id = $form['id'];
+	$entry_id = $entry['id'];
+	$created_post_string = print_r($created_posts, true);
+
+	// Format log entry
+	$log_entry = "Form ID: $form_id | Entry ID: $entry_id | Created Posts: $created_post_string " . PHP_EOL;
+
+	// Write log entry to the file
+	file_put_contents($log_file, $log_entry, FILE_APPEND);
+
+	/// Normal code from here forward.
+
 	// Count the number of things in the array.
 	if ( count( $created_posts ) > 1 ) {
-		// Greater than one item in the array means it created a project & a person.
+		// Greater than one item in the array means it created a project & za person.
 		// Get both items in the array and create a connection.
 		$from = $created_posts[0]['post_id'];
 		$to = $created_posts[1]['post_id'];
