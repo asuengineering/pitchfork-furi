@@ -71,34 +71,52 @@ function furi_abstract_assign_misc_data($post_id, $feed, $entry, $form) {
 
 // Create participant_to_project connections after post submission.
 // ===============================================
-add_action( 'gform_advancedpostcreation_post_after_creation_1', 'create_project_connections', 10, 2 );
+add_action( 'gform_advancedpostcreation_post_after_creation_1', 'create_project_connections', 10, 4 );
 function create_project_connections( $post_id, $feed, $entry, $form ) {
 
-	// This function should run either once or twice depending on the logic of the form.
+	// gf_advancedpostcreation()->log_debug( __METHOD__ . "(): Created Posts: " . print_r($created_posts, true));
+	// gf_advancedpostcreation()->log_debug( __METHOD__ . "(): Entry Data: " . print_r($entry, true));
+	// gf_advancedpostcreation()->log_debug( __METHOD__ . "(): Feed: " . print_r($feed, true));
 
-	// All of the created post ids are stored as an array in the entry meta
-	$created_posts = gform_get_meta( $entry['id'], 'gravityformsadvancedpostcreation_post_id' );
+	gf_advancedpostcreation()->log_debug( __METHOD__ . "(): Checking feed to establish posts 2 posts connections.");
 
-	// Testing if the returned value is an array. If not, we can skip everything else here.
-	if (! is_array($created_posts)) {
-		$this->log_debug( __METHOD__ . 'The $created_posts var returned a value of {$created_posts}');
-		return;
-	}
+	/**
+	 * Determine feed ID and process additional instructions conditionally.
+	 * Feed ID=1 is Create New Participant
+	 * Feed ID=2 is Create New Project
+	 *
+	 * Logic: No action needed for new participants.
+	 * If new project, determine if there is data in $entry[5] which is the id of an existing participant.
+	 *  - If found, create a connection between that ID and the new $post_id
+	 *  - If not found, create a connection between the two items found within $created_posts
+	 */
+	if ($feed['id'] == 2 ) {
 
-	// Count the number of things in the array.
-	if ( count( $created_posts ) > 1 ) {
-		// Greater than one item in the array means two post types were created. A project + a person.
-		// Get both items in the array and create a connection.
-		$from = $created_posts[0]['post_id'];
-		$to = $created_posts[1]['post_id'];
-	} else {
-		// The form submission created exactly one post object. It will be a project. Get the id.
-		// Also get the value of the post ID already selected in the form. That's stored in fieldID=5
+		// Assigning to/from values as if there was just a project submitted.
 		$from = $post_id;
 		$to = $entry[5];
-	}
 
-	// Create the connection within post-2-post
-	p2p_type( 'participants_to_projects' )->connect( $from, $to, array( 'date' => current_time( 'mysql' ) ) );
+		// When there's no value in the entry for an additional connected project, assume one has been created.
+		if ( empty($to) ) {
+
+			// All of the created post ids are stored as an array in the entry meta
+			$created_posts = gform_get_meta( $entry['id'], 'gravityformsadvancedpostcreation_post_id' );
+
+			// Still checking if there is more than one item in the $created_posts array due to async processing possibilities.
+			if ( count( $created_posts ) > 1 ) {
+
+				// Overwrite both previous values for to/from with whatever is in the array.
+				// Prevents $from from being duplicated if the processes run out of order.
+				$from = $created_posts[0]['post_id'];
+				$to = $created_posts[1]['post_id'];
+
+			}
+
+		}
+
+		// Create the connection within post-2-post
+		p2p_type( 'participants_to_projects' )->connect( $from, $to, array( 'date' => current_time( 'mysql' ) ) );
+
+	}
 
 }
