@@ -7,6 +7,15 @@ CHANGELOG implemented as of Oct 2023 after several released versions of this chi
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.1
+
+New blocks and new functionality designed to add more details about our faculty mentor profiles were included in this release.
+
+- ADD: A new option was included for faculty mentors to be marked as "ready to mentor" with an additional field in the taxonomy item screen. This new status allows program administrators to highlight new and existing faculty mentors who are looking to enhance their existing profiles (powered by ASU Search) with details about their associated programs as well as their preferred subject matter.
+- ADD: A new block called the `mentor-ready-list` block was created to produce the list of mentors who are in "ready to mentor" status.
+- ADD: A second new block called the `mentor-list` was added to create profile grids of the faculty members associated with projects within various events. The default setting for the block is to display faculty members associated with the currently "active" expo.
+- CHANGE: This release implements build processes associated with the WP Gulp package as opposed to `gulp-wp` to ensure consistency with other ASU Engineering WordPress products. See `README.md` for additional details.
+
 ### Version 1.0.2
 
 - FIX: This minor release removes two page archives for `furiproject` and `participant` which are not really helpful for navigating the contents of the site.
