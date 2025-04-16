@@ -194,29 +194,32 @@ get_header();
 							<?php echo get_project_type_radios( $filterargs, 'presentation_type', 'Presentation Type' ); ?>
 						</form>
 
-						<label class="pt-2">Additional Filters</label>
+						<form class="uds-form"><div classs="form-group">
+							<label for="keyword-filter" class="form-label">Keyword filter</label>
+							<input id="keyword-filter" type="text" class="quicksearch form-control" placeholder="Type a keyword" />
+						</div></form>
 
-						<p><input type="text" class="quicksearch" placeholder="Search" /></p>
+						<!-- <label class="pt-2">Additional Filters</label> -->
 
-						<form class="form-inline">
-							<!-- <label for="filter-degree_program">Degree Program</label> -->
+						<form class="uds-form"><div classs="form-group">
+							<label for="filter-degree_program">Degree Program</label>
 							<?php echo get_all_participant_tax_terms( $participant_ids, 'degree_program', 'degree program' ); ?>
-						</form>
+						</div></form>
 
-						<form class="form-inline">
-							<!-- <label for="filter-faculty_mentor">Faculty Mentor</label> -->
+						<form class="uds-form"><div classs="form-group">
+							<label for="filter-faculty_mentor">Faculty Mentor</label>
 							<?php echo get_all_project_tax_terms( $filterargs, 'faculty_mentor', 'faculty mentor' ); ?>
-						</form>
+						</div></form>
 
-						<form class="form-inline">
-							<!-- <label for="filter-symposium_group">Symposium Group</label> -->
+						<form class="uds-form"><div classs="form-group">
+							<label for="filter-symposium_group">Symposium Group</label>
 							<?php echo get_all_project_tax_terms( $filterargs, 'symposium_group', 'symposium group' ); ?>
-						</form>
+						</div></form>
 
-						<form class="form-inline">
-							<!-- <label for="filter-symposium_group">Symposium Group</label> -->
+						<form class="uds-form"><div classs="form-group">
+							<label for="filter-participant_details">Participant Details</label>
 							<?php echo get_all_participant_tax_terms( $participant_ids, 'participant_details', 'student demographic' ); ?>
-						</form>
+						</div></form>
 
 						<button id="filter-reset" class="btn btn-dark btn-sm" type="reset" value="reset">
 							<span class="fas fa-undo" title="Reset filters"></span>Reset
