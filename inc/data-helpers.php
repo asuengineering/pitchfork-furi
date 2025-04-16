@@ -159,6 +159,7 @@ function get_all_project_tax_terms( $args, $taxonomy, $label ) {
 	// $terms = get_terms( $taxonomy, 'order=ASC&hide_empty=0' );
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 		$selectbox .= '<select id="filter-' . $taxonomy . '" class="filter form-select" title="Select a ' . $label . '">';
+		$selectbox .= '<option disabled selected value> -- select an option -- </option>';
 		foreach ( $terms as $term ) {
 			$selectbox .= '<option value=".' . $term->slug . '">' . $term->name . '</option>';
 		}
@@ -177,6 +178,7 @@ function get_all_participant_tax_terms( $ids, $taxonomy, $label ) {
 	// $terms = get_terms( $taxonomy, 'order=ASC&hide_empty=0' );
 	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 		$selectbox .= '<select id="filter-' . $taxonomy . '" class="filter form-select" title="Select a ' . $label . '">';
+		$selectbox .= '<option disabled selected value> -- select an option -- </option>';
 		foreach ( $terms as $term ) {
 			$selectbox .= '<option value=".' . $term->slug . '">' . $term->name . '</option>';
 		}

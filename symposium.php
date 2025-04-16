@@ -194,29 +194,27 @@ get_header();
 							<?php echo get_project_type_radios( $filterargs, 'presentation_type', 'Presentation Type' ); ?>
 						</form>
 
-						<form class="uds-form"><div classs="form-group">
+						<form id="keyword" class="uds-form"><div classs="form-group">
 							<label for="keyword-filter" class="form-label">Keyword filter</label>
 							<input id="keyword-filter" type="text" class="quicksearch form-control" placeholder="Type a keyword" />
 						</div></form>
 
-						<!-- <label class="pt-2">Additional Filters</label> -->
-
-						<form class="uds-form"><div classs="form-group">
+						<form id="degree" class="uds-form"><div classs="form-group">
 							<label for="filter-degree_program">Degree Program</label>
 							<?php echo get_all_participant_tax_terms( $participant_ids, 'degree_program', 'degree program' ); ?>
 						</div></form>
 
-						<form class="uds-form"><div classs="form-group">
+						<form id="faculty" class="uds-form"><div classs="form-group">
 							<label for="filter-faculty_mentor">Faculty Mentor</label>
 							<?php echo get_all_project_tax_terms( $filterargs, 'faculty_mentor', 'faculty mentor' ); ?>
 						</div></form>
 
-						<form class="uds-form"><div classs="form-group">
+						<form id="group" class="uds-form"><div classs="form-group">
 							<label for="filter-symposium_group">Symposium Group</label>
 							<?php echo get_all_project_tax_terms( $filterargs, 'symposium_group', 'symposium group' ); ?>
 						</div></form>
 
-						<form class="uds-form"><div classs="form-group">
+						<form id="details" class="uds-form"><div classs="form-group">
 							<label for="filter-participant_details">Participant Details</label>
 							<?php echo get_all_participant_tax_terms( $participant_ids, 'participant_details', 'student demographic' ); ?>
 						</div></form>
