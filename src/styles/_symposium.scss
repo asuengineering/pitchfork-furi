@@ -16,17 +16,6 @@
 		}
 	}
 
-	button#filter-mobile-panel {
-		display: none;
-		position: absolute;
-		top: 4.25rem;
-		right: 1rem;
-
-		svg {
-			margin-right: .5rem;
-		}
-	}
-
 	.filter-container {
 
 		#filter-reset,
@@ -142,9 +131,6 @@ X. Mobile
 
 @include media-breakpoint-down($md) {
 	.page-template-symposium {
-		button#filter-mobile-panel {
-			display: block;
-		}
 
 		#symposium-grid-col {
 			min-height: 100vh;

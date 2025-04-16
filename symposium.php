@@ -180,9 +180,6 @@ get_header();
 				<div class="above-filters">
 					<h4 class="symposium-date"><?php the_title(); ?></h4>
 					<p class="filter-count"><?php echo esc_html( $query->found_posts ); ?> projects</p>
-					<button id="filter-mobile-panel" class="btn btn-maroon btn-sm" value="shuffle">
-						<span class="fas fa-filter" title="Show/Hide mobile panel"></span>Filters
-					</button>
 				</div>
 				<div class="filter-group">
 					<div class="filter-container">
@@ -199,19 +196,7 @@ get_header();
 
 						<label class="pt-2">Additional Filters</label>
 
-						<form class="form-inline">
-							<!-- <label data-placeholder="Search for a Participant" for="filter-participant">Participant Name</label> -->
-							<select id="filter-participant" class="filter" multiple title="Select a participant">
-								<?php echo $participantselect; ?>
-							</select>
-						</form>
-
-						<form class="form-inline">
-							<!-- <label for="filter-titles">Project Title</label> -->
-							<select id="filter-titles" class="filter" multiple title="Select a project">
-								<?php echo $titleselect; ?>
-							</select>
-						</form>
+						<p><input type="text" class="quicksearch" placeholder="Search" /></p>
 
 						<form class="form-inline">
 							<!-- <label for="filter-degree_program">Degree Program</label> -->

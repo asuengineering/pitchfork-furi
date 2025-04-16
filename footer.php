@@ -30,8 +30,6 @@ defined( 'ABSPATH' ) || exit;
 
 <div id="asu-react-footer"></div>
 
-<div id="cookie-consent-container"></div>
-
 <?php wp_footer(); ?>
 
 </body>

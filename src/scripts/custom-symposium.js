@@ -29,6 +29,33 @@ jQuery(document).ready(function ($) {
 
 		var iso = $grid.data('isotope');
 		var $filterCount = $('.filter-count');
+		var qsRegex;
+
+		// Search field filtering. Triggered on key up from search box
+		var $quicksearch = $('.quicksearch').keyup(debounce(function () {
+			qsRegex = new RegExp($quicksearch.val(), 'gi');
+			$('#symposium-grid').isotope({
+				filter: function () {
+					return qsRegex ? $(this).text().match(qsRegex) : true;
+				}
+			});
+		}, 200));
+
+		// debounce so filtering doesn't happen every millisecond
+		function debounce(fn, threshold) {
+			var timeout;
+			threshold = threshold || 100;
+			return function debounced() {
+				clearTimeout(timeout);
+				var args = arguments;
+				var _this = this;
+				function delayed() {
+					fn.apply(_this, args);
+				}
+				timeout = setTimeout(delayed, threshold);
+			};
+		}
+
 
 		// Recalculate filter string on select box change.
 		$('.filter-container select').on('change', function () {
