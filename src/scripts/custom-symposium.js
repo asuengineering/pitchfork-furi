@@ -2,67 +2,24 @@
 
 jQuery(document).ready(function ($) {
 	if ($('body').hasClass('page-template-symposium')) {
-		// Sort the participants names prior to initializing fancy select box.
-		var participant_options = $('#filter-participant option');
-		participant_options.sort(function (a, b) {
-			if (a.text > b.text) return 1;
-			else if (a.text < b.text) return -1;
-			else return 0;
-		});
+		// // Sort the participants names prior to initializing fancy select box.
+		// var participant_options = $('#filter-participant option');
+		// participant_options.sort(function (a, b) {
+		// 	if (a.text > b.text) return 1;
+		// 	else if (a.text < b.text) return -1;
+		// 	else return 0;
+		// });
 
-		// Sort the project names as well.
-		var title_options = $('#filter-titles option');
-		title_options.sort(function (a, b) {
-			if (a.text > b.text) return 1;
-			else if (a.text < b.text) return -1;
-			else return 0;
-		});
+		// // Sort the project names as well.
+		// var title_options = $('#filter-titles option');
+		// title_options.sort(function (a, b) {
+		// 	if (a.text > b.text) return 1;
+		// 	else if (a.text < b.text) return -1;
+		// 	else return 0;
+		// });
 
-		$('#filter-participant').empty().append(participant_options);
-		$('#filter-titles').empty().append(title_options);
-
-		// Scotch panel for mobile search.
-		// Is the open/close button visible on the screen? (Handled via media query.)
-		// if ($('button#filter-mobile-panel').is(':visible')) {
-		// 	// Build scotch panels mobile menu location.
-		// 	$('#main-content').prepend('<div id="scotch-panel"></div>');
-		// 	$('.filter-group').detach().prependTo('#scotch-panel');
-
-		// 	$('button#filter-mobile-panel')
-		// 		.detach()
-		// 		.insertAfter('.navbar-toggler');
-
-		// 	$('#header-main .navbar-container .title .subdomain-name').text(
-		// 		'FURI Symposium'
-		// 	);
-
-		// 	// Make the panel
-		// 	$('#scotch-panel').scotchPanel({
-		// 		containerSelector: '#main-content', // As a jQuery Selector
-		// 		direction: 'right', // Make it toggle in from the left
-		// 		duration: 300, // Speed in ms how fast you want it to be
-		// 		transition: 'ease', // CSS3 transition type: linear, ease, ease-in, ease-out, ease-in-out, cubic-bezier(P1x,P1y,P2x,P2y)
-		// 		clickSelector: '#filter-mobile-panel', // Enables toggling when clicking elements of this class
-		// 		distanceX: '85%', // Size fo the toggle
-		// 		enableEscapeKey: true, // Clicking Esc will close the panel
-		// 	});
-		// }
-
-		var $singleOptions = {
-			maxOptions: 10,
-			style: '',
-			styleBase: 'form-control',
-			windowPadding: 180,
-			selectedTextFormat: 'count > 1',
-			width: '100%',
-		};
-
-		$('#filter-participant').selectpicker($singleOptions);
-		$('#filter-titles').selectpicker($singleOptions);
-		$('#filter-degree_program').selectpicker($singleOptions);
-		$('#filter-faculty_mentor').selectpicker($singleOptions);
-		$('#filter-symposium_group').selectpicker($singleOptions);
-		$('#filter-participant_details').selectpicker($singleOptions);
+		// $('#filter-participant').empty().append(participant_options);
+		// $('#filter-titles').empty().append(title_options);
 
 		var $grid = $('#symposium-grid').isotope({
 			// options
@@ -87,7 +44,6 @@ jQuery(document).ready(function ($) {
 				// Enable all of the select boxes.
 				$('.filter-container select')
 					.prop('disabled', false)
-					.selectpicker('refresh');
 				// Enable the radio buttons, set to first option on each.
 				$('input[name="researchThemeRadio"]')
 					.prop('disabled', false)
@@ -103,7 +59,6 @@ jQuery(document).ready(function ($) {
 					.not('#' + $activeSelect)
 					.val('')
 					.prop('disabled', true)
-					.selectpicker('refresh');
 				// reset and disable the radio controls
 				$('input[name="researchThemeRadio"]')
 					.prop('disabled', true)
@@ -131,13 +86,11 @@ jQuery(document).ready(function ($) {
 				// Enable all of the select boxes.
 				$('.filter-container select')
 					.prop('disabled', false)
-					.selectpicker('refresh');
 			} else {
 				// Disable and reset all of the select boxes.
 				$('.filter-container select')
 					.val('')
 					.prop('disabled', true)
-					.selectpicker('refresh');
 			}
 
 			$('#symposium-grid').isotope({ filter: $filter });
@@ -155,7 +108,6 @@ jQuery(document).ready(function ($) {
 			$('.filter-container select')
 				.val('')
 				.prop('disabled', false)
-				.selectpicker('refresh');
 
 			// Enable the radio buttons, set to first option on each.
 			$('input[name="researchThemeRadio"]')
