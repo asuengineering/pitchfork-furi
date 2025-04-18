@@ -9,19 +9,53 @@
 
 .page-template-symposium {
 
-	.above-filters {
-		h4 {
-			margin-top: .5rem;
-			margin-bottom: 0;
+	#pre-grid-filters {
+		background-color: $uds-color-base-gray-1;
+		padding: $uds-size-spacing-2 $uds-size-spacing-4;
+		margin-bottom: $uds-size-spacing-3;
+
+		h4 svg {
+			padding: 0 $uds-size-spacing-1;
+		}
+
+		#show-offcanvas {
+			margin-left: $uds-size-spacing-4;
+
+			svg {
+				color: $uds-color-base-gold;
+				padding-right: $uds-size-spacing-1;
+			}
+		}
+
+		.filter-count {
+			margin: $uds-size-spacing-2 0;
 		}
 	}
 
-	.filter-container {
+	#filter-header {
+		border-bottom: 2px solid $uds-color-base-gray-3;
+		margin-bottom: $uds-size-spacing-2;
+	}
+
+	.filter-group {
+		padding-bottom: $uds-size-spacing-2;
+		border-bottom: 2px solid $uds-color-base-gray-3;
+		margin-bottom: $uds-size-spacing-4;
+
+		&:last-child {
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+
+		label {
+			font-size: 1rem;
+			margin-bottom: .5rem;
+		}
 
 		#filter-reset,
 		#filter-shuffle {
 			margin-top: 1rem;
-			margin-bottom: 4rem;
+			margin-bottom: 2rem;
 			text-align: right;
 
 			svg {
@@ -58,6 +92,12 @@
 		}
 
 		#research-theme-filters {
+
+			.form-check {
+				padding-left: 0.5em;
+				margin-right: 0.5em;
+			}
+
 			input {
 				display: none;
 
@@ -85,43 +125,23 @@
 				height: auto;
 			}
 		}
+	}
 
-		.bootstrap-select {
-			button.dropdown-toggle {
-				border-color: $uds-color-base-gray-7;
-				color: $uds-color-base-gray-7;
+	#filter-offcanvas-body {
+		padding: $uds-size-spacing-4;
+	}
 
-				&.disabled {
-					border-color: $uds-color-base-gray-3;
-					color: $uds-color-base-gray-3;
-				}
-			}
+	button#offcanvas-close {
+		display: none;
 
-			button.bs-select-all {
-				display: none;
-			}
-
-			button.bs-deselect-all {
-				border-radius: 400rem;
-			}
-
-			.dropdown-menu {
-
-				&.show {
-					width: 100%;
-				}
-
-				&.show li a span.text {
-					word-wrap: break-word;
-					white-space: normal;
-					font-size: 14px;
-				}
-
-				>.inner:focus {
-					box-shadow: none !important;
-				}
-			}
+		svg {
+			color: $uds-color-base-gold;
+			padding-right: $uds-size-spacing-1;
 		}
+	}
+
+	p.sidebar-filter-count {
+		display: none;
 	}
 }
 
@@ -132,6 +152,21 @@ X. Mobile
 @include media-breakpoint-down($md) {
 	.page-template-symposium {
 
+		#pre-grid-filters {
+			background-color: white;
+			border-bottom: 1px solid $uds-color-base-gray-3;
+			border-top: 1px solid $uds-color-base-gray-3;
+			padding: $uds-size-spacing-3 0;
+
+			h4 {
+				display: none;
+			}
+
+			.filter-count {
+				margin-bottom: 0;
+			}
+		}
+
 		#symposium-grid-col {
 			min-height: 100vh;
 		}
@@ -141,8 +176,16 @@ X. Mobile
 			margin-top: 1.5rem;
 		}
 
-		.card-symposium {
+		#symposium-grid .card-symposium {
 			min-height: 0;
+		}
+
+		button#offcanvas-close {
+			display: block;
+		}
+
+		p.sidebar-filter-count {
+			display: block;
 		}
 	}
 }
@@ -198,6 +241,7 @@ X. Mobile
 	width: calc(66.66% - 24px);
 	margin-left: 12px;
 	margin-right: 12px;
+	margin-bottom: 1.5rem;
 
 	.header h4 {
 		max-width: none;
@@ -214,10 +258,20 @@ X. Mobile
 		}
 	}
 
-	.content .header .btn-expand svg {
-		font-size: 1rem;
-		float: none;
-		margin-left: 2px;
+	.content .header .btn-expand {
+		display: block;
+		margin: $uds-size-spacing-2 0 0 0;
+		padding: $uds-size-spacing-half;
+		border: 1px solid #d0d0d0;
+		flex-grow: 0;
+	}
+}
+
+@include media-breakpoint-down($md) {
+	#symposium-grid .card-ranking {
+		width: calc(100% - 24px);
+		margin-left: 12px;
+		margin-right: 12px;
 	}
 }
 
@@ -231,41 +285,5 @@ X. Mobile
 
 	&:active {
 		transform: scale(1.05);
-	}
-}
-
-/*--------------------------------------------------------------
-X. Scotch Panel
---------------------------------------------------------------*/
-// Resetting default page margins to accomodate panel on right.
-@include media-breakpoint-down($md) {
-	.page-template-symposium {
-
-		#page-wrapper {
-			padding-right: 0;
-		}
-
-		#main-content {
-			padding: 0;
-		}
-
-		.row {
-			padding-right: 2rem;
-		}
-	}
-}
-
-.scotch-is-showing #scotch-panel {
-	box-shadow: -3px 0px 3px 0px rgba(0, 0, 0, 0.30);
-}
-
-#scotch-panel {
-	transition: .3sec;
-	padding: 0;
-	background-color: #fafafa;
-
-	.filter-container {
-		border-left: 1px solid $uds-color-base-gray-2;
-		padding: 1rem;
 	}
 }

@@ -6,6 +6,31 @@
 
 jQuery(document).ready(function ($) {
   if ($('body').hasClass('page-template-symposium')) {
+    // Relocate the filtering grid on mobile
+    var $sidebarContent = $('#filter-wrap');
+    var $desktopContainer = $('#filter-sidebar');
+    var $offcanvasContainer = $('#filter-offcanvas-body');
+    var inOffcanvas = false;
+    function moveSidebarContent() {
+      var isMobile = window.innerWidth < 992;
+      if (isMobile && !inOffcanvas) {
+        $sidebarContent.appendTo($offcanvasContainer);
+        inOffcanvas = true;
+      } else if (!isMobile && inOffcanvas) {
+        $sidebarContent.appendTo($desktopContainer);
+        inOffcanvas = false;
+      }
+    }
+
+    // Initial move on page load
+    moveSidebarContent();
+
+    // Move again on window resize
+    $(window).on('resize', function () {
+      moveSidebarContent();
+    });
+
+    // Initalize isotope.
     var $grid = $('#symposium-grid').isotope({
       // options
       itemSelector: '.grid-item',
@@ -44,16 +69,20 @@ jQuery(document).ready(function ($) {
       // If the search val() is not empty, reset and disable all the other controls.
       // Otherwise, trigger the click event on the reset button to reset everything.
       if ($quicksearch.val()) {
-        $('.filter-container select').val('').prop('disabled', true);
+        $('.filter-group select').val('').prop('disabled', true);
         $('input[name="researchThemeRadio"]').prop('disabled', true);
         $('input[name="presentationTypeRadio"]').prop('disabled', true);
+
+        // disable the show filters button as well for mobile
+        $('button#show-offcanvas').prop('disabled', true);
       } else {
         $('#filter-reset').click();
       }
+      updateFilterCount();
     }, 200));
 
     // Recalculate filter string on select box change.
-    $('.filter-container select').on('change', function () {
+    $('.filter-group select').on('change', function () {
       console.log('Select listener.');
       $filter = '';
 
@@ -63,21 +92,23 @@ jQuery(document).ready(function ($) {
       $filter = $value;
 
       // reset and disable all the selects except for the one that just changed.
-      $('.filter-container select').not('#' + $activeSelect).val('').prop('disabled', true);
+      $('.filter-group select').not('#' + $activeSelect).val('').prop('disabled', true);
 
       // disable the radio controls
       $('input[name="researchThemeRadio"]').prop('disabled', true);
       $('input[name="presentationTypeRadio"]').prop('disabled', true);
 
       // disable and reset the search filter
-      $('.filter-container input#keyword-filter').val('-- reset to enable --').prop("disabled", true);
+      $('input#keyword-filter').val('').prop("disabled", true);
+      $('input#keyword-filter').attr("placeholder", "-- reset filters to enable --");
       $('#symposium-grid').isotope({
         filter: $filter
       });
+      updateFilterCount();
     });
 
-    // Bind filter on select change. Combine results of all select boxes within .filter-container.
-    $('.filter-container input').on('change', function () {
+    // Bind filter on select change. Combine results of all select boxes within .filter-group.
+    $('.filter-group input').on('change', function () {
       $research = $('input[name="researchThemeRadio"]:checked').val();
       $presentation = $('input[name="presentationTypeRadio"]:checked').val();
       $filter = $research + $presentation;
@@ -85,10 +116,18 @@ jQuery(document).ready(function ($) {
       // Did the most recent change result in an empty filter?
       if (!$filter) {
         // Enable all of the select boxes.
-        $('.filter-container select').prop('disabled', false);
+        $('.filter-group select').prop('disabled', false);
+
+        // enable and reset the search filter
+        $('input#keyword-filter').val('').prop("disabled", false);
+        $('input#keyword-filter').attr("placeholder", "Type a keyword");
       } else {
         // Disable and reset all of the select boxes.
-        $('.filter-container select').val('').prop('disabled', true);
+        $('.filter-group select').val('').prop('disabled', true);
+
+        // disable and reset the search filter
+        $('input#keyword-filter').val('').prop("disabled", true);
+        $('input#keyword-filter').attr("placeholder", "-- reset filters to enable --");
       }
       $('#symposium-grid').isotope({
         filter: $filter
@@ -104,14 +143,18 @@ jQuery(document).ready(function ($) {
     // Reset all filters.
     $('#filter-reset').on('click', function () {
       // Enable and reset all of the select boxes.
-      $('.filter-container select').val('').prop('disabled', false);
+      $('.filter-group select').val('').prop('disabled', false);
 
       // Enable the radio buttons, set to first option on each.
       $('input[name="researchThemeRadio"]').prop('disabled', false).filter('[value=""]').prop('checked', true);
       $('input[name="presentationTypeRadio"]').prop('disabled', false).filter('[value=""]').prop('checked', true);
 
       // Enable the search filter field
-      $('.filter-container input#keyword-filter').val('').prop("disabled", false);
+      $('input#keyword-filter').val('').prop("disabled", false);
+      $('input#keyword-filter').attr("placeholder", "Type a keyword");
+
+      // enable the show filters button, occasionally disabled on mobile.
+      $('button#show-offcanvas').prop('disabled', false);
       $('#symposium-grid').isotope({
         filter: ''
       });
@@ -121,11 +164,14 @@ jQuery(document).ready(function ($) {
     // Text for "Showing XX of YY items."
     function updateFilterCount() {
       if (iso.filteredItems.length == iso.items.length) {
-        $filterCount.text(iso.items.length + ' projects');
+        $filterCount.text('Displaying ' + iso.items.length + ' projects.');
       } else {
         $filterCount.text('Displaying ' + iso.filteredItems.length + ' of a total of ' + iso.items.length + ' projects.');
       }
     }
+
+    // Initial set of project count
+    updateFilterCount();
 
     // Event handler for the button click inside .card-ranking elements
     $(".card-ranking button.btn-expand").on("click", function () {

@@ -8,11 +8,54 @@
 get_header();
 ?>
 
-<!-- Markup for the page -->
-<div class="wrapper" id="page-wrapper">
-	<div class="container" id="main-content">
+<main id="skip-to-content" <?php post_class(); ?>>
+
+	<?php
+
+	while ( have_posts() ) {
+
+		the_post();
+
+		// Parse through the blocks on the page.
+		// If an acf/hero block is in the #1 position, do nothing.
+		// Otherwise display the post title.
+		$content_blocks = parse_blocks( $post->post_content );
+		$first_block_names = array('acf/hero', 'acf/hero-video', 'acf/hero-post', 'core/post-title');
+
+		if ( ! in_array( $content_blocks[0]['blockName'], $first_block_names )) {
+			the_title( '<div class="page-title"><h1 class="entry-title">', '</h1></div>' );
+		}
+
+		the_content();
+	}
+
+	?>
+
+</main><!-- #main -->
+
+
+<!-- Markup for the symposium listing -->
+<section class="wrapper" id="page-wrapper">\
+	<div class="container-lg" id="symposium-content">
 		<div class="row">
 			<div class="col-lg-9 order-2" id="symposium-grid-col">
+				<div class="row">
+					<div class="col">
+						<div id="pre-grid-filters">
+							<div class="d-flex align-items-center">
+								<h4>Search<span class="fa-solid fa-magnifying-glass"></span></h4>
+								<form id="keyword" class="uds-form flex-grow-1">
+									<input id="keyword-filter" type="text" class="quicksearch form-control" placeholder="Type a keyword" />
+								</form>
+								<button id="show-offcanvas" class="btn btn-md btn-dark d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filter-offcanvas">
+									<span class="fa-solid fa-filters"></span>
+									Show filters
+								</button>
+							</div>
+							<p class="filter-count">Displaying all projects.</p>
+						</div>
+					</div>
+				</div>
 				<div class="row" id="symposium-grid">
 
 					<?php
@@ -176,14 +219,18 @@ get_header();
 				</div><!-- end #symposium-grid -->
 			</div><!-- end col-md-8 -->
 
-			<div class="col-lg-3 order-1">
-				<div class="above-filters">
-					<h4 class="symposium-date"><?php the_title(); ?></h4>
-					<p class="filter-count"><?php echo esc_html( $query->found_posts ); ?> projects</p>
-				</div>
-				<div class="filter-group">
-					<div class="filter-container">
+			<div id="filter-sidebar" class="col-lg-3 d-none d-lg-block order-1">
+				<aside id="filter-wrap">
 
+					<div id="filter-header">
+						<div class="d-flex align-items-center justify-content-between">
+							<h3><span class="highlight-gold">Filters</span></h3>
+							<button id="offcanvas-close" type="button" class="btn btn-md btn-dark" data-bs-dismiss="offcanvas"><span class="fas fa-times"></span>Close</button>
+						</div>
+						<p class="filter-count sidebar-filter-count">Displaying all projects.</p>
+					</div>
+
+					<div class="filter-group radios">
 						<form id="research-theme-filters">
 							<label for="filter-research_theme">Research Themes</label>
 							<?php echo get_research_theme_radios( $filterargs, 'research_theme', 'Research Theme' ); ?>
@@ -193,12 +240,8 @@ get_header();
 							<label for="filter-presentation_type">Presentation Types</label>
 							<?php echo get_project_type_radios( $filterargs, 'presentation_type', 'Presentation Type' ); ?>
 						</form>
-
-						<form id="keyword" class="uds-form"><div classs="form-group">
-							<label for="keyword-filter" class="form-label">Keyword filter</label>
-							<input id="keyword-filter" type="text" class="quicksearch form-control" placeholder="Type a keyword" />
-						</div></form>
-
+					</div>
+					<div class="filter-group selects">
 						<form id="degree" class="uds-form"><div classs="form-group">
 							<label for="filter-degree_program">Degree Program</label>
 							<?php echo get_all_participant_tax_terms( $participant_ids, 'degree_program', 'degree program' ); ?>
@@ -226,14 +269,19 @@ get_header();
 						<button id="filter-shuffle" class="btn btn-dark btn-sm" value="shuffle">
 							<span class="fas fa-random" title="Shuffle"></span>Shuffle
 						</button>
-					</div>
-				</div><!-- end .filter-group -->
+					</div><!-- end .filter-group -->
+				</aside>
 			</div><!-- end .col -->
 
 		</div><!-- end .row -->
 
 	</div><!-- Container end -->
 
-</div><!-- Wrapper end -->
+	<!-- Offcanvas for mobile -->
+	<div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="filter-offcanvas">
+		<div class="offcanvas-body" id="filter-offcanvas-body"></div>
+	</div>
+
+</section><!-- Wrapper end -->
 
 <?php get_footer(); ?>

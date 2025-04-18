@@ -54,14 +54,6 @@
 	}
 }
 
-@include media-breakpoint-up($lg) {
-	.page-template-symposium {
-		#page-wrapper {
-			margin-top: calc(2rem + 153px);
-		}
-	}
-}
-
 /*--------------------------------------------------------------
 3. Misc rules.
 --------------------------------------------------------------*/
