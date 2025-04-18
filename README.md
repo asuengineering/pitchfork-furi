@@ -17,14 +17,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 ## Development
 
-The plugin uses [WP-Gulp](https://github.com/ahmadawais/WPGulp) to compile SASS and minify assets.
+The plugin uses [Gulp WP](https://github.com/cr0ybot/gulp-wp) to compile SASS and minify assets.
 
-- Run `npm install` and `npm start` to trigger the development tools.
-- `gulpfile.babel.js` contains the configuration files for BrowserSync, the watched file paths, etc.
+- Run `npx gulp-wp` to trigger the development tools.
 
-An additional gulp script has been added to `gulpfile.babel.js` to extract a copy of the ASU Unity Bootstrap 4 SASS files from the included library. This allows for the easy linking of the `_variables` file from the design tokens distribution.
+An additional gulp script has been added to `gulpfile.js` to extract the SASS variables from the ASU Unity Bootstrap library and incorporate those values into the CSS for the site.
 
-- Run `gulp upboot-tokens` to extract the current version of those files.
+- Run `gulp upboot` to extract the current version of those files.
 
 A small script to lint the codebase is also included via `composer`. It utilizes the rules outlined in the [WP Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards).
 
