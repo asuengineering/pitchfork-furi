@@ -1,7 +1,7 @@
 {
   "name": "pitchfork-furi",
-  "version": "1.1.0",
-  "description": "A WordPress theme for the <a href='https://forge.engineering.asu.edu'>Fulton Forge Student Research Expo</a>. A child theme for <a href='https://wordpress.asu.edu/pitchfork'>Pitchfork</a>",
+  "version": "1.2.0",
+  "description": "A WordPress theme for the Fulton Forge Student Research Expo. https://forge.engineering.asu.edu",
   "repository": "https://github.com/asuengineering/pitchfork-furi",
   "main": ".eslintrc.js",
   "author": "ASUEngineering",

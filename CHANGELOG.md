@@ -7,6 +7,18 @@ CHANGELOG implemented as of Oct 2023 after several released versions of this chi
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.2
+
+Improved mobile experience for the expo page triggered within the template `symposium.php`
+
+- ADD: Filtering of projects by search or keyword.
+- REMOVE: Dropped dependencies on Select 2 replacement for native select boxes. Accessibility improvement.
+- ADD: Bootstrap 5 offcanvas menu for filters on mobile. Improved styles for participant cards on mobile.
+
+Other issues addressed:
+
+- REMOVE: Project count graph block removed from home page blocks and from child theme. No longer needed.
+
 ### Version 1.1
 
 New blocks and new functionality designed to add more details about our faculty mentor profiles were included in this release.
