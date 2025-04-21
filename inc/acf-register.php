@@ -36,7 +36,6 @@ function pitchfork_furi_register_blocks() {
 		'home-featured-mentor',
 		'home-featured-project-carousel',
 		'home-program-descriptions',
-		'home-project-graph',
 		'home-research-themes',
 		'home-snapshot-current',
 		'home-sponsored-projects',

@@ -40,11 +40,6 @@ function pitchfork_furi_enqueue_styles() {
 			wp_enqueue_script( 'furi-symposium', get_stylesheet_directory_uri() . '/dist/js/custom-symposium.js', array( 'jquery' ), $theme_version, true );
 		}
 
-		if ( 'fullpage-about.php' == $template_name ) {
-			wp_enqueue_script( 'google-charts', 'https://www.gstatic.com/charts/loader.js', array(), $theme_version, true );
-			wp_enqueue_script( 'furi-about', get_stylesheet_directory_uri() . '/dist/js/custom-charts.js', array( 'google-charts' ), $theme_version, true );
-		}
-
 		// Check for symposium-date archive pages and load DataTables JS.
 		if ( 'data-dump.php' == $template_name ) {
 			wp_enqueue_style( 'datatables-bootstrap4', '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css', array(), null );
