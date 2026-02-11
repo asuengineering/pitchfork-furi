@@ -362,7 +362,50 @@
 
 }
 
-// Mentor Ready List block
+/*--------------------------------------------------------------
+7. Mentor Ready List block
+
+// Profile grid is encoded to always be two-col borrowing styles from PF People.
+// Filters are optional in the output.
+--------------------------------------------------------------*/
+
+.mentor-ready-block {}
+
+.mentor-ready-filters-wrapper {
+	background-color: $uds-color-base-gray-2;
+	padding: $uds-size-spacing-4;
+	margin-bottom: $uds-size-spacing-4;
+}
+
+form.mentor-ready-filters.uds-form {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2rem;
+
+	.form-group {
+		flex: 0 1 300px;
+		margin-bottom: $uds-size-spacing-2;
+	}
+
+	#filter-reset {
+		margin-top: $uds-size-spacing-2;
+
+		svg {
+			margin-right: $uds-size-spacing-1;
+		}
+	}
+}
+
+// Mobile view for filter box
+@include media-breakpoint-down($md) {
+	form.mentor-ready-filters.uds-form {
+		display: block;
+		margin-bottom: $uds-size-spacing-3;
+	}
+}
+
 .uds-profile-grid .uds-person-profile.ready-mentor {
 
 	.profile-img-container {
@@ -414,5 +457,3 @@
 		}
 	}
 }
-
-@include media-breakpoint-down($md) {}

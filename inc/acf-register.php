@@ -43,15 +43,35 @@ function pitchfork_furi_register_blocks() {
 		'mentor-ready-list'
 	);
 
-	foreach ($paths as $path) {
-		register_block_type(
-			get_stylesheet_directory() . '/acf-block-templates/' . $path,
-			array('icon' => $furi_svg_icon)
-		);
-	}
+	// Register each block in a loop, add enqueue block assets for mentor-ready-list
+    foreach ( $paths as $path ) {
+
+        // default args
+        $args = array(
+            'icon' => $furi_svg_icon,
+        );
+
+        // target mentor-ready-list, add assets
+        if ( 'mentor-ready-list' === $path ) {
+            $args['enqueue_assets'] = function() {
+                // register first (optional) then enqueue
+                if ( ! wp_script_is( 'mentor-ready-js', 'registered' ) ) {
+                    wp_register_script(
+                        'mentor-ready-js',
+                        get_stylesheet_directory_uri() . '/dist/js/mentor-ready-list.js',
+                        array(),
+                        filemtime( get_stylesheet_directory() . '/dist/js/mentor-ready-list.js' ), // cache-busting
+                        true
+                    );
+                }
+                wp_enqueue_script( 'mentor-ready-js' );
+            };
+        }
+
+        register_block_type( get_stylesheet_directory() . '/acf-block-templates/' . $path, $args );
+    }
 }
 add_action( 'init', 'pitchfork_furi_register_blocks' );
-
 
 /**
  * Register additional assets for when a block calls for them.

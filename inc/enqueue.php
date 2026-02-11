@@ -49,11 +49,6 @@ function pitchfork_furi_enqueue_styles() {
 		}
 	}
 
-	// Check for the home page (front page) and load the animate CSS library.
-	// if ( is_front_page() ) {
-	// 	wp_enqueue_style( 'animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), null );
-	// }
-
 	// Check for filterable archive pages and load DataTables JS.
 	if ( ( is_tax( 'symposium_date' )) || ( is_tax( 'research_theme' )) || ( is_tax( 'presentation_type' ))  ) {
 		wp_enqueue_style( 'datatables-bootstrap4', '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css', array(), null );
@@ -61,6 +56,7 @@ function pitchfork_furi_enqueue_styles() {
 		wp_enqueue_script( 'datatables-bootstrap4-js', '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js', array(), '', true );
 		wp_enqueue_script( 'custom-datatables-js', get_stylesheet_directory_uri() . '/dist/js/custom-datatables.js', array( 'jquery' ), $theme_version, true );
 	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'pitchfork_furi_enqueue_styles' );

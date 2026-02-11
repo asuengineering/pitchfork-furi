@@ -16,7 +16,8 @@
  */
 
 // Gather term names from ACF, Overwrite with current expo terms if necessary.
-$columns = get_field('furi_mentor_ready_columns');
+$show_filters = get_field('furi_mentor_ready_show_filter');
+
 
 $args = array(
     'taxonomy'   => 'faculty_mentor',
@@ -75,17 +76,98 @@ if (! empty ($mentors)) {
 		return $lastNameComparison;
 	});
 
+	// Build program and project term maps for filter UI
+	$program_terms_map = array(); // slug => WP_Term
+	$project_terms_map = array(); // slug => WP_Term
+
+	foreach ( $term_array as $asurite => $term ) {
+		$progs = get_field('_mentor_ready_programs', $term);
+		if ( ! empty( $progs ) && is_array( $progs ) ) {
+			foreach ( $progs as $p ) {
+				$program_terms_map[ $p->slug ] = $p;
+			}
+		}
+
+		$themes = get_field('_mentor_ready_project_type', $term);
+		if ( ! empty( $themes ) && is_array( $themes ) ) {
+			foreach ( $themes as $t ) {
+				$project_terms_map[ $t->slug ] = $t;
+			}
+		}
+	}
+
+	// Sort maps alphabetically by term name for nicer UI order
+	uasort( $program_terms_map, function($a, $b){ return strcasecmp($a->name, $b->name); });
+	uasort( $project_terms_map, function($a, $b){ return strcasecmp($a->name, $b->name); });
+
+
 } else {
 	// Return info box for block editor only saying there are no mentors in ready status.
 }
 
 
 /**
- * Loop through returned API results and echo each profile.
+ * Build UI for filtering in $output wrapper.
+ */
+
+$output = '<aside class="mentor-ready-filters-wrapper">';
+$output .= '<form class="mentor-ready-filters uds-form">';
+
+// Project type select
+$output .= '<div class="form-group form-group-researchtheme">';
+$output .= '<label for="mentor-filter-project" class="form-label">Filter by research theme</label>';
+$output .= '<select id="mentor-filter-project" class="form-select" aria-label="Filter mentors by research theme">';
+$output .= '<option value="">All project types</option>';
+
+if ( ! empty( $project_terms_map ) ) {
+    foreach ( $project_terms_map as $slug => $term ) {
+        $val   = esc_attr( $slug );
+        $label = esc_html( $term->name );
+        $output .= '<option value="' . $val . '">' . $label . '</option>';
+    }
+}
+
+$output .= '</select>';
+$output .= '</div>'; // close form-group-researchtheme
+
+// Program select
+$output .= '<div class="form-group form-group-program">';
+$output .= '<label for="mentor-filter-program" class="form-label">Filter by program</label>';
+$output .= '<select id="mentor-filter-program" class="form-select" aria-label="Filter mentors by program">';
+$output .= '<option value="">All programs</option>';
+
+if ( ! empty( $program_terms_map ) ) {
+    foreach ( $program_terms_map as $slug => $term ) {
+        $val   = esc_attr( $slug );
+        $label = esc_html( $term->name );
+        $output .= '<option value="' . $val . '">' . $label . '</option>';
+    }
+}
+
+$output .= '</select>';
+$output .= '</div>'; // close form-group-program
+
+// Reset filters button for convienence.
+$output .= '<button id="filter-reset" class="btn btn-dark btn-md" type="reset" value="reset">';
+$output .= '<span class="fas fa-undo" title="Reset filters"></span>Reset</button>';
+$output .= '</form>'; // close mentor-ready-filter-wrap
+
+$output .= '<p class="ready-mentor-count">Displaying all mentors.</p>';
+$output .= '</aside>'; // close block
+
+// If $show_filters is true, render filters. If not, omit.
+echo '<div class="mentor-ready-block">';
+if ( ! empty( $show_filters ) ) {
+    echo $output;
+}
+
+
+/**
+ * Loop through returned taxonomy loop results and echo each profile.
  * References $term_array for get_field calls for term data stored in the taxonomy.
  */
 
-echo '<div class="uds-profile-grid ' . $columns . '">';
+echo '<div class="uds-profile-grid col-two">';
 foreach ($profiles as $profile) {
 
 	$asurite 		= $profile->asurite_id->raw;
@@ -96,7 +178,29 @@ foreach ($profiles as $profile) {
 	$ready_program_types = get_field('_mentor_ready_programs', $term_array[$asurite] );
 	$ready_description = get_field('_mentor_ready_description', $term_array[$asurite] );
 
-	$person = '<div class="uds-person-profile ready-mentor is-style-small">';
+	// Build comma-separated slug lists for data attributes (programs and projects)
+	$program_slugs = array();
+	if ( ! empty( $ready_program_types ) && is_array( $ready_program_types ) ) {
+		foreach ( $ready_program_types as $pt ) {
+			if ( isset( $pt->slug ) ) $program_slugs[] = $pt->slug;
+		}
+	}
+	$project_slugs = array();
+	if ( ! empty( $ready_project_types ) && is_array( $ready_project_types ) ) {
+		foreach ( $ready_project_types as $t ) {
+			if ( isset( $t->slug ) ) $project_slugs[] = $t->slug;
+		}
+	}
+
+	$data_programs = esc_attr( implode( ',', $program_slugs ) );
+	$data_projects = esc_attr( implode( ',', $project_slugs ) );
+
+	// Open the mentor card with data attributes for client-side filtering
+	$person = '<div class="mentor-card uds-person-profile ready-mentor is-style-small"'
+			. ' data-asurite="' . esc_attr($asurite) . '"'
+			. ' data-programs="' . $data_programs . '"'
+			. ' data-projects="' . $data_projects . '">';
+
 
 	$person .= '<div class="profile-img-container"><div class="profile-img-placeholder">';
 	$person .= '<img src="' . $profile->photo_url->raw . '?blankImage2=1" class="profile-img" alt="Portrait of ' . $profile->display_name->raw . '" decoding="async" loading="lazy">';
@@ -137,6 +241,13 @@ foreach ($profiles as $profile) {
 
 	echo $person;
 }
-echo '</div>';
+
+// Close grid wrapper(s) opened above
+if ( ! empty( $show_filters ) ) {
+    echo '</div></div>';
+} else {
+    echo '</div>';
+}
+
 
 
