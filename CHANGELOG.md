@@ -7,6 +7,10 @@ CHANGELOG implemented as of Oct 2023 after several released versions of this chi
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+### Version 1.3
+
+- ADD: Created block option for `acf/ready-mentor-list` block to enable filtering of mentor list by research theme and program.
+
 ### Version 1.2
 
 Improved mobile experience for the expo page triggered within the template `symposium.php`
